@@ -1,0 +1,1384 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>JRM Enterprises – Premium Homepage</title>
+<script src="./vendor/react.js"></script>
+<script src="./vendor/react-dom.js"></script>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0;background:#F7F6F2}
+a{color:#2B2B2B;text-decoration:none}a:hover{color:#000000;text-decoration:underline;text-underline-offset:4px}
+@keyframes jrmSlideIn{from{transform:translateX(100%)}to{transform:translateX(0)}}
+@keyframes jrmFadeIn{from{opacity:0}to{opacity:1}}
+@keyframes jrmSpin{to{transform:rotate(360deg)}}
+.jrm-spin{animation:jrmSpin 900ms linear infinite}
+@media (prefers-reduced-motion: reduce){.jrm-spin{animation-duration:2400ms}}
+input:focus,select:focus{outline:2px solid #2B2B2B;outline-offset:1px}
+</style>
+</helmet>
+<div style="font-family: Inter, system-ui, sans-serif; color: #2B2B2B; background: #F7F6F2; width: 100%; font-size: 16px; line-height: 1.6">
+
+<!-- Sticky navigation -->
+<header style="position: sticky; top: 0; z-index: 10; background: #F7F6F2; border-bottom: 1px solid #2B2B2B">
+<div style="max-width: 1280px; margin: 0 auto; padding: 0 32px; min-height: 76px; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 16px 32px">
+<a href="#" style="font-family: 'Instrument Serif', serif; font-size: 30px; letter-spacing: 0.02em; line-height: 1">JRM</a>
+<nav aria-label="Main" style="display: flex; flex-wrap: wrap; gap: 8px 36px; font-size: 13px; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase">
+<a href="#">Men</a>
+<a href="#">Women</a>
+<a href="#">Kids</a>
+<a href="#">Home</a>
+<a href="#">New In</a>
+<a href="#store">Our Store</a>
+<sc-if value="{{isAdmin}}" hint-placeholder-val="{{ false }}"><button type="button" onClick="{{openAdmin}}" style="min-height: 32px; border: 1px solid #2B2B2B; background: #2B2B2B; color: #F7F6F2; padding: 0 12px; font: inherit; font-size: 13px; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; cursor: pointer">Admin</button></sc-if>
+</nav>
+<div style="display: flex; align-items: center; gap: 4px">
+<button aria-label="Search" style="width: 44px; height: 44px; border: 0; background: transparent; display: flex; align-items: center; justify-content: center; cursor: pointer">
+<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#2B2B2B" stroke-width="1.5" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"></circle><path d="M20 20l-4-4"></path></svg>
+</button>
+<button aria-label="{{accountLabel}}" onClick="{{openAccount}}" style="height: 44px; padding: 0 10px; border: 0; background: transparent; display: flex; align-items: center; gap: 8px; cursor: pointer; font: inherit; font-size: 13px; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; color: #2B2B2B">
+<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#2B2B2B" stroke-width="1.5" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="8" r="4"></circle><path d="M4 21c0-4 4-6 8-6s8 2 8 6"></path></svg>
+<span>{{accountText}}</span>
+</button>
+<button aria-label="{{cartLabel}}" onClick="{{openCart}}" style="position: relative; width: 44px; height: 44px; border: 0; background: transparent; display: flex; align-items: center; justify-content: center; cursor: pointer">
+<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#2B2B2B" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 8h14l-1 13H6L5 8z"></path><path d="M9 8a3 3 0 0 1 6 0"></path></svg>
+<sc-if value="{{hasItems}}" hint-placeholder-val="{{ false }}"><span aria-hidden="true" style="position: absolute; top: 3px; right: 1px; min-width: 18px; height: 18px; padding: 0 5px; box-sizing: border-box; border-radius: 999px; background: #2B2B2B; color: #F7F6F2; font-size: 11px; font-weight: 600; line-height: 18px; text-align: center">{{cartCount}}</span></sc-if>
+</button>
+</div>
+</div>
+</header>
+
+<!-- Hero -->
+<section style="border-bottom: 1px solid #2B2B2B">
+<div style="max-width: 1280px; margin: 0 auto; padding: 96px 32px; display: flex; flex-wrap: wrap; gap: 64px; align-items: center">
+<div style="flex: 1 1 440px; display: flex; flex-direction: column; gap: 28px">
+<p style="margin: 0; font-size: 12px; font-weight: 500; letter-spacing: 0.18em; text-transform: uppercase; color: #5A5A57">Chalakudy · Kerala</p>
+<h1 style="margin: 0; font-family: 'Instrument Serif', serif; font-weight: 400; font-size: 76px; line-height: 1.02; letter-spacing: -0.01em">Clothing for every day, made to last.</h1>
+<p style="margin: 0; font-size: 18px; line-height: 1.7; color: #4A4A47; max-width: 440px">[ONE OR TWO LINES ABOUT JRM – what the store offers and who it's for]</p>
+<div style="display: flex; flex-wrap: wrap; gap: 16px; margin-top: 8px">
+<a href="#" style="background: #2B2B2B; color: #F7F6F2; padding: 16px 32px; font-size: 13px; font-weight: 500; letter-spacing: 0.14em; text-transform: uppercase">Shop the collection</a>
+<a href="#store" style="border: 1px solid #2B2B2B; padding: 15px 32px; font-size: 13px; font-weight: 500; letter-spacing: 0.14em; text-transform: uppercase">Visit the store</a>
+</div>
+</div>
+<div style="flex: 1 1 440px; min-width: 0; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; align-items: start">
+<img src="./assets/8d5d784c83c0c0d5dc406b28972496bf.jpg" alt="Two men in white shirts and mundu" style="display: block; width: 100%; aspect-ratio: 2 / 3; object-fit: cover; background: #E8E6E0">
+<img src="./assets/d8b381c02f37740a90420bf1e97894ee.jpg" alt="Mother holding her baby" style="display: block; width: 100%; aspect-ratio: 2 / 3; object-fit: cover; margin-top: 64px; background: #E8E6E0">
+</div>
+</div>
+</section>
+
+<!-- Product catalog -->
+<section id="catalog" style="border-bottom: 1px solid #2B2B2B">
+<div style="max-width: 1280px; margin: 0 auto; padding: 96px 32px; display: flex; flex-direction: column; gap: 40px">
+<div style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: baseline; gap: 16px">
+<h2 style="margin: 0; font-family: 'Instrument Serif', serif; font-weight: 400; font-size: 48px; line-height: 1.1">The collection</h2>
+<span style="font-size: 13px; color: #5A5A57">Showing {{count}} products</span>
+</div>
+<div role="group" aria-label="Filter by category" style="display: flex; flex-wrap: wrap; gap: 12px">
+<sc-for list="{{pills}}" as="pill" hint-placeholder-count="5">
+<button aria-pressed="{{pill.pressed}}" onClick="{{pill.pick}}" style="{{pill.style}}">{{pill.label}}</button>
+</sc-for>
+</div>
+<div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 48px 32px">
+<sc-for list="{{visible}}" as="p" hint-placeholder-count="12">
+<article style="display: flex; flex-direction: column; gap: 14px">
+<img src="{{p.image}}" alt="{{p.title}}" style="display: block; width: 100%; aspect-ratio: 3 / 4; object-fit: cover; background: #E8E6E0">
+<div style="display: flex; flex-direction: column; gap: 6px; border-top: 1px solid #2B2B2B; padding-top: 14px">
+<span style="font-size: 12px; font-weight: 500; letter-spacing: 0.14em; text-transform: uppercase; color: #5A5A57">{{p.category}}</span>
+<h3 style="margin: 0; font-size: 17px; font-weight: 500; line-height: 1.4">{{p.title}}</h3>
+<div style="display: flex; justify-content: space-between; align-items: baseline; gap: 12px">
+<span style="font-size: 16px; font-weight: 600">{{p.priceLabel}}</span>
+<span style="font-size: 13px; color: #5A5A57">{{p.stockLabel}}</span>
+</div>
+</div>
+<div style="display: flex; flex-direction: column; gap: 8px">
+<button onClick="{{p.add}}" disabled="{{p.soldOut}}" style="{{p.addStyle}}">{{p.addLabel}}</button>
+<button onClick="{{p.open}}" style="min-height: 44px; border: 1px solid #2B2B2B; background: transparent; color: #2B2B2B; font: inherit; font-size: 13px; font-weight: 500; letter-spacing: 0.14em; text-transform: uppercase; cursor: pointer">View details</button>
+</div>
+</article>
+</sc-for>
+</div>
+</div>
+</section>
+
+<!-- Product details panel -->
+<sc-if value="{{hasDetail}}" hint-placeholder-val="{{ false }}">
+<div style="position: fixed; inset: 0; z-index: 20; background: rgba(43,43,43,0.45); display: flex; align-items: center; justify-content: center; padding: 24px; overflow-y: auto">
+<div role="dialog" aria-modal="true" aria-label="Product details" style="background: #F7F6F2; border: 1px solid #2B2B2B; max-width: 880px; width: 100%; max-height: calc(100vh - 48px); overflow-y: auto; display: flex; flex-wrap: wrap">
+<div style="flex: 1 1 320px; min-height: 380px; background: #E8E6E0"><sc-if value="{{hasDetail}}" hint-placeholder-val="{{ false }}"><img src="{{detail.image}}" alt="{{detail.title}}" style="display: block; width: 100%; height: 100%; object-fit: cover"></sc-if></div>
+<div style="flex: 1 1 360px; padding: 40px; display: flex; flex-direction: column; gap: 16px">
+<div style="display: flex; justify-content: space-between; align-items: flex-start; gap: 16px">
+<span style="font-size: 12px; font-weight: 500; letter-spacing: 0.14em; text-transform: uppercase; color: #5A5A57">{{detail.category}} · {{detail.id}}</span>
+<button aria-label="Close details" onClick="{{close}}" style="width: 44px; height: 44px; margin: -12px -12px 0 0; border: 0; background: transparent; display: flex; align-items: center; justify-content: center; cursor: pointer">
+<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#2B2B2B" stroke-width="1.5" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"></path></svg>
+</button>
+</div>
+<h3 style="margin: 0; font-family: 'Instrument Serif', serif; font-weight: 400; font-size: 40px; line-height: 1.1">{{detail.title}}</h3>
+<span style="font-size: 20px; font-weight: 600">{{detail.priceLabel}}</span>
+<p style="margin: 0; font-size: 16px; line-height: 1.7; color: #4A4A47">{{detail.description}}</p>
+<span style="font-size: 14px; color: #5A5A57; border-top: 1px solid #D6D4CE; padding-top: 14px">{{detail.stockLabel}}</span>
+<button onClick="{{detail.add}}" disabled="{{detail.soldOut}}" style="{{detail.addStyle}}">{{detail.addLabel}}</button>
+</div>
+<section aria-label="Recommended for You" style="flex: 1 1 100%; border-top: 1px solid #2B2B2B; padding: 28px 40px 36px; display: flex; flex-direction: column; gap: 20px">
+<div style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: baseline; gap: 8px">
+<h4 style="margin: 0; font-family: 'Instrument Serif', serif; font-weight: 400; font-size: 30px; line-height: 1.1">Recommended for You</h4>
+<span style="font-size: 12px; font-weight: 500; letter-spacing: 0.16em; text-transform: uppercase; color: #5A5A57">Pairs with {{detail.title}}</span>
+</div>
+<sc-if value="{{recLoading}}" hint-placeholder-val="{{ true }}">
+<div role="status" aria-live="polite" style="min-height: 180px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 16px; border: 1px dashed #D6D4CE">
+<svg class="jrm-spin" width="32" height="32" viewBox="0 0 32 32" fill="none" aria-hidden="true"><circle cx="16" cy="16" r="13" stroke="#D6D4CE" stroke-width="2"></circle><path d="M16 3a13 13 0 0 1 13 13" stroke="#2B2B2B" stroke-width="2" stroke-linecap="round"></path></svg>
+<span style="font-size: 12px; font-weight: 500; letter-spacing: 0.16em; text-transform: uppercase; color: #4A4A47">Loading Product Recommendations</span>
+</div>
+</sc-if>
+<sc-if value="{{recReady}}" hint-placeholder-val="{{ false }}">
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 20px">
+<sc-for list="{{recs}}" as="r" hint-placeholder-count="2">
+<article style="display: flex; gap: 16px; border: 1px solid #2B2B2B; padding: 14px; animation: jrmFadeIn 300ms ease-out">
+<img src="{{r.image}}" alt="{{r.title}}" style="width: 96px; height: 128px; object-fit: cover; flex: 0 0 auto; background: #E8E6E0">
+<div style="flex: 1 1 auto; min-width: 0; display: flex; flex-direction: column; gap: 6px">
+<span style="font-size: 11px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: #5A5A57">{{r.category}}</span>
+<span style="font-size: 16px; font-weight: 500; line-height: 1.3">{{r.title}}</span>
+<span style="font-size: 15px; font-weight: 600">{{r.priceLabel}}</span>
+<span style="font-size: 12px; color: #4A4A47; background: #EFEDE7; padding: 4px 8px; align-self: flex-start">{{r.reason}}</span>
+<div style="display: flex; flex-wrap: wrap; gap: 8px 16px; align-items: center; margin-top: auto">
+<button onClick="{{r.add}}" disabled="{{r.soldOut}}" style="{{r.addStyle}}">{{r.addLabel}}</button>
+<button onClick="{{r.open}}" style="min-height: 44px; border: 0; background: transparent; padding: 0; font: inherit; font-size: 12px; font-weight: 500; letter-spacing: 0.14em; text-transform: uppercase; color: #2B2B2B; text-decoration: underline; text-underline-offset: 4px; cursor: pointer">View</button>
+</div>
+</div>
+</article>
+</sc-for>
+</div>
+<sc-if value="{{canBundle}}" hint-placeholder-val="{{ false }}">
+<div style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 12px; border-top: 1px solid #D6D4CE; padding-top: 16px">
+<span style="font-size: 14px; color: #4A4A47">Complete the look · all three for <strong style="color: #2B2B2B">{{bundleLabel}}</strong></span>
+<button onClick="{{addBundle}}" style="min-height: 48px; padding: 0 28px; border: 1px solid #2B2B2B; background: #2B2B2B; color: #F7F6F2; font: inherit; font-size: 13px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; cursor: pointer">{{bundleBtnLabel}}</button>
+</div>
+</sc-if>
+<sc-if value="{{noRecs}}" hint-placeholder-val="{{ false }}"><p style="margin: 0; font-size: 14px; color: #5A5A57">No matching items in stock right now.</p></sc-if>
+</sc-if>
+</section>
+</div>
+</div>
+</sc-if>
+
+<!-- Cart drawer -->
+<sc-if value="{{drawerOpen}}" hint-placeholder-val="{{ false }}">
+<div style="position: fixed; inset: 0; z-index: 30; display: flex; justify-content: flex-end">
+<button aria-label="Close bag" onClick="{{closeCart}}" style="position: absolute; inset: 0; border: 0; padding: 0; background: rgba(43,43,43,0.45); cursor: pointer; animation: jrmFadeIn 200ms ease-out"></button>
+<aside role="dialog" aria-modal="true" aria-label="Your bag" style="position: relative; width: 440px; max-width: 100%; height: 100%; box-sizing: border-box; background: #F7F6F2; border-left: 1px solid #2B2B2B; display: flex; flex-direction: column; animation: jrmSlideIn 280ms ease-out">
+<div style="display: flex; justify-content: space-between; align-items: center; padding: 20px 24px; border-bottom: 1px solid #2B2B2B">
+<h2 style="margin: 0; font-family: 'Instrument Serif', serif; font-weight: 400; font-size: 32px; line-height: 1.1">Your bag <span style="font-family: Inter, sans-serif; font-size: 14px; color: #5A5A57">({{cartCount}})</span></h2>
+<button aria-label="Close bag" onClick="{{closeCart}}" style="width: 44px; height: 44px; border: 0; background: transparent; display: flex; align-items: center; justify-content: center; cursor: pointer"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#2B2B2B" stroke-width="1.5" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"></path></svg></button>
+</div>
+<div style="flex: 1 1 auto; overflow-y: auto; padding: 0 24px">
+<sc-if value="{{cartEmpty}}" hint-placeholder-val="{{ false }}">
+<div style="padding: 64px 0; display: flex; flex-direction: column; align-items: flex-start; gap: 20px">
+<p style="margin: 0; font-size: 16px; color: #4A4A47">Your bag is empty.</p>
+<button onClick="{{closeCart}}" style="min-height: 52px; padding: 0 28px; border: 1px solid #2B2B2B; background: transparent; color: #2B2B2B; font: inherit; font-size: 13px; font-weight: 500; letter-spacing: 0.14em; text-transform: uppercase; cursor: pointer">Continue shopping</button>
+</div>
+</sc-if>
+<sc-for list="{{cartItems}}" as="item" hint-placeholder-count="2">
+<div style="display: flex; gap: 16px; padding: 20px 0; border-bottom: 1px solid #D6D4CE">
+<img src="{{item.image}}" alt="{{item.title}}" style="width: 84px; height: 112px; object-fit: cover; flex: 0 0 auto; background: #E8E6E0">
+<div style="flex: 1 1 auto; min-width: 0; display: flex; flex-direction: column; gap: 6px">
+<div style="display: flex; justify-content: space-between; gap: 12px">
+<span style="font-size: 15px; font-weight: 500; line-height: 1.4">{{item.title}}</span>
+<span style="font-size: 15px; font-weight: 600; white-space: nowrap">{{item.lineLabel}}</span>
+</div>
+<span style="font-size: 13px; color: #5A5A57">{{item.priceLabel}} each</span>
+<div style="display: flex; justify-content: space-between; align-items: center; gap: 12px; margin-top: auto">
+<div role="group" aria-label="Quantity for {{item.title}}" style="display: flex; align-items: center; border: 1px solid #2B2B2B">
+<button aria-label="Decrease quantity" onClick="{{item.dec}}" disabled="{{item.atMin}}" style="width: 44px; height: 44px; border: 0; background: transparent; font: inherit; font-size: 18px; color: #2B2B2B; cursor: pointer">−</button>
+<span aria-live="polite" style="min-width: 32px; text-align: center; font-size: 15px; font-weight: 500">{{item.qty}}</span>
+<button aria-label="Increase quantity" onClick="{{item.inc}}" disabled="{{item.atMax}}" style="width: 44px; height: 44px; border: 0; background: transparent; font: inherit; font-size: 18px; color: #2B2B2B; cursor: pointer">+</button>
+</div>
+<button onClick="{{item.remove}}" style="min-height: 44px; border: 0; background: transparent; padding: 0 4px; font: inherit; font-size: 13px; color: #2B2B2B; text-decoration: underline; text-underline-offset: 4px; cursor: pointer">Remove</button>
+</div>
+<sc-if value="{{item.atMax}}" hint-placeholder-val="{{ false }}"><span style="font-size: 12px; color: #5A5A57">Maximum available stock reached</span></sc-if>
+</div>
+</div>
+</sc-for>
+</div>
+<div style="border-top: 1px solid #2B2B2B; padding: 20px 24px 24px; display: flex; flex-direction: column; gap: 12px">
+<div style="display: flex; flex-direction: column; gap: 8px">
+<sc-if value="{{promoNotApplied}}" hint-placeholder-val="{{ true }}">
+<label for="promo-cart" style="font-size: 12px; font-weight: 500; letter-spacing: 0.16em; text-transform: uppercase; color: #5A5A57">Promo Code</label>
+<div style="display: flex; gap: 8px">
+<input id="promo-cart" type="text" autoComplete="off" value="{{promoInput}}" onChange="{{onPromoInput}}" aria-invalid="{{promoInvalid}}" placeholder="e.g. WELCOME10" style="height: 48px; box-sizing: border-box; padding: 0 14px; font: inherit; font-size: 15px; color: #2B2B2B; background: #FFFFFF; border: 1px solid #2B2B2B; text-transform: uppercase; letter-spacing: 0.06em; flex: 1 1 auto; min-width: 0">
+<button type="button" onClick="{{applyPromo}}" style="min-height: 48px; padding: 0 20px; border: 1px solid #2B2B2B; background: transparent; color: #2B2B2B; font: inherit; font-size: 13px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; cursor: pointer">Apply</button>
+</div>
+</sc-if>
+<sc-if value="{{promoApplied}}" hint-placeholder-val="{{ false }}">
+<div style="display: flex; justify-content: space-between; align-items: center; gap: 12px; border: 1px solid #2B2B2B; padding: 4px 4px 4px 14px">
+<span style="font-size: 13px"><strong style="letter-spacing: 0.08em">{{promo.code}}</strong> · {{promo.desc}}</span>
+<button type="button" onClick="{{removePromo}}" style="min-height: 40px; border: 0; background: transparent; padding: 0 10px; font: inherit; font-size: 12px; color: #2B2B2B; text-decoration: underline; text-underline-offset: 4px; cursor: pointer">Remove</button>
+</div>
+</sc-if>
+<sc-if value="{{hasPromoMsg}}" hint-placeholder-val="{{ false }}"><span role="status" style="{{promoMsgStyle}}">{{promoMsg}}</span></sc-if>
+</div>
+<div style="display: flex; justify-content: space-between; align-items: baseline; font-size: 15px"><span>Subtotal</span><span>{{subtotalLabel}}</span></div>
+<sc-if value="{{hasDiscount}}" hint-placeholder-val="{{ false }}"><div style="display: flex; justify-content: space-between; font-size: 15px; font-weight: 600"><span>Promo savings ({{promo.code}})</span><span>− {{discountLabel}}</span></div></sc-if>
+<div style="display: flex; justify-content: space-between; align-items: baseline; border-top: 1px solid #D6D4CE; padding-top: 10px"><span style="font-size: 12px; font-weight: 500; letter-spacing: 0.16em; text-transform: uppercase; color: #5A5A57">Total</span><span style="font-size: 20px; font-weight: 600">{{totalLabel}}</span></div>
+<p style="margin: 0; font-size: 13px; color: #5A5A57">Delivery charges: [TO BE CONFIRMED]</p>
+<button onClick="{{goCheckout}}" disabled="{{cartEmpty}}" style="{{checkoutBtnStyle}}">Proceed to checkout</button>
+</div>
+</aside>
+</div>
+</sc-if>
+
+<!-- Checkout screen -->
+<sc-if value="{{checkoutOpen}}" hint-placeholder-val="{{ false }}">
+<div role="dialog" aria-modal="true" aria-label="Checkout" style="position: fixed; inset: 0; z-index: 40; background: #F7F6F2; overflow-y: auto; animation: jrmFadeIn 200ms ease-out">
+<div style="border-bottom: 1px solid #2B2B2B">
+<div style="max-width: 1120px; margin: 0 auto; padding: 0 32px; min-height: 76px; display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 12px">
+<span style="font-family: 'Instrument Serif', serif; font-size: 30px; line-height: 1">JRM <span style="font-family: Inter, sans-serif; font-size: 12px; font-weight: 500; letter-spacing: 0.18em; text-transform: uppercase; color: #5A5A57; vertical-align: middle; margin-left: 12px">Checkout</span></span>
+<button onClick="{{closeCheckout}}" style="min-height: 44px; border: 0; background: transparent; font: inherit; font-size: 13px; font-weight: 500; letter-spacing: 0.14em; text-transform: uppercase; color: #2B2B2B; cursor: pointer; text-decoration: underline; text-underline-offset: 4px">Back to store</button>
+</div>
+</div>
+<div style="max-width: 1120px; margin: 0 auto; padding: 48px 32px 96px; display: flex; flex-direction: column; gap: 40px">
+<ol aria-label="Checkout steps" style="list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: 12px 40px">
+<li style="{{step1Style}}"><span style="font-family: 'Instrument Serif', serif; font-size: 28px; line-height: 1">01</span> Shipping address</li>
+<li style="{{step2Style}}"><span style="font-family: 'Instrument Serif', serif; font-size: 28px; line-height: 1">02</span> Review &amp; pay</li>
+<li style="{{step3Style}}"><span style="font-family: 'Instrument Serif', serif; font-size: 28px; line-height: 1">03</span> Confirmation</li>
+</ol>
+
+<sc-if value="{{onStep1}}" hint-placeholder-val="{{ true }}">
+<div style="display: flex; flex-wrap: wrap; gap: 48px; align-items: flex-start">
+<form aria-label="Shipping address" style="flex: 999 1 520px; min-width: 0; display: flex; flex-direction: column; gap: 28px">
+<h2 style="margin: 0; font-family: 'Instrument Serif', serif; font-weight: 400; font-size: 44px; line-height: 1.1">Where should we deliver?</h2>
+<div style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 20px 24px">
+<sc-for list="{{fields}}" as="fld" hint-placeholder-count="9">
+<div style="{{fld.wrapStyle}}">
+<label for="{{fld.id}}" style="font-size: 12px; font-weight: 500; letter-spacing: 0.16em; text-transform: uppercase; color: #5A5A57">{{fld.label}}</label>
+<input id="{{fld.id}}" name="{{fld.id}}" type="{{fld.type}}" inputMode="{{fld.inputMode}}" autoComplete="{{fld.autocomplete}}" value="{{fld.value}}" onChange="{{fld.onChange}}" aria-invalid="{{fld.invalid}}" style="{{fld.inputStyle}}">
+<sc-if value="{{fld.hasError}}" hint-placeholder-val="{{ false }}"><span role="alert" style="font-size: 13px; color: #9B2C2C">{{fld.error}}</span></sc-if>
+</div>
+</sc-for>
+</div>
+<div style="display: flex; flex-wrap: wrap; gap: 12px">
+<button type="button" onClick="{{toStep2}}" style="min-height: 52px; width: 100%; border: 1px solid #2B2B2B; background: #2B2B2B; color: #F7F6F2; font: inherit; font-size: 13px; font-weight: 600; letter-spacing: 0.16em; text-transform: uppercase; cursor: pointer; width: auto; padding: 0 40px">Continue to review</button>
+</div>
+</form>
+<aside aria-label="Order summary" style="flex: 1 1 300px; min-width: 0; border: 1px solid #2B2B2B; padding: 24px; display: flex; flex-direction: column; gap: 16px">
+<span style="font-size: 12px; font-weight: 500; letter-spacing: 0.16em; text-transform: uppercase; color: #5A5A57">In your bag</span>
+<sc-for list="{{cartItems}}" as="item" hint-placeholder-count="2">
+<div style="display: flex; justify-content: space-between; gap: 12px; font-size: 14px"><span>{{item.title}} × {{item.qty}}</span><span style="white-space: nowrap">{{item.lineLabel}}</span></div>
+</sc-for>
+<div style="display: flex; justify-content: space-between; border-top: 1px solid #D6D4CE; padding-top: 14px"><span>Subtotal</span><span>{{subtotalLabel}}</span></div>
+<sc-if value="{{hasDiscount}}" hint-placeholder-val="{{ false }}"><div style="display: flex; justify-content: space-between; font-size: 15px; font-weight: 600"><span>Promo savings ({{promo.code}})</span><span>− {{discountLabel}}</span></div></sc-if>
+<div style="display: flex; justify-content: space-between; font-weight: 600"><span>Total</span><span>{{totalLabel}}</span></div>
+</aside>
+</div>
+</sc-if>
+
+<sc-if value="{{onStep2}}" hint-placeholder-val="{{ false }}">
+<div style="display: flex; flex-direction: column; gap: 32px; max-width: 760px">
+<h2 style="margin: 0; font-family: 'Instrument Serif', serif; font-weight: 400; font-size: 44px; line-height: 1.1">Review &amp; pay</h2>
+<section style="border-top: 1px solid #2B2B2B; padding-top: 20px; display: flex; flex-wrap: wrap; justify-content: space-between; gap: 16px">
+<div style="display: flex; flex-direction: column; gap: 4px; font-size: 15px">
+<span style="font-size: 12px; font-weight: 500; letter-spacing: 0.16em; text-transform: uppercase; color: #5A5A57; margin-bottom: 6px">Deliver to</span>
+<span style="font-weight: 600">{{ship.name}}</span>
+<span>{{ship.line1}}</span>
+<sc-if value="{{ship.hasLine2}}" hint-placeholder-val="{{ false }}"><span>{{ship.line2}}</span></sc-if>
+<span>{{ship.cityLine}}</span>
+<span>{{ship.contact}}</span>
+</div>
+<button type="button" onClick="{{toStep1}}" style="align-self: flex-start; min-height: 44px; border: 0; background: transparent; font: inherit; font-size: 13px; font-weight: 500; letter-spacing: 0.14em; text-transform: uppercase; color: #2B2B2B; text-decoration: underline; text-underline-offset: 4px; cursor: pointer">Edit address</button>
+</section>
+<section style="border-top: 1px solid #2B2B2B; padding-top: 20px; display: flex; flex-direction: column">
+<span style="font-size: 12px; font-weight: 500; letter-spacing: 0.16em; text-transform: uppercase; color: #5A5A57; margin-bottom: 8px">Items</span>
+<sc-for list="{{cartItems}}" as="item" hint-placeholder-count="2">
+<div style="display: flex; align-items: center; gap: 16px; padding: 14px 0; border-bottom: 1px solid #D6D4CE">
+<img src="{{item.image}}" alt="{{item.title}}" style="width: 60px; height: 80px; object-fit: cover; background: #E8E6E0">
+<div style="flex: 1 1 auto; display: flex; flex-direction: column; gap: 2px"><span style="font-weight: 500">{{item.title}}</span><span style="font-size: 13px; color: #5A5A57">Qty {{item.qty}} · {{item.priceLabel}} each</span></div>
+<span style="font-weight: 600; white-space: nowrap">{{item.lineLabel}}</span>
+</div>
+</sc-for>
+</section>
+<section style="display: flex; flex-direction: column; gap: 10px; font-size: 15px">
+<div style="display: flex; flex-direction: column; gap: 8px">
+<sc-if value="{{promoNotApplied}}" hint-placeholder-val="{{ true }}">
+<label for="promo-checkout" style="font-size: 12px; font-weight: 500; letter-spacing: 0.16em; text-transform: uppercase; color: #5A5A57">Promo Code</label>
+<div style="display: flex; gap: 8px">
+<input id="promo-checkout" type="text" autoComplete="off" value="{{promoInput}}" onChange="{{onPromoInput}}" aria-invalid="{{promoInvalid}}" placeholder="e.g. WELCOME10" style="height: 48px; box-sizing: border-box; padding: 0 14px; font: inherit; font-size: 15px; color: #2B2B2B; background: #FFFFFF; border: 1px solid #2B2B2B; text-transform: uppercase; letter-spacing: 0.06em; flex: 1 1 auto; min-width: 0">
+<button type="button" onClick="{{applyPromo}}" style="min-height: 48px; padding: 0 20px; border: 1px solid #2B2B2B; background: transparent; color: #2B2B2B; font: inherit; font-size: 13px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; cursor: pointer">Apply</button>
+</div>
+</sc-if>
+<sc-if value="{{promoApplied}}" hint-placeholder-val="{{ false }}">
+<div style="display: flex; justify-content: space-between; align-items: center; gap: 12px; border: 1px solid #2B2B2B; padding: 4px 4px 4px 14px">
+<span style="font-size: 13px"><strong style="letter-spacing: 0.08em">{{promo.code}}</strong> · {{promo.desc}}</span>
+<button type="button" onClick="{{removePromo}}" style="min-height: 40px; border: 0; background: transparent; padding: 0 10px; font: inherit; font-size: 12px; color: #2B2B2B; text-decoration: underline; text-underline-offset: 4px; cursor: pointer">Remove</button>
+</div>
+</sc-if>
+<sc-if value="{{hasPromoMsg}}" hint-placeholder-val="{{ false }}"><span role="status" style="{{promoMsgStyle}}">{{promoMsg}}</span></sc-if>
+</div>
+<div style="display: flex; justify-content: space-between"><span>Subtotal</span><span>{{subtotalLabel}}</span></div>
+<sc-if value="{{hasDiscount}}" hint-placeholder-val="{{ false }}"><div style="display: flex; justify-content: space-between; font-size: 15px; font-weight: 600"><span>Promo savings ({{promo.code}})</span><span>− {{discountLabel}}</span></div></sc-if>
+<div style="display: flex; justify-content: space-between; color: #5A5A57"><span>Delivery</span><span>[TO BE CONFIRMED]</span></div>
+<div style="display: flex; justify-content: space-between; border-top: 1px solid #2B2B2B; padding-top: 14px; font-size: 20px; font-weight: 600"><span>Total</span><span>{{totalLabel}}</span></div>
+</section>
+<section aria-label="Payment" style="border-top: 1px solid #2B2B2B; padding-top: 20px; display: flex; flex-direction: column; gap: 20px">
+<div style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 8px">
+<span style="font-size: 12px; font-weight: 500; letter-spacing: 0.16em; text-transform: uppercase; color: #5A5A57">Payment</span>
+<span style="font-size: 11px; font-weight: 600; letter-spacing: 0.16em; text-transform: uppercase; border: 1px solid #2B2B2B; padding: 4px 10px">Test mode · simulated</span>
+</div>
+<div role="tablist" aria-label="Payment method" style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); border: 1px solid #2B2B2B">
+<button type="button" role="tab" aria-selected="{{upiSelected}}" onClick="{{pickUpi}}" disabled="{{processing}}" style="{{upiTabStyle}}">UPI</button>
+<button type="button" role="tab" aria-selected="{{cardSelected}}" onClick="{{pickCard}}" disabled="{{processing}}" style="{{cardTabStyle}}">Card</button>
+</div>
+<div style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 20px 24px">
+<sc-for list="{{payFields}}" as="fld" hint-placeholder-count="1">
+<div style="{{fld.wrapStyle}}">
+<label for="{{fld.id}}" style="font-size: 12px; font-weight: 500; letter-spacing: 0.16em; text-transform: uppercase; color: #5A5A57">{{fld.label}}</label>
+<input id="{{fld.id}}" name="{{fld.id}}" type="text" inputMode="{{fld.inputMode}}" autoComplete="{{fld.autocomplete}}" placeholder="{{fld.placeholder}}" maxLength="{{fld.maxLength}}" value="{{fld.value}}" onChange="{{fld.onChange}}" aria-invalid="{{fld.invalid}}" disabled="{{processing}}" style="{{fld.inputStyle}}">
+<sc-if value="{{fld.hasError}}" hint-placeholder-val="{{ false }}"><span role="alert" style="font-size: 13px; color: #9B2C2C">{{fld.error}}</span></sc-if>
+</div>
+</sc-for>
+</div>
+<div style="background: #EFEDE7; padding: 16px 18px; font-size: 13px; line-height: 1.6; color: #4A4A47; display: flex; flex-direction: column; gap: 4px">
+<span style="font-weight: 600; color: #2B2B2B">Test details · no real money is taken</span>
+<span>UPI: <strong>success@razorpay</strong> pays · <strong>failure@razorpay</strong> fails</span>
+<span>Card: <strong>4718 6091 0820 4366</strong> · any future expiry · any 3-digit CVV</span>
+</div>
+<sc-if value="{{hasPayError}}" hint-placeholder-val="{{ false }}"><div role="alert" style="padding: 14px 16px; border: 1px solid #9B2C2C; color: #9B2C2C; font-size: 14px">{{payError}}</div></sc-if>
+</section>
+<div style="display: flex; flex-wrap: wrap; gap: 12px">
+<button type="button" onClick="{{toStep1}}" disabled="{{processing}}" style="min-height: 52px; padding: 0 28px; border: 1px solid #2B2B2B; background: transparent; color: #2B2B2B; font: inherit; font-size: 13px; font-weight: 500; letter-spacing: 0.14em; text-transform: uppercase; cursor: pointer">Back</button>
+<button type="button" onClick="{{placeOrder}}" disabled="{{processing}}" aria-busy="{{processingAttr}}" style="{{placeStyle}}">{{placeLabel}}</button>
+</div>
+</div>
+</sc-if>
+
+<sc-if value="{{onStep3}}" hint-placeholder-val="{{ false }}">
+<div style="display: flex; flex-direction: column; gap: 36px; max-width: 760px">
+<div style="display: flex; flex-direction: column; gap: 16px">
+<svg width="56" height="56" viewBox="0 0 56 56" fill="none" stroke="#2B2B2B" stroke-width="1.5" aria-hidden="true"><circle cx="28" cy="28" r="26"></circle><path d="M17 29l7 7 15-16" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+<h2 style="margin: 0; font-family: 'Instrument Serif', serif; font-weight: 400; font-size: 56px; line-height: 1.05">Thank you, {{conf.firstName}}.</h2>
+<p style="margin: 0; font-size: 18px; color: #4A4A47">Your order is confirmed. Keep your tracking number to follow its progress.</p>
+</div>
+<div style="border: 1px solid #2B2B2B; padding: 28px; display: flex; flex-wrap: wrap; justify-content: space-between; align-items: flex-end; gap: 16px">
+<div style="display: flex; flex-direction: column; gap: 8px">
+<span style="font-size: 12px; font-weight: 500; letter-spacing: 0.16em; text-transform: uppercase; color: #5A5A57">Order tracking number</span>
+<span style="font-family: 'Instrument Serif', serif; font-size: 44px; line-height: 1; letter-spacing: 0.04em">{{conf.tracking}}</span>
+</div>
+<div style="display: flex; flex-direction: column; gap: 4px; font-size: 14px; color: #4A4A47; text-align: right">
+<span>Placed {{conf.date}}</span>
+<span>Paid via {{conf.method}} (test)</span>
+</div>
+</div>
+<div style="display: flex; flex-wrap: wrap; gap: 40px">
+<section style="flex: 1 1 260px; display: flex; flex-direction: column; gap: 4px; font-size: 15px; border-top: 1px solid #2B2B2B; padding-top: 16px">
+<span style="font-size: 12px; font-weight: 500; letter-spacing: 0.16em; text-transform: uppercase; color: #5A5A57; margin-bottom: 6px">Delivering to</span>
+<span style="font-weight: 600">{{conf.name}}</span>
+<span>{{conf.line1}}</span>
+<sc-if value="{{conf.hasLine2}}" hint-placeholder-val="{{ false }}"><span>{{conf.line2}}</span></sc-if>
+<span>{{conf.cityLine}}</span>
+<span>{{conf.contact}}</span>
+</section>
+<section style="flex: 1 1 320px; display: flex; flex-direction: column; border-top: 1px solid #2B2B2B; padding-top: 16px">
+<span style="font-size: 12px; font-weight: 500; letter-spacing: 0.16em; text-transform: uppercase; color: #5A5A57; margin-bottom: 6px">Your order</span>
+<sc-for list="{{conf.items}}" as="item" hint-placeholder-count="2">
+<div style="display: flex; justify-content: space-between; gap: 12px; padding: 10px 0; border-bottom: 1px solid #D6D4CE; font-size: 15px"><span>{{item.title}} × {{item.qty}}</span><span style="white-space: nowrap">{{item.lineLabel}}</span></div>
+</sc-for>
+<sc-if value="{{conf.hasSavings}}" hint-placeholder-val="{{ false }}"><div style="display: flex; justify-content: space-between; padding-top: 12px; font-size: 15px"><span>Promo savings ({{conf.promoCode}})</span><span>− {{conf.savingsLabel}}</span></div></sc-if>
+<div style="display: flex; justify-content: space-between; padding-top: 12px; font-size: 18px; font-weight: 600"><span>Total paid</span><span>{{conf.totalLabel}}</span></div>
+</section>
+</div>
+<div><button type="button" onClick="{{finishOrder}}" style="min-height: 52px; width: 100%; border: 1px solid #2B2B2B; background: #2B2B2B; color: #F7F6F2; font: inherit; font-size: 13px; font-weight: 600; letter-spacing: 0.16em; text-transform: uppercase; cursor: pointer; width: auto; padding: 0 48px">Continue shopping</button></div>
+</div>
+</sc-if>
+</div>
+</div>
+</sc-if>
+
+<!-- Account portal -->
+<sc-if value="{{accountOpen}}" hint-placeholder-val="{{ false }}">
+<div role="dialog" aria-modal="true" aria-label="Account" style="position: fixed; inset: 0; z-index: 40; background: #F7F6F2; overflow-y: auto; animation: jrmFadeIn 200ms ease-out">
+<div style="border-bottom: 1px solid #2B2B2B">
+<div style="max-width: 1120px; margin: 0 auto; padding: 0 32px; min-height: 76px; display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 12px">
+<span style="font-family: 'Instrument Serif', serif; font-size: 30px; line-height: 1">JRM <span style="font-family: Inter, sans-serif; font-size: 12px; font-weight: 500; letter-spacing: 0.18em; text-transform: uppercase; color: #5A5A57; vertical-align: middle; margin-left: 12px">Account</span></span>
+<button onClick="{{closeAccount}}" style="min-height: 44px; border: 0; background: transparent; padding: 0; font: inherit; font-size: 13px; font-weight: 500; letter-spacing: 0.14em; text-transform: uppercase; color: #2B2B2B; text-decoration: underline; text-underline-offset: 4px; cursor: pointer">Back to store</button>
+</div>
+</div>
+
+<sc-if value="{{loggedOut}}" hint-placeholder-val="{{ true }}">
+<div style="max-width: 1120px; margin: 0 auto; padding: 64px 32px 96px; display: flex; flex-wrap: wrap; gap: 64px; align-items: flex-start">
+<div style="flex: 999 1 440px; min-width: 0; max-width: 520px; display: flex; flex-direction: column; gap: 32px">
+<h1 style="margin: 0; font-family: 'Instrument Serif', serif; font-weight: 400; font-size: 52px; line-height: 1.05">{{authTitle}}</h1>
+<div role="tablist" aria-label="Sign in or create account" style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); border: 1px solid #2B2B2B">
+<button type="button" role="tab" aria-selected="{{loginSelected}}" onClick="{{showLogin}}" style="{{loginTabStyle}}">Login</button>
+<button type="button" role="tab" aria-selected="{{signupSelected}}" onClick="{{showSignup}}" style="{{signupTabStyle}}">Sign up</button>
+</div>
+<form aria-label="{{authTitle}}" style="display: flex; flex-direction: column; gap: 20px">
+<sc-for list="{{authFields}}" as="fld" hint-placeholder-count="2">
+<div style="display: flex; flex-direction: column; gap: 8px">
+<label for="{{fld.id}}" style="font-size: 12px; font-weight: 500; letter-spacing: 0.16em; text-transform: uppercase; color: #5A5A57">{{fld.label}}</label>
+<input id="{{fld.id}}" name="{{fld.id}}" type="{{fld.type}}" inputMode="{{fld.inputMode}}" autoComplete="{{fld.autocomplete}}" value="{{fld.value}}" onChange="{{fld.onChange}}" aria-invalid="{{fld.invalid}}" style="{{fld.inputStyle}}">
+<sc-if value="{{fld.hasError}}" hint-placeholder-val="{{ false }}"><span role="alert" style="font-size: 13px; color: #9B2C2C">{{fld.error}}</span></sc-if>
+</div>
+</sc-for>
+<sc-if value="{{hasAuthError}}" hint-placeholder-val="{{ false }}"><div role="alert" style="padding: 14px 16px; border: 1px solid #9B2C2C; color: #9B2C2C; font-size: 14px">{{authError}}</div></sc-if>
+<div><button type="button" onClick="{{submitAuth}}" style="min-height: 52px; border: 1px solid #2B2B2B; background: #2B2B2B; color: #F7F6F2; font: inherit; font-size: 13px; font-weight: 600; letter-spacing: 0.16em; text-transform: uppercase; cursor: pointer; padding: 0 40px">{{authSubmitLabel}}</button></div>
+</form>
+</div>
+<aside style="flex: 1 1 300px; min-width: 0; background: #EFEDE7; padding: 24px; display: flex; flex-direction: column; gap: 10px; font-size: 14px; line-height: 1.6; color: #4A4A47">
+<span style="font-weight: 600; color: #2B2B2B">Demo accounts (mock)</span>
+<span>anu@jrm.test · password <strong>jrmtest1</strong></span>
+<span>rahul@jrm.test · password <strong>jrmtest2</strong></span>
+<span>admin@jrm.test · password <strong>jrmadmin1</strong> (admin role)</span>
+<span style="font-size: 13px">Each account only ever sees its own details and orders. Accounts and orders live in this page only and reset when it reloads.</span>
+</aside>
+</div>
+</sc-if>
+
+<sc-if value="{{loggedIn}}" hint-placeholder-val="{{ false }}">
+<div style="max-width: 1120px; margin: 0 auto; padding: 64px 32px 96px; display: flex; flex-direction: column; gap: 48px">
+<div style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: flex-end; gap: 16px">
+<div style="display: flex; flex-direction: column; gap: 8px">
+<span style="font-size: 12px; font-weight: 500; letter-spacing: 0.16em; text-transform: uppercase; color: #5A5A57">My account</span>
+<h1 style="margin: 0; font-family: 'Instrument Serif', serif; font-weight: 400; font-size: 56px; line-height: 1.05">Hello, {{me.firstName}}.</h1>
+</div>
+<button type="button" onClick="{{signOut}}" style="min-height: 48px; padding: 0 24px; border: 1px solid #2B2B2B; background: transparent; color: #2B2B2B; font: inherit; font-size: 13px; font-weight: 500; letter-spacing: 0.14em; text-transform: uppercase; cursor: pointer">Sign out</button>
+</div>
+
+<div style="display: flex; flex-wrap: wrap; gap: 48px; align-items: flex-start">
+<section aria-label="Account details" style="flex: 1 1 300px; min-width: 0; border-top: 1px solid #2B2B2B; padding-top: 20px; display: flex; flex-direction: column">
+<h2 style="margin: 0 0 12px; font-size: 12px; font-weight: 600; letter-spacing: 0.18em; text-transform: uppercase">Account details</h2>
+<div style="display: flex; justify-content: space-between; gap: 16px; padding: 12px 0; border-bottom: 1px solid #D6D4CE"><span style="font-size: 12px; font-weight: 500; letter-spacing: 0.16em; text-transform: uppercase; color: #5A5A57">Name</span><span style="text-align: right">{{me.name}}</span></div>
+<div style="display: flex; justify-content: space-between; gap: 16px; padding: 12px 0; border-bottom: 1px solid #D6D4CE"><span style="font-size: 12px; font-weight: 500; letter-spacing: 0.16em; text-transform: uppercase; color: #5A5A57">Email</span><span style="text-align: right; overflow-wrap: anywhere">{{me.email}}</span></div>
+<div style="display: flex; justify-content: space-between; gap: 16px; padding: 12px 0; border-bottom: 1px solid #D6D4CE"><span style="font-size: 12px; font-weight: 500; letter-spacing: 0.16em; text-transform: uppercase; color: #5A5A57">Mobile</span><span style="text-align: right">{{me.phone}}</span></div>
+<div style="display: flex; justify-content: space-between; gap: 16px; padding: 12px 0; border-bottom: 1px solid #D6D4CE"><span style="font-size: 12px; font-weight: 500; letter-spacing: 0.16em; text-transform: uppercase; color: #5A5A57">Customer ID</span><span style="text-align: right">{{me.id}}</span></div>
+<div style="display: flex; justify-content: space-between; gap: 16px; padding: 12px 0; border-bottom: 1px solid #D6D4CE"><span style="font-size: 12px; font-weight: 500; letter-spacing: 0.16em; text-transform: uppercase; color: #5A5A57">Member since</span><span style="text-align: right">{{me.since}}</span></div>
+<div style="display: flex; justify-content: space-between; gap: 16px; padding: 12px 0; border-bottom: 1px solid #D6D4CE"><span style="font-size: 12px; font-weight: 500; letter-spacing: 0.16em; text-transform: uppercase; color: #5A5A57">Orders</span><span style="text-align: right">{{myOrderCount}}</span></div>
+</section>
+
+<section aria-label="Order history" style="flex: 999 1 520px; min-width: 0; border-top: 1px solid #2B2B2B; padding-top: 20px; display: flex; flex-direction: column; gap: 20px">
+<h2 style="margin: 0; font-size: 12px; font-weight: 600; letter-spacing: 0.18em; text-transform: uppercase">Order history</h2>
+<sc-if value="{{noOrders}}" hint-placeholder-val="{{ false }}">
+<div style="padding: 32px 0; display: flex; flex-direction: column; align-items: flex-start; gap: 16px">
+<p style="margin: 0; color: #4A4A47">No orders yet. Orders you place while signed in will appear here.</p>
+<button type="button" onClick="{{closeAccount}}" style="min-height: 48px; padding: 0 24px; border: 1px solid #2B2B2B; background: transparent; color: #2B2B2B; font: inherit; font-size: 13px; font-weight: 500; letter-spacing: 0.14em; text-transform: uppercase; cursor: pointer">Start shopping</button>
+</div>
+</sc-if>
+<sc-for list="{{myOrders}}" as="o" hint-placeholder-count="2">
+<article style="border: 1px solid #2B2B2B; padding: 24px; display: flex; flex-direction: column; gap: 16px">
+<div style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: flex-start; gap: 12px">
+<div style="display: flex; flex-direction: column; gap: 6px">
+<span style="font-size: 12px; font-weight: 500; letter-spacing: 0.16em; text-transform: uppercase; color: #5A5A57">Tracking number</span>
+<span style="font-family: 'Instrument Serif', serif; font-size: 32px; line-height: 1; letter-spacing: 0.04em">{{o.tracking}}</span>
+</div>
+<div style="display: flex; flex-direction: column; align-items: flex-end; gap: 6px; text-align: right">
+<span style="font-size: 11px; font-weight: 600; letter-spacing: 0.16em; text-transform: uppercase; border: 1px solid #2B2B2B; padding: 4px 10px">{{o.status}}</span>
+<span style="font-size: 13px; color: #5A5A57">{{o.date}} · {{o.method}}</span>
+</div>
+</div>
+<div style="display: flex; flex-direction: column; border-top: 1px solid #D6D4CE">
+<sc-for list="{{o.items}}" as="it" hint-placeholder-count="2">
+<div style="display: flex; justify-content: space-between; gap: 12px; padding: 10px 0; border-bottom: 1px solid #D6D4CE; font-size: 15px"><span>{{it.title}} × {{it.qty}}</span><span style="white-space: nowrap">{{it.lineLabel}}</span></div>
+</sc-for>
+</div>
+<div style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: flex-end; gap: 16px">
+<div style="display: flex; flex-direction: column; gap: 2px; font-size: 14px; color: #4A4A47">
+<span style="font-size: 12px; font-weight: 500; letter-spacing: 0.16em; text-transform: uppercase; color: #5A5A57; margin-bottom: 4px">Delivered to</span>
+<span>{{o.shipName}}</span>
+<span>{{o.shipLine}}</span>
+</div>
+<div style="display: flex; flex-direction: column; align-items: flex-end; gap: 2px">
+<span style="font-size: 12px; font-weight: 500; letter-spacing: 0.16em; text-transform: uppercase; color: #5A5A57">Total paid</span>
+<span style="font-size: 20px; font-weight: 600">{{o.totalLabel}}</span>
+</div>
+</div>
+</article>
+</sc-for>
+</section>
+</div>
+</div>
+</sc-if>
+</div>
+</sc-if>
+
+<!-- Admin dashboard (admins only) -->
+<sc-if value="{{adminVisible}}" hint-placeholder-val="{{ false }}">
+<div role="dialog" aria-modal="true" aria-label="Admin dashboard" style="position: fixed; inset: 0; z-index: 40; background: #F7F6F2; overflow-y: auto; animation: jrmFadeIn 200ms ease-out">
+<div style="border-bottom: 1px solid #2B2B2B">
+<div style="max-width: 1280px; margin: 0 auto; padding: 0 32px; min-height: 76px; display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 12px">
+<span style="font-family: 'Instrument Serif', serif; font-size: 30px; line-height: 1">JRM <span style="font-family: Inter, sans-serif; font-size: 12px; font-weight: 500; letter-spacing: 0.18em; text-transform: uppercase; color: #5A5A57; vertical-align: middle; margin-left: 12px">Admin · {{me.name}}</span></span>
+<button onClick="{{closeAdmin}}" style="min-height: 44px; border: 0; background: transparent; padding: 0; font: inherit; font-size: 13px; font-weight: 500; letter-spacing: 0.14em; text-transform: uppercase; color: #2B2B2B; text-decoration: underline; text-underline-offset: 4px; cursor: pointer">Back to store</button>
+</div>
+</div>
+<div style="max-width: 1280px; margin: 0 auto; padding: 48px 32px 96px; display: flex; flex-direction: column; gap: 56px">
+
+<section aria-label="Key metrics" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 24px">
+<div style="border: 1px solid #2B2B2B; padding: 24px; display: flex; flex-direction: column; gap: 10px">
+<span style="font-size: 12px; font-weight: 500; letter-spacing: 0.16em; text-transform: uppercase; color: #5A5A57">Total sales revenue</span>
+<span style="font-family: 'Instrument Serif', serif; font-size: 48px; line-height: 1">{{kpi.revenue}}</span>
+<span style="font-size: 13px; color: #5A5A57">Across {{kpi.orderCount}} paid orders</span>
+</div>
+<div style="border: 1px solid #2B2B2B; padding: 24px; display: flex; flex-direction: column; gap: 10px">
+<span style="font-size: 12px; font-weight: 500; letter-spacing: 0.16em; text-transform: uppercase; color: #5A5A57">Processed orders</span>
+<span style="font-family: 'Instrument Serif', serif; font-size: 48px; line-height: 1">{{kpi.processed}}</span>
+<span style="font-size: 13px; color: #5A5A57">Shipped or delivered · {{kpi.pending}} still processing</span>
+</div>
+<div style="border: 1px solid #2B2B2B; padding: 24px; display: flex; flex-direction: column; gap: 10px; background: {{kpi.lowBg}}">
+<span style="font-size: 12px; font-weight: 500; letter-spacing: 0.16em; text-transform: uppercase; color: #5A5A57">Low stock alerts</span>
+<span style="font-family: 'Instrument Serif', serif; font-size: 48px; line-height: 1">{{kpi.lowCount}}</span>
+<span style="font-size: 13px; color: #5A5A57">{{kpi.lowNote}}</span>
+</div>
+</section>
+
+<section aria-label="Order management" style="display: flex; flex-direction: column; gap: 20px">
+<div style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: baseline; gap: 12px">
+<h2 style="margin: 0; font-family: 'Instrument Serif', serif; font-weight: 400; font-size: 40px; line-height: 1.1">Orders</h2>
+<span style="font-size: 13px; color: #5A5A57">{{kpi.orderCount}} total · newest first</span>
+</div>
+<div style="overflow-x: auto; border-top: 1px solid #2B2B2B">
+<table style="width: 100%; min-width: 960px; border-collapse: collapse; font-size: 14px">
+<thead><tr>
+<th scope="col" style="text-align: left; padding: 12px 16px; font-size: 11px; font-weight: 600; letter-spacing: 0.16em; text-transform: uppercase; color: #5A5A57; border-bottom: 1px solid #2B2B2B; white-space: nowrap">Tracking no.</th>
+<th scope="col" style="text-align: left; padding: 12px 16px; font-size: 11px; font-weight: 600; letter-spacing: 0.16em; text-transform: uppercase; color: #5A5A57; border-bottom: 1px solid #2B2B2B; white-space: nowrap">Date</th>
+<th scope="col" style="text-align: left; padding: 12px 16px; font-size: 11px; font-weight: 600; letter-spacing: 0.16em; text-transform: uppercase; color: #5A5A57; border-bottom: 1px solid #2B2B2B; white-space: nowrap">Customer</th>
+<th scope="col" style="text-align: left; padding: 12px 16px; font-size: 11px; font-weight: 600; letter-spacing: 0.16em; text-transform: uppercase; color: #5A5A57; border-bottom: 1px solid #2B2B2B; white-space: nowrap">Items</th>
+<th scope="col" style="text-align: left; padding: 12px 16px; font-size: 11px; font-weight: 600; letter-spacing: 0.16em; text-transform: uppercase; color: #5A5A57; border-bottom: 1px solid #2B2B2B; white-space: nowrap">Payment</th>
+<th scope="col" style="text-align: left; padding: 12px 16px; font-size: 11px; font-weight: 600; letter-spacing: 0.16em; text-transform: uppercase; color: #5A5A57; border-bottom: 1px solid #2B2B2B; white-space: nowrap; text-align: right">Total</th>
+<th scope="col" style="text-align: left; padding: 12px 16px; font-size: 11px; font-weight: 600; letter-spacing: 0.16em; text-transform: uppercase; color: #5A5A57; border-bottom: 1px solid #2B2B2B; white-space: nowrap">Status</th>
+</tr></thead>
+<tbody>
+<sc-for list="{{adminOrders}}" as="o" hint-placeholder-count="3">
+<tr>
+<td style="padding: 14px 16px; border-bottom: 1px solid #D6D4CE; vertical-align: top; font-weight: 600; white-space: nowrap">{{o.tracking}}</td>
+<td style="padding: 14px 16px; border-bottom: 1px solid #D6D4CE; vertical-align: top; white-space: nowrap">{{o.date}}</td>
+<td style="padding: 14px 16px; border-bottom: 1px solid #D6D4CE; vertical-align: top"><div style="display: flex; flex-direction: column; gap: 2px"><span style="font-weight: 500">{{o.customer}}</span><span style="font-size: 13px; color: #5A5A57">{{o.customerSub}}</span></div></td>
+<td style="padding: 14px 16px; border-bottom: 1px solid #D6D4CE; vertical-align: top">{{o.itemsText}}</td>
+<td style="padding: 14px 16px; border-bottom: 1px solid #D6D4CE; vertical-align: top; font-size: 13px; color: #4A4A47">{{o.method}}</td>
+<td style="padding: 14px 16px; border-bottom: 1px solid #D6D4CE; vertical-align: top; text-align: right; font-weight: 600; white-space: nowrap">{{o.totalLabel}}</td>
+<td style="padding: 14px 16px; border-bottom: 1px solid #D6D4CE; vertical-align: top">
+<label for="{{o.selectId}}" style="position: absolute; left: -9999px">Status for {{o.tracking}}</label>
+<select id="{{o.selectId}}" value="{{o.status}}" onChange="{{o.setStatus}}" style="height: 44px; box-sizing: border-box; padding: 0 12px; font: inherit; font-size: 15px; color: #2B2B2B; background: #FFFFFF; border: 1px solid #2B2B2B; min-width: 150px; cursor: pointer">
+<sc-for list="{{statusOptions}}" as="opt" hint-placeholder-count="3"><option value="{{opt.value}}">{{opt.value}}</option></sc-for>
+</select>
+</td>
+</tr>
+</sc-for>
+</tbody>
+</table>
+</div>
+</section>
+
+<section aria-label="Promo codes" style="display: flex; flex-direction: column; gap: 20px">
+<div style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: baseline; gap: 12px">
+<h2 style="margin: 0; font-family: 'Instrument Serif', serif; font-weight: 400; font-size: 40px; line-height: 1.1">Promo codes</h2>
+<span style="font-size: 13px; color: #5A5A57">{{promoActiveCount}} active</span>
+</div>
+<form aria-label="Create promo code" style="display: flex; flex-wrap: wrap; align-items: flex-end; gap: 16px; border: 1px solid #2B2B2B; padding: 20px">
+<div style="display: flex; flex-direction: column; gap: 8px; flex: 1 1 200px"><label for="np-code" style="font-size: 12px; font-weight: 500; letter-spacing: 0.16em; text-transform: uppercase; color: #5A5A57">Code</label><input id="np-code" type="text" autoComplete="off" value="{{np.code}}" onChange="{{np.onCode}}" placeholder="e.g. ONAM20" style="height: 48px; box-sizing: border-box; padding: 0 14px; font: inherit; font-size: 15px; color: #2B2B2B; background: #FFFFFF; border: 1px solid #2B2B2B; text-transform: uppercase; letter-spacing: 0.06em"></div>
+<div style="display: flex; flex-direction: column; gap: 8px; flex: 1 1 160px"><label for="np-type" style="font-size: 12px; font-weight: 500; letter-spacing: 0.16em; text-transform: uppercase; color: #5A5A57">Discount type</label>
+<select id="np-type" value="{{np.type}}" onChange="{{np.onType}}" style="height: 48px; box-sizing: border-box; padding: 0 12px; font: inherit; font-size: 15px; color: #2B2B2B; background: #FFFFFF; border: 1px solid #2B2B2B; cursor: pointer"><option value="percent">Percentage (%)</option><option value="flat">Flat (₹)</option></select></div>
+<div style="display: flex; flex-direction: column; gap: 8px; flex: 1 1 120px"><label for="np-value" style="font-size: 12px; font-weight: 500; letter-spacing: 0.16em; text-transform: uppercase; color: #5A5A57">Value</label><input id="np-value" type="text" inputMode="numeric" value="{{np.value}}" onChange="{{np.onValue}}" placeholder="10" style="height: 48px; box-sizing: border-box; padding: 0 14px; font: inherit; font-size: 15px; color: #2B2B2B; background: #FFFFFF; border: 1px solid #2B2B2B; text-transform: uppercase; letter-spacing: 0.06em"></div>
+<button type="button" onClick="{{np.create}}" style="min-height: 48px; padding: 0 28px; border: 1px solid #2B2B2B; background: #2B2B2B; color: #F7F6F2; font: inherit; font-size: 13px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; cursor: pointer">Create code</button>
+<sc-if value="{{np.hasMsg}}" hint-placeholder-val="{{ false }}"><span role="status" style="flex: 1 1 100%; {{np.msgStyle}}">{{np.msg}}</span></sc-if>
+</form>
+<div style="overflow-x: auto; border-top: 1px solid #2B2B2B">
+<table style="width: 100%; min-width: 640px; border-collapse: collapse; font-size: 14px">
+<thead><tr><th scope="col" style="text-align: left; padding: 12px 16px; font-size: 11px; font-weight: 600; letter-spacing: 0.16em; text-transform: uppercase; color: #5A5A57; border-bottom: 1px solid #2B2B2B; white-space: nowrap">Code</th><th scope="col" style="text-align: left; padding: 12px 16px; font-size: 11px; font-weight: 600; letter-spacing: 0.16em; text-transform: uppercase; color: #5A5A57; border-bottom: 1px solid #2B2B2B; white-space: nowrap">Type</th><th scope="col" style="text-align: left; padding: 12px 16px; font-size: 11px; font-weight: 600; letter-spacing: 0.16em; text-transform: uppercase; color: #5A5A57; border-bottom: 1px solid #2B2B2B; white-space: nowrap">Value</th><th scope="col" style="text-align: left; padding: 12px 16px; font-size: 11px; font-weight: 600; letter-spacing: 0.16em; text-transform: uppercase; color: #5A5A57; border-bottom: 1px solid #2B2B2B; white-space: nowrap">Status</th><th scope="col" style="text-align: left; padding: 12px 16px; font-size: 11px; font-weight: 600; letter-spacing: 0.16em; text-transform: uppercase; color: #5A5A57; border-bottom: 1px solid #2B2B2B; white-space: nowrap; text-align: right">Action</th></tr></thead>
+<tbody>
+<sc-for list="{{adminPromos}}" as="pc" hint-placeholder-count="3">
+<tr>
+<td style="padding: 14px 16px; border-bottom: 1px solid #D6D4CE; vertical-align: middle; font-weight: 600; letter-spacing: 0.06em">{{pc.code}}</td>
+<td style="padding: 14px 16px; border-bottom: 1px solid #D6D4CE; vertical-align: middle">{{pc.typeLabel}}</td>
+<td style="padding: 14px 16px; border-bottom: 1px solid #D6D4CE; vertical-align: middle">{{pc.valueLabel}}</td>
+<td style="padding: 14px 16px; border-bottom: 1px solid #D6D4CE; vertical-align: middle"><span style="{{pc.badgeStyle}}">{{pc.statusLabel}}</span></td>
+<td style="padding: 14px 16px; border-bottom: 1px solid #D6D4CE; vertical-align: middle; text-align: right"><button type="button" onClick="{{pc.toggle}}" aria-label="{{pc.toggleAria}}" style="min-height: 40px; padding: 0 16px; border: 1px solid #2B2B2B; background: transparent; color: #2B2B2B; font: inherit; font-size: 12px; font-weight: 500; letter-spacing: 0.14em; text-transform: uppercase; cursor: pointer">{{pc.toggleLabel}}</button></td>
+</tr>
+</sc-for>
+</tbody>
+</table>
+</div>
+</section>
+
+<section aria-label="Inventory management" style="display: flex; flex-direction: column; gap: 20px">
+<div style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: baseline; gap: 12px">
+<h2 style="margin: 0; font-family: 'Instrument Serif', serif; font-weight: 400; font-size: 40px; line-height: 1.1">Inventory</h2>
+<span style="font-size: 13px; color: #5A5A57">Changes go live on the storefront instantly · low stock = 5 or fewer</span>
+</div>
+<div style="overflow-x: auto; border-top: 1px solid #2B2B2B">
+<table style="width: 100%; min-width: 860px; border-collapse: collapse; font-size: 14px">
+<thead><tr>
+<th scope="col" style="text-align: left; padding: 12px 16px; font-size: 11px; font-weight: 600; letter-spacing: 0.16em; text-transform: uppercase; color: #5A5A57; border-bottom: 1px solid #2B2B2B; white-space: nowrap">Product</th>
+<th scope="col" style="text-align: left; padding: 12px 16px; font-size: 11px; font-weight: 600; letter-spacing: 0.16em; text-transform: uppercase; color: #5A5A57; border-bottom: 1px solid #2B2B2B; white-space: nowrap">Category</th>
+<th scope="col" style="text-align: left; padding: 12px 16px; font-size: 11px; font-weight: 600; letter-spacing: 0.16em; text-transform: uppercase; color: #5A5A57; border-bottom: 1px solid #2B2B2B; white-space: nowrap">Price (₹)</th>
+<th scope="col" style="text-align: left; padding: 12px 16px; font-size: 11px; font-weight: 600; letter-spacing: 0.16em; text-transform: uppercase; color: #5A5A57; border-bottom: 1px solid #2B2B2B; white-space: nowrap">Stock</th>
+<th scope="col" style="text-align: left; padding: 12px 16px; font-size: 11px; font-weight: 600; letter-spacing: 0.16em; text-transform: uppercase; color: #5A5A57; border-bottom: 1px solid #2B2B2B; white-space: nowrap">Status</th>
+</tr></thead>
+<tbody>
+<sc-for list="{{adminInventory}}" as="p" hint-placeholder-count="4">
+<tr>
+<td style="padding: 14px 16px; border-bottom: 1px solid #D6D4CE; vertical-align: top"><div style="display: flex; align-items: center; gap: 14px"><img src="{{p.image}}" alt="" style="width: 44px; height: 58px; object-fit: cover; background: #E8E6E0"><div style="display: flex; flex-direction: column; gap: 2px"><span style="font-weight: 500">{{p.title}}</span><span style="font-size: 12px; color: #5A5A57">{{p.id}}</span></div></div></td>
+<td style="padding: 14px 16px; border-bottom: 1px solid #D6D4CE; vertical-align: top">{{p.category}}</td>
+<td style="padding: 14px 16px; border-bottom: 1px solid #D6D4CE; vertical-align: top"><label for="{{p.priceId}}" style="position: absolute; left: -9999px">Price for {{p.title}}</label><input id="{{p.priceId}}" type="text" inputMode="numeric" value="{{p.priceValue}}" onChange="{{p.onPrice}}" aria-invalid="{{p.priceInvalid}}" style="height: 44px; box-sizing: border-box; padding: 0 12px; font: inherit; font-size: 15px; color: #2B2B2B; background: #FFFFFF; border: 1px solid #2B2B2B; width: 120px"></td>
+<td style="padding: 14px 16px; border-bottom: 1px solid #D6D4CE; vertical-align: top"><label for="{{p.stockId}}" style="position: absolute; left: -9999px">Stock for {{p.title}}</label><input id="{{p.stockId}}" type="text" inputMode="numeric" value="{{p.stockValue}}" onChange="{{p.onStock}}" aria-invalid="{{p.stockInvalid}}" style="height: 44px; box-sizing: border-box; padding: 0 12px; font: inherit; font-size: 15px; color: #2B2B2B; background: #FFFFFF; border: 1px solid #2B2B2B; width: 96px"></td>
+<td style="padding: 14px 16px; border-bottom: 1px solid #D6D4CE; vertical-align: top"><span style="{{p.badgeStyle}}">{{p.badge}}</span></td>
+</tr>
+</sc-for>
+</tbody>
+</table>
+</div>
+</section>
+</div>
+</div>
+</sc-if>
+
+<!-- Shop by -->
+<section style="border-bottom: 1px solid #2B2B2B">
+<div style="max-width: 1280px; margin: 0 auto; padding: 96px 32px; display: flex; flex-direction: column; gap: 48px">
+<div style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: baseline; gap: 16px">
+<h2 style="margin: 0; font-family: 'Instrument Serif', serif; font-weight: 400; font-size: 48px; line-height: 1.1">Shop by</h2>
+<a href="#" style="font-size: 13px; font-weight: 500; letter-spacing: 0.14em; text-transform: uppercase">View all</a>
+</div>
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 32px">
+<a href="#" style="display: flex; flex-direction: column; gap: 16px">
+<img src="./assets/4b61da041baa3b3f16d7fad90d64deff.jpg" alt="Man in a cream shirt and mundu" style="display: block; width: 100%; aspect-ratio: 3 / 4; object-fit: cover; background: #E8E6E0">
+<span style="display: flex; justify-content: space-between; border-top: 1px solid #2B2B2B; padding-top: 14px; font-size: 13px; font-weight: 500; letter-spacing: 0.14em; text-transform: uppercase">Men <span aria-hidden="true">→</span></span>
+</a>
+<a href="#" style="display: flex; flex-direction: column; gap: 16px">
+<img src="./assets/71aea2bae1119a862bbe3d9acc906c47.jpg" alt="Woman in a Kerala saree" style="display: block; width: 100%; aspect-ratio: 3 / 4; object-fit: cover; background: #E8E6E0">
+<span style="display: flex; justify-content: space-between; border-top: 1px solid #2B2B2B; padding-top: 14px; font-size: 13px; font-weight: 500; letter-spacing: 0.14em; text-transform: uppercase">Women <span aria-hidden="true">→</span></span>
+</a>
+<a href="#" style="display: flex; flex-direction: column; gap: 16px">
+<img src="./assets/8f9442536379795ae8acc0ac77902a64.jpg" alt="Two girls in traditional pattu pavada" style="display: block; width: 100%; aspect-ratio: 3 / 4; object-fit: cover; background: #E8E6E0">
+<span style="display: flex; justify-content: space-between; border-top: 1px solid #2B2B2B; padding-top: 14px; font-size: 13px; font-weight: 500; letter-spacing: 0.14em; text-transform: uppercase">Kids <span aria-hidden="true">→</span></span>
+</a>
+</div>
+</div>
+</section>
+
+<!-- Brand statement -->
+<section style="border-bottom: 1px solid #2B2B2B">
+<div style="max-width: 880px; margin: 0 auto; padding: 120px 32px; text-align: center; display: flex; flex-direction: column; gap: 28px; align-items: center">
+<p style="margin: 0; font-size: 12px; font-weight: 500; letter-spacing: 0.18em; text-transform: uppercase; color: #5A5A57">About JRM</p>
+<p style="margin: 0; font-family: 'Instrument Serif', serif; font-size: 40px; line-height: 1.3">[BRAND STATEMENT – a short, honest line on what JRM stands for]</p>
+<a href="#" style="font-size: 13px; font-weight: 500; letter-spacing: 0.14em; text-transform: uppercase; border-bottom: 1px solid #2B2B2B; padding-bottom: 4px">Our story</a>
+</div>
+</section>
+
+<!-- Store -->
+<section id="store" style="border-bottom: 1px solid #2B2B2B">
+<div style="max-width: 1280px; margin: 0 auto; padding: 96px 32px; display: flex; flex-wrap: wrap; gap: 64px; align-items: stretch">
+<div style="flex: 1 1 440px; min-height: 360px; background: #E8E6E0; display: flex; align-items: flex-end; padding: 24px; box-sizing: border-box; font-size: 13px; color: #5A5A57">Store photo</div>
+<div style="flex: 1 1 380px; display: flex; flex-direction: column; justify-content: center; gap: 24px">
+<h2 style="margin: 0; font-family: 'Instrument Serif', serif; font-weight: 400; font-size: 48px; line-height: 1.1">Visit the store</h2>
+<div style="display: flex; flex-direction: column; gap: 0; border-top: 1px solid #2B2B2B">
+<div style="display: flex; justify-content: space-between; gap: 24px; padding: 16px 0; border-bottom: 1px solid #D6D4CE"><span style="font-size: 13px; letter-spacing: 0.14em; text-transform: uppercase; color: #5A5A57">Address</span><span style="text-align: right">[ADDRESS], Old NH Road, Chalakudy</span></div>
+<div style="display: flex; justify-content: space-between; gap: 24px; padding: 16px 0; border-bottom: 1px solid #D6D4CE"><span style="font-size: 13px; letter-spacing: 0.14em; text-transform: uppercase; color: #5A5A57">Hours</span><span style="text-align: right">[DAYS] · [TIMINGS]</span></div>
+<div style="display: flex; justify-content: space-between; gap: 24px; padding: 16px 0; border-bottom: 1px solid #D6D4CE"><span style="font-size: 13px; letter-spacing: 0.14em; text-transform: uppercase; color: #5A5A57">Phone</span><span style="text-align: right">[NUMBER]</span></div>
+</div>
+<a href="#" style="align-self: flex-start; background: #2B2B2B; color: #F7F6F2; padding: 16px 32px; font-size: 13px; font-weight: 500; letter-spacing: 0.14em; text-transform: uppercase">Get directions</a>
+</div>
+</div>
+</section>
+
+<!-- Footer -->
+<footer>
+<div style="max-width: 1280px; margin: 0 auto; padding: 72px 32px 40px; display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 40px">
+<div style="display: flex; flex-direction: column; gap: 12px">
+<span style="font-family: 'Instrument Serif', serif; font-size: 30px; line-height: 1">JRM</span>
+<span style="font-size: 14px; color: #5A5A57">Chalakudy, Kerala</span>
+</div>
+<div style="display: flex; flex-direction: column; gap: 10px; font-size: 14px">
+<span style="font-size: 12px; font-weight: 500; letter-spacing: 0.16em; text-transform: uppercase; color: #5A5A57">Shop</span>
+<a href="#">Men</a><a href="#">Women</a><a href="#">Kids</a><a href="#">Home</a>
+</div>
+<div style="display: flex; flex-direction: column; gap: 10px; font-size: 14px">
+<span style="font-size: 12px; font-weight: 500; letter-spacing: 0.16em; text-transform: uppercase; color: #5A5A57">Help</span>
+<a href="#">Shipping</a><a href="#">Returns &amp; exchanges</a><a href="#">Size guide</a><a href="#">Contact</a>
+</div>
+<div style="display: flex; flex-direction: column; gap: 10px; font-size: 14px">
+<span style="font-size: 12px; font-weight: 500; letter-spacing: 0.16em; text-transform: uppercase; color: #5A5A57">Follow</span>
+<a href="#">Instagram</a><a href="#">Facebook</a><a href="#">WhatsApp</a>
+</div>
+</div>
+<div style="max-width: 1280px; margin: 0 auto; padding: 24px 32px 40px; border-top: 1px solid #2B2B2B; font-size: 12px; color: #5A5A57">© JRM Enterprises</div>
+</footer>
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":4900}}'>
+// Mock product database (placeholder data; images are free Pexels stock photos – replace with the real stock list and photos)
+var PRODUCTS = [
+{ id: 'JRM-M01', title: 'Cotton Oxford Shirt', description: 'Mock description: a regular-fit cotton shirt for everyday wear.', price: 1299, category: 'Men', image: './assets/e02d3b307f3a830febc624e820787029.jpg', stock: 14 },
+{ id: 'JRM-M02', title: 'Linen Blend Kurta', description: 'Mock description: a light, breathable kurta for warm days.', price: 1599, category: 'Men', image: './assets/244613990030ca51f481aa5e15f9ff2d.jpg', stock: 6 },
+{ id: 'JRM-M03', title: 'Cotton Mundu', description: 'Mock description: a classic white cotton mundu with a simple border.', price: 899, category: 'Men', image: './assets/5fa8e2117b9a0a0642d6295ba0e1a0ed.jpg', stock: 0 },
+{ id: 'JRM-W01', title: 'Cotton Kurti', description: 'Mock description: a straight-cut printed kurti for daily wear.', price: 1199, category: 'Women', image: './assets/261c6d71b02a6c6b8a7dde101222fefd.jpg', stock: 9 },
+{ id: 'JRM-W02', title: 'Churidar Set', description: 'Mock description: a three-piece churidar set with dupatta.', price: 1899, category: 'Women', image: './assets/98af95dd70dc46946a48e3aa6a296271.jpg', stock: 4 },
+{ id: 'JRM-W03', title: 'Cotton Dupatta', description: 'Mock description: a soft cotton dupatta in a solid colour.', price: 699, category: 'Women', image: './assets/5ce57bdedf45baf68276cd226c795e3f.jpg', stock: 20 },
+{ id: 'JRM-K01', title: 'Infant Romper Set', description: 'Mock description: a soft cotton romper set for babies.', price: 649, category: 'Kids', image: './assets/5ced7b025b9e5507af6729d2695702c1.jpg', stock: 18 },
+{ id: 'JRM-K02', title: 'Kids T-shirt, Pack of 3', description: 'Mock description: three everyday cotton t-shirts for kids.', price: 799, category: 'Kids', image: './assets/7f6d52df23dbde7f6095854decfe55ad.jpg', stock: 11 },
+{ id: 'JRM-K03', title: 'Girls Cotton Frock', description: 'Mock description: a light cotton frock for everyday wear.', price: 999, category: 'Kids', image: './assets/6185d3abe5ec9ff1c5a0e7c4b4e3aeec.jpg', stock: 3 },
+{ id: 'JRM-H01', title: 'Double Bedsheet Set', description: 'Mock description: a cotton double bedsheet with two pillow covers.', price: 1499, category: 'Home', image: './assets/5ece37cde16adf6c940d7abcc10aaa17.jpg', stock: 7 },
+{ id: 'JRM-H02', title: 'Bath Towel, Pair', description: 'Mock description: two absorbent cotton bath towels.', price: 749, category: 'Home', image: './assets/0af3b7a0f9a00ed46517897e0e38577b.jpg', stock: 15 },
+{ id: 'JRM-H03', title: 'Cotton Lungi', description: 'Mock description: a checked cotton lungi for daily use.', price: 499, category: 'Home', image: './assets/c12e75e352d474bf2fcfb71f6c01fee7.jpg', stock: 25 }
+];
+var CATEGORIES = ['All', 'Men', 'Women', 'Kids', 'Home'];
+
+// Category tags used by the recommendation engine (mock – adjust to the real range)
+var TAGS = {
+'JRM-M01': ['men', 'shirt', 'cotton', 'everyday', 'pairs-mundu'],
+'JRM-M02': ['men', 'ethnic', 'festive', 'cotton', 'pairs-mundu'],
+'JRM-M03': ['men', 'ethnic', 'festive', 'kerala', 'cotton', 'bottomwear'],
+'JRM-W01': ['women', 'ethnic', 'everyday', 'cotton', 'pairs-dupatta'],
+'JRM-W02': ['women', 'ethnic', 'festive', 'set', 'pairs-dupatta'],
+'JRM-W03': ['women', 'ethnic', 'accessory', 'dupatta'],
+'JRM-K01': ['kids', 'infant', 'cotton', 'gift'],
+'JRM-K02': ['kids', 'everyday', 'cotton', 'value-pack'],
+'JRM-K03': ['kids', 'girls', 'festive', 'gift'],
+'JRM-H01': ['home', 'bedding', 'cotton', 'gift'],
+'JRM-H02': ['home', 'bath', 'cotton', 'gift'],
+'JRM-H03': ['home', 'men', 'everyday', 'cotton', 'bottomwear']
+};
+var PAIR_RULES = { 'pairs-mundu': 'bottomwear', 'pairs-dupatta': 'dupatta' }; // "goes with" accessories
+var TAG_LABELS = { ethnic: 'Ethnic wear', festive: 'Festive', cotton: 'Cotton', everyday: 'Everyday', gift: 'Gifting', kerala: 'Kerala classic', bottomwear: 'Mundu & lungi', dupatta: 'Dupatta' };
+// Scores every other in-stock product against the active item and returns the top 2.
+function recommend(products, activeId, cart) {
+var at = TAGS[activeId] || [];
+var active = findProductIn(products, activeId);
+if (!active) return [];
+var scored = products.filter(function (p) { return p.id !== activeId && p.stock > 0; }).map(function (p) {
+var pt = TAGS[p.id] || [], score = 0, why = '';
+var shared = pt.filter(function (t) { return at.indexOf(t) !== -1 && t.indexOf('pairs-') !== 0; });
+score += shared.length;
+if (p.category === active.category) score += 2;
+at.forEach(function (t) { if (PAIR_RULES[t] && pt.indexOf(PAIR_RULES[t]) !== -1) { score += 4; why = 'Goes with your ' + active.title.toLowerCase(); } });
+pt.forEach(function (t) { if (PAIR_RULES[t] && at.indexOf(PAIR_RULES[t]) !== -1) { score += 4; why = 'Pairs with ' + active.title.toLowerCase(); } });
+if (cart[p.id]) score -= 1; // favour items not already in the bag
+if (!why) {
+var named = shared.filter(function (t) { return TAG_LABELS[t]; }).slice(0, 2).map(function (t) { return TAG_LABELS[t]; });
+why = named.length ? 'Also ' + named.join(' · ').toLowerCase() : 'From ' + p.category;
+}
+return { p: p, score: score, why: why };
+});
+scored.sort(function (a, b) { return b.score - a.score || a.p.price - b.p.price; });
+return scored.slice(0, 2);
+}
+
+// Shipping form fields (order = layout order; full = spans both columns)
+var FIELDS = [
+{ id: 'name', label: 'Full name', type: 'text', autocomplete: 'name', inputMode: 'text', full: true },
+{ id: 'phone', label: 'Mobile number', type: 'tel', autocomplete: 'tel', inputMode: 'numeric', full: false },
+{ id: 'email', label: 'Email (optional)', type: 'email', autocomplete: 'email', inputMode: 'email', full: false },
+{ id: 'line1', label: 'House / building, street', type: 'text', autocomplete: 'address-line1', inputMode: 'text', full: true },
+{ id: 'line2', label: 'Area, landmark (optional)', type: 'text', autocomplete: 'address-line2', inputMode: 'text', full: true },
+{ id: 'city', label: 'City / town', type: 'text', autocomplete: 'address-level2', inputMode: 'text', full: false },
+{ id: 'district', label: 'District', type: 'text', autocomplete: 'off', inputMode: 'text', full: false },
+{ id: 'state', label: 'State', type: 'text', autocomplete: 'address-level1', inputMode: 'text', full: false },
+{ id: 'pin', label: 'PIN code', type: 'text', autocomplete: 'postal-code', inputMode: 'numeric', full: false }
+];
+var EMPTY_PAY = { upi: '', cardNumber: '', cardName: '', expiry: '', cvv: '' };
+// Simulated test-mode rules (public Razorpay test details; nothing is sent anywhere)
+var TEST_UPI_OK = 'success@razorpay', TEST_UPI_FAIL = 'failure@razorpay';
+var TEST_CARDS = ['4718609108204366', '5104015555555558', '5104060000000008'];
+var PAY_FIELDS = {
+upi: [{ id: 'upi', label: 'UPI ID', placeholder: 'name@bank', autocomplete: 'off', inputMode: 'email', maxLength: 60, full: true }],
+card: [
+{ id: 'cardNumber', label: 'Card number', placeholder: '0000 0000 0000 0000', autocomplete: 'cc-number', inputMode: 'numeric', maxLength: 19, full: true },
+{ id: 'cardName', label: 'Name on card', placeholder: '', autocomplete: 'cc-name', inputMode: 'text', maxLength: 60, full: true },
+{ id: 'expiry', label: 'Expiry (MM/YY)', placeholder: 'MM/YY', autocomplete: 'cc-exp', inputMode: 'numeric', maxLength: 5, full: false },
+{ id: 'cvv', label: 'CVV', placeholder: '123', autocomplete: 'cc-csc', inputMode: 'numeric', maxLength: 4, full: false }
+]
+};
+function formatPay(id, v) {
+if (id === 'cardNumber') return v.replace(/\D/g, '').slice(0, 16).replace(/(.{4})(?=.)/g, '$1 ');
+if (id === 'expiry') { var d = v.replace(/\D/g, '').slice(0, 4); return d.length > 2 ? d.slice(0, 2) + '/' + d.slice(2) : d; }
+if (id === 'cvv') return v.replace(/\D/g, '').slice(0, 4);
+return v;
+}
+function validatePay(method, p) {
+var e = {};
+if (method === 'upi') {
+if (!/^[a-zA-Z0-9._-]+@[a-zA-Z]+$/.test(p.upi.trim())) e.upi = 'Enter a valid UPI ID, e.g. success@razorpay.';
+} else {
+var num = p.cardNumber.replace(/\s/g, '');
+if (num.length !== 16) e.cardNumber = 'Enter the 16-digit card number.';
+if (!p.cardName.trim()) e.cardName = 'Enter the name on the card.';
+var m = /^(0[1-9]|1[0-2])\/(\d{2})$/.exec(p.expiry);
+if (!m) e.expiry = 'Use MM/YY.';
+else {
+var now = new Date(), yy = now.getFullYear() % 100, mm = now.getMonth() + 1;
+var ey = +m[2], em = +m[1];
+if (ey < yy || (ey === yy && em < mm)) e.expiry = 'This card has expired.';
+}
+if (!/^\d{3,4}$/.test(p.cvv)) e.cvv = 'Enter the 3 or 4-digit CVV.';
+}
+return e;
+}
+// Returns '' on success, or a decline message (simulated gateway response)
+function simulateCharge(method, p) {
+if (method === 'upi') {
+var id = p.upi.trim().toLowerCase();
+if (id === TEST_UPI_OK) return '';
+if (id === TEST_UPI_FAIL) return 'Payment failed (test). Please try again or use another method.';
+return 'Only test UPI IDs work in this mock. Use success@razorpay.';
+}
+if (TEST_CARDS.indexOf(p.cardNumber.replace(/\s/g, '')) !== -1) return '';
+return 'Card declined. Only test card numbers work in this mock – try 4718 6091 0820 4366.';
+}
+function trackingNumber() {
+var chars = 'ABCDEFGHJKLMNPQRSTUVWXYZ23456789', out = '';
+for (var i = 0; i < 6; i++) out += chars.charAt(Math.floor(Math.random() * chars.length));
+var d = new Date();
+var ymd = String(d.getFullYear()).slice(2) + ('0' + (d.getMonth() + 1)).slice(-2) + ('0' + d.getDate()).slice(-2);
+return 'JRM-' + ymd + '-' + out;
+}
+// ---------------------------------------------------------------------------
+// Mock customer data store (in-memory; resets on reload).
+// Real site: use a proper auth provider and a database that enforces these
+// row-level rules on the SERVER (e.g. owner_id = current user), never only in the browser.
+// ---------------------------------------------------------------------------
+function mockHash(pw) { // NOT secure – demo only, so plain passwords are never kept in the table
+var h = 5381; for (var i = 0; i < pw.length; i++) h = ((h << 5) + h + pw.charCodeAt(i)) | 0;
+return 'h' + (h >>> 0).toString(16);
+}
+var SEED_USERS = [
+{ id: 'ADM-0001', role: 'admin', name: 'JRM Admin', email: 'admin@jrm.test', phone: '9847000000', passHash: mockHash('jrmadmin1'), since: '1 Nov 2026' },
+{ id: 'CUS-1001', role: 'customer', name: 'Anu Thomas', email: 'anu@jrm.test', phone: '9847000001', passHash: mockHash('jrmtest1'), since: '2 Nov 2026' },
+{ id: 'CUS-1002', role: 'customer', name: 'Rahul Menon', email: 'rahul@jrm.test', phone: '9847000002', passHash: mockHash('jrmtest2'), since: '9 Nov 2026' }
+];
+var SEED_ORDERS = [
+{ id: 'ORD-1', ownerId: 'CUS-1001', tracking: 'JRM-261104-K7PQ2M', date: '4 Nov 2026', method: 'UPI · success@razorpay', status: 'Delivered',
+items: [{ title: 'Cotton Kurti', qty: 1, line: 1199 }, { title: 'Infant Romper Set', qty: 2, line: 1298 }], total: 2497,
+shipName: 'Anu Thomas', shipLine: 'Chalakudy, Thrissur, Kerala – 680307' },
+{ id: 'ORD-2', ownerId: 'CUS-1001', tracking: 'JRM-261112-Z3HWR8', date: '12 Nov 2026', method: 'card ending 4366', status: 'Shipped',
+items: [{ title: 'Double Bedsheet Set', qty: 1, line: 1499 }], total: 1499,
+shipName: 'Anu Thomas', shipLine: 'Chalakudy, Thrissur, Kerala – 680307' },
+{ id: 'ORD-3', ownerId: 'CUS-1002', tracking: 'JRM-261110-B5XN4T', date: '10 Nov 2026', method: 'UPI · success@razorpay', status: 'Processing',
+items: [{ title: 'Linen Blend Kurta', qty: 1, line: 1599 }, { title: 'Cotton Mundu', qty: 1, line: 899 }], total: 2498,
+shipName: 'Rahul Menon', shipLine: 'Irinjalakuda, Thrissur, Kerala – 680121' }
+];
+// Row-level access rules: every read of customer data goes through these and is
+// filtered by the signed-in customer's id. No other code path reads the tables.
+function rlsProfile(db, session) {
+if (!session) return null;
+return db.users.filter(function (u) { return u.id === session.userId; })[0] || null;
+}
+function rlsOrders(db, session) {
+if (!session) return [];
+return db.orders.filter(function (o) { return o.ownerId === session.userId; });
+}
+// Role check: admin-only reads and writes call this first
+function isAdminSession(db, session) { var u = rlsProfile(db, session); return !!(u && u.role === 'admin'); }
+var ORDER_STATUSES = ['Processing', 'Shipped', 'Delivered'];
+// Discounts collection: code, type ('percent' | 'flat'), value, active
+var SEED_PROMOS = [
+{ code: 'WELCOME10', type: 'percent', value: 10, active: true },
+{ code: 'FESTIVE200', type: 'flat', value: 200, active: true },
+{ code: 'ONAM15', type: 'percent', value: 15, active: false }
+];
+function findPromo(promos, code) { return promos.filter(function (p) { return p.code === code; })[0]; }
+function promoDiscount(promo, subtotal) {
+if (!promo || !promo.active || subtotal <= 0) return 0;
+var d = promo.type === 'percent' ? Math.round(subtotal * promo.value / 100) : promo.value;
+return Math.min(d, subtotal);
+}
+function promoDesc(p) { return p.type === 'percent' ? p.value + '% off' : '₹' + p.value.toLocaleString('en-IN') + ' off'; }
+var LOW_STOCK = 5;
+var AUTH_FIELDS = {
+login: [
+{ id: 'email', label: 'Email', type: 'email', autocomplete: 'email', inputMode: 'email' },
+{ id: 'password', label: 'Password', type: 'password', autocomplete: 'current-password', inputMode: 'text' }
+],
+signup: [
+{ id: 'name', label: 'Full name', type: 'text', autocomplete: 'name', inputMode: 'text' },
+{ id: 'email', label: 'Email', type: 'email', autocomplete: 'email', inputMode: 'email' },
+{ id: 'phone', label: 'Mobile number', type: 'tel', autocomplete: 'tel', inputMode: 'numeric' },
+{ id: 'password', label: 'Password (min 8 characters)', type: 'password', autocomplete: 'new-password', inputMode: 'text' },
+{ id: 'confirm', label: 'Confirm password', type: 'password', autocomplete: 'new-password', inputMode: 'text' }
+]
+};
+var EMPTY_AUTH = { name: '', email: '', phone: '', password: '', confirm: '' };
+function validateAuth(mode, a) {
+var e = {};
+if (!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(a.email.trim())) e.email = 'Enter a valid email address.';
+if (mode === 'login') { if (!a.password) e.password = 'Enter your password.'; return e; }
+if (!a.name.trim()) e.name = 'Enter your full name.';
+if (!/^[6-9][0-9]{9}$/.test(a.phone.replace(/\s/g, ''))) e.phone = 'Enter a valid 10-digit mobile number.';
+if (a.password.length < 8) e.password = 'Use at least 8 characters.';
+if (a.confirm !== a.password) e.confirm = 'Passwords do not match.';
+return e;
+}
+var EMPTY_FORM = { name: '', phone: '', email: '', line1: '', line2: '', city: '', district: '', state: 'Kerala', pin: '' };
+
+function priceLabel(n) { return '₹' + n.toLocaleString('en-IN'); }
+function stockLabel(n) {
+if (n <= 0) return 'Out of Stock';
+if (n <= 5) return 'Only ' + n + ' left';
+return 'In stock (' + n + ')';
+}
+function findProductIn(list, id) { return list.filter(function (p) { return p.id === id; })[0]; }
+function validate(f) {
+var e = {};
+if (!f.name.trim()) e.name = 'Please enter your full name.';
+if (!/^[6-9][0-9]{9}$/.test(f.phone.replace(/\s/g, ''))) e.phone = 'Enter a valid 10-digit mobile number.';
+if (f.email.trim() && !/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(f.email.trim())) e.email = 'Enter a valid email address.';
+if (!f.line1.trim()) e.line1 = 'Please enter your house or street address.';
+if (!f.city.trim()) e.city = 'Please enter your city or town.';
+if (!f.district.trim()) e.district = 'Please enter your district.';
+if (!f.state.trim()) e.state = 'Please enter your state.';
+if (!/^[0-9]{6}$/.test(f.pin.trim())) e.pin = 'Enter a valid 6-digit PIN code.';
+return e;
+}
+
+var BTN_BASE = 'min-height: 48px; width: 100%; font: inherit; font-size: 13px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; border: 1px solid #2B2B2B;';
+var BTN_ON = BTN_BASE + ' background: #2B2B2B; color: #F7F6F2; cursor: pointer;';
+var BTN_OFF = BTN_BASE + ' background: #E8E6E0; color: #5A5A57; border-color: #D6D4CE; cursor: not-allowed;';
+var INPUT_BASE = 'height: 48px; width: 100%; box-sizing: border-box; padding: 0 14px; font: inherit; font-size: 16px; color: #2B2B2B; background: #FFFFFF; border: 1px solid ';
+
+class Component extends DCLogic {
+constructor(props) {
+super(props);
+this.state = {
+filter: 'All', openId: null,
+cart: {}, justAdded: null,
+drawer: false, checkout: false, step: 1,
+form: Object.assign({}, EMPTY_FORM), tried: false,
+payMethod: 'upi', pay: Object.assign({}, EMPTY_PAY), payTried: false, payError: '', processing: false,
+confirmation: null,
+db: { users: SEED_USERS.slice(), orders: SEED_ORDERS.slice(), promos: SEED_PROMOS.map(function (p) { return Object.assign({}, p); }), products: PRODUCTS.map(function (p) { return Object.assign({}, p); }) },
+admin: false, invDraft: {}, recReadyFor: null,
+promoCode: null, promoInput: '', promoMsg: '', promoMsgOk: false, newPromo: { code: '', type: 'percent', value: '' }, newPromoMsg: '', newPromoOk: false,
+session: null, account: false, authMode: 'login', auth: Object.assign({}, EMPTY_AUTH), authTried: false, authError: ''
+};
+}
+componentWillUnmount() { if (this._t) clearTimeout(this._t); if (this._p) clearTimeout(this._p); if (this._r) clearTimeout(this._r); }
+
+findProduct(id) { return findProductIn(this.state.db.products, id); }
+adminUpdateOrder(orderId, status) {
+var st = this.state;
+if (!isAdminSession(st.db, st.session) || ORDER_STATUSES.indexOf(status) === -1) return;
+this.setState({ db: Object.assign({}, st.db, { orders: st.db.orders.map(function (o) { return o.id === orderId ? Object.assign({}, o, { status: status }) : o; }) }) });
+}
+adminTogglePromo(code) {
+var st = this.state;
+if (!isAdminSession(st.db, st.session)) return;
+this.setState({ db: Object.assign({}, st.db, { promos: st.db.promos.map(function (p) { return p.code === code ? Object.assign({}, p, { active: !p.active }) : p; }) }) });
+}
+adminCreatePromo() {
+var st = this.state;
+if (!isAdminSession(st.db, st.session)) return;
+var n = st.newPromo, code = n.code.trim().toUpperCase(), val = n.value.trim();
+var err = '';
+if (!/^[A-Z0-9]{4,20}$/.test(code)) err = 'Code must be 4–20 letters or numbers, no spaces.';
+else if (findPromo(st.db.promos, code)) err = 'A code called ' + code + ' already exists.';
+else if (!/^\d+$/.test(val) || +val <= 0) err = 'Value must be a whole number above 0.';
+else if (n.type === 'percent' && +val > 90) err = 'Percentage discounts can be at most 90%.';
+if (err) { this.setState({ newPromoMsg: err, newPromoOk: false }); return; }
+this.setState({
+db: Object.assign({}, st.db, { promos: st.db.promos.concat([{ code: code, type: n.type, value: +val, active: true }]) }),
+newPromo: { code: '', type: n.type, value: '' }, newPromoMsg: code + ' created and active.', newPromoOk: true
+});
+}
+adminUpdateProduct(id, field, raw) {
+var st = this.state;
+if (!isAdminSession(st.db, st.session)) return;
+var drafts = Object.assign({}, st.invDraft); drafts[id + ':' + field] = raw;
+var clean = String(raw).replace(/[^0-9]/g, '');
+var next = { invDraft: drafts };
+if (clean !== '' && clean === String(raw).trim()) {
+var val = parseInt(clean, 10);
+next.db = Object.assign({}, st.db, { products: st.db.products.map(function (p) { if (p.id !== id) return p; var c = Object.assign({}, p); c[field] = val; return c; }) });
+if (field === 'stock') { // keep shoppers' bags within the new stock
+var cart = Object.assign({}, st.cart);
+if (cart[id]) { if (val <= 0) delete cart[id]; else cart[id] = Math.min(cart[id], val); }
+next.cart = cart;
+}
+}
+this.setState(next);
+}
+openProduct(id) {
+var self = this;
+this.setState({ openId: id, recReadyFor: null });
+if (this._r) clearTimeout(this._r);
+// Simulated engine latency; a real site would call its recommendation service here
+this._r = setTimeout(function () { self.setState({ recReadyFor: id }); }, 900);
+}
+addToCart(p) {
+if (p.stock <= 0) return;
+var cart = Object.assign({}, this.state.cart);
+cart[p.id] = Math.min(p.stock, (cart[p.id] || 0) + 1);
+this.setState({ cart: cart, justAdded: p.id });
+var self = this;
+if (this._t) clearTimeout(this._t);
+this._t = setTimeout(function () { self.setState({ justAdded: null }); }, 1200);
+}
+setQty(id, q) {
+var cart = Object.assign({}, this.state.cart);
+if (q <= 0) delete cart[id]; else cart[id] = q;
+this.setState({ cart: cart });
+}
+
+renderVals() {
+var self = this, st = this.state;
+var filter = st.filter;
+
+// Filter pills
+var base = 'min-height: 44px; padding: 0 22px; font: inherit; font-size: 13px; font-weight: 500; letter-spacing: 0.14em; text-transform: uppercase; cursor: pointer; border: 1px solid #2B2B2B; border-radius: 999px;';
+var pills = CATEGORIES.map(function (c) {
+var on = c === filter;
+return {
+label: c, pressed: on ? 'true' : 'false',
+style: base + (on ? ' background: #2B2B2B; color: #F7F6F2;' : ' background: transparent; color: #2B2B2B;'),
+pick: function () { self.setState({ filter: c }); }
+};
+});
+
+// Cart state
+var inCartQty = function (id) { return st.cart[id] || 0; };
+var enrich = function (p) {
+var soldOut = p.stock <= 0;
+var full = !soldOut && inCartQty(p.id) >= p.stock;
+var label = soldOut ? 'Out of Stock' : (st.justAdded === p.id ? 'Added to bag ✓' : (full ? 'All stock in bag' : 'Add to cart'));
+return Object.assign({}, p, {
+priceLabel: priceLabel(p.price),
+stockLabel: stockLabel(p.stock),
+soldOut: soldOut || full,
+addLabel: label,
+addStyle: (soldOut || full) ? BTN_OFF : BTN_ON,
+add: function () { self.addToCart(p); },
+open: function () { self.openProduct(p.id); }
+});
+};
+var visible = st.db.products.filter(function (p) { return filter === 'All' || p.category === filter; }).map(enrich);
+var found = self.findProduct(st.openId);
+var recLoading = !!found && st.recReadyFor !== st.openId;
+var recList = (found && !recLoading) ? recommend(st.db.products, found.id, st.cart) : [];
+var recs = recList.map(function (x) {
+var e = enrich(x.p);
+return Object.assign(e, { reason: x.why, addStyle: e.addStyle + ' width: auto; min-height: 44px; padding: 0 16px; font-size: 12px;', open: function () { self.openProduct(x.p.id); } });
+});
+var bundleItems = found ? [found].concat(recList.map(function (x) { return x.p; })) : [];
+var bundleTotal = bundleItems.reduce(function (a, p) { return a + p.price; }, 0);
+var canBundle = recList.length === 2 && found && found.stock > 0 && bundleItems.every(function (p) { return (st.cart[p.id] || 0) < p.stock; });
+
+var cartItems = Object.keys(st.cart).map(function (id) {
+var p = self.findProduct(id), q = st.cart[id];
+return {
+id: id, title: p.title, image: p.image, qty: q,
+priceLabel: priceLabel(p.price), lineLabel: priceLabel(p.price * q),
+atMin: q <= 1, atMax: q >= p.stock,
+inc: function () { self.setQty(id, Math.min(p.stock, q + 1)); },
+dec: function () { self.setQty(id, Math.max(1, q - 1)); },
+remove: function () { self.setQty(id, 0); }
+};
+});
+var cartCount = cartItems.reduce(function (a, i) { return a + i.qty; }, 0);
+var subtotal = Object.keys(st.cart).reduce(function (a, id) { return a + self.findProduct(id).price * st.cart[id]; }, 0);
+var cartEmpty = cartItems.length === 0;
+var appliedPromo = st.promoCode ? findPromo(st.db.promos, st.promoCode) : null;
+var promoLive = !!(appliedPromo && appliedPromo.active);
+var discount = promoLive ? promoDiscount(appliedPromo, subtotal) : 0;
+var promoMsg = st.promoMsg, promoMsgOk = st.promoMsgOk;
+if (st.promoCode && !promoLive) { promoMsg = 'Code ' + st.promoCode + ' is no longer active, so no discount is applied.'; promoMsgOk = false; }
+
+// Checkout form
+var errors = st.tried ? validate(st.form) : {};
+var fields = FIELDS.map(function (fd) {
+var err = errors[fd.id] || '';
+return {
+id: 'ship-' + fd.id, label: fd.label, type: fd.type, autocomplete: fd.autocomplete, inputMode: fd.inputMode,
+value: st.form[fd.id],
+error: err, hasError: !!err, invalid: err ? 'true' : 'false',
+wrapStyle: 'display: flex; flex-direction: column; gap: 8px;' + (fd.full ? ' grid-column: 1 / -1;' : ''),
+inputStyle: INPUT_BASE + (err ? '#9B2C2C;' : '#2B2B2B;'),
+onChange: function (e) {
+var form = Object.assign({}, self.state.form);
+form[fd.id] = e.target.value;
+self.setState({ form: form });
+}
+};
+});
+var f = st.form;
+var payErrors = st.payTried ? validatePay(st.payMethod, st.pay) : {};
+var payFields = PAY_FIELDS[st.payMethod].map(function (pf) {
+var err = payErrors[pf.id] || '';
+return {
+id: 'pay-' + pf.id, label: pf.label, placeholder: pf.placeholder, autocomplete: pf.autocomplete, inputMode: pf.inputMode, maxLength: pf.maxLength,
+value: st.pay[pf.id], error: err, hasError: !!err, invalid: err ? 'true' : 'false',
+wrapStyle: 'display: flex; flex-direction: column; gap: 8px;' + (pf.full ? ' grid-column: 1 / -1;' : ''),
+inputStyle: INPUT_BASE + (err ? '#9B2C2C;' : '#2B2B2B;'),
+onChange: function (e) {
+var pay = Object.assign({}, self.state.pay);
+pay[pf.id] = formatPay(pf.id, e.target.value);
+self.setState({ pay: pay, payError: '' });
+}
+};
+});
+var me = rlsProfile(st.db, st.session);
+var myOrders = rlsOrders(st.db, st.session).slice().reverse().map(function (o) {
+return {
+tracking: o.tracking, date: o.date, method: o.method, status: o.status,
+totalLabel: priceLabel(o.total), shipName: o.shipName, shipLine: o.shipLine,
+items: o.items.map(function (it) { return { title: it.title, qty: it.qty, lineLabel: priceLabel(it.line) }; })
+};
+});
+var authErrors = st.authTried ? validateAuth(st.authMode, st.auth) : {};
+var authFields = AUTH_FIELDS[st.authMode].map(function (af) {
+var err = authErrors[af.id] || '';
+return {
+id: 'auth-' + af.id, label: af.label, type: af.type, autocomplete: af.autocomplete, inputMode: af.inputMode,
+value: st.auth[af.id], error: err, hasError: !!err, invalid: err ? 'true' : 'false',
+inputStyle: INPUT_BASE + (err ? '#9B2C2C;' : '#2B2B2B;'),
+onChange: function (e) {
+var auth = Object.assign({}, self.state.auth);
+auth[af.id] = e.target.value;
+self.setState({ auth: auth, authError: '' });
+}
+};
+});
+var isAdmin = !!(me && me.role === 'admin');
+var adminOrders = [], adminInventory = [], kpi = { revenue: '', orderCount: 0, processed: 0, pending: 0, lowCount: 0, lowNote: '', lowBg: 'transparent' };
+if (isAdmin) {
+var allOrders = st.db.orders;
+var revenue = allOrders.reduce(function (a, o) { return a + o.total; }, 0);
+var processed = allOrders.filter(function (o) { return o.status === 'Shipped' || o.status === 'Delivered'; }).length;
+var low = st.db.products.filter(function (p) { return p.stock <= LOW_STOCK; });
+var outCount = low.filter(function (p) { return p.stock <= 0; }).length;
+kpi = {
+revenue: priceLabel(revenue), orderCount: allOrders.length, processed: processed, pending: allOrders.length - processed,
+lowCount: low.length, lowBg: low.length ? '#EFEDE7' : 'transparent',
+lowNote: low.length ? outCount + ' out of stock · ' + (low.length - outCount) + ' running low' : 'All products well stocked'
+};
+adminOrders = allOrders.slice().reverse().map(function (o, i) {
+var owner = o.ownerId ? st.db.users.filter(function (u) { return u.id === o.ownerId; })[0] : null;
+return {
+tracking: o.tracking, date: o.date, method: o.method, status: o.status, totalLabel: priceLabel(o.total),
+customer: owner ? owner.name : (o.guestName || o.shipName) + ' (guest)',
+customerSub: owner ? owner.email : (o.guestEmail || o.guestPhone || ''),
+itemsText: o.items.map(function (it) { return it.title + ' × ' + it.qty; }).join(', '),
+selectId: 'status-' + i,
+setStatus: function (e) { self.adminUpdateOrder(o.id, e.target.value); }
+};
+});
+adminInventory = st.db.products.map(function (p) {
+var pd = st.invDraft[p.id + ':price'], sd = st.invDraft[p.id + ':stock'];
+var priceValue = pd !== undefined ? pd : String(p.price), stockValue = sd !== undefined ? sd : String(p.stock);
+var badge = p.stock <= 0 ? 'Out of Stock' : (p.stock <= LOW_STOCK ? 'Low stock' : 'In stock');
+var badgeBase = 'display: inline-block; font-size: 11px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; padding: 4px 10px; white-space: nowrap; border: 1px solid ';
+return {
+id: p.id, title: p.title, category: p.category, image: p.image,
+priceId: 'price-' + p.id, stockId: 'stock-' + p.id,
+priceValue: priceValue, stockValue: stockValue,
+priceInvalid: /^\d+$/.test(priceValue.trim()) ? 'false' : 'true',
+stockInvalid: /^\d+$/.test(stockValue.trim()) ? 'false' : 'true',
+onPrice: function (e) { self.adminUpdateProduct(p.id, 'price', e.target.value); },
+onStock: function (e) { self.adminUpdateProduct(p.id, 'stock', e.target.value); },
+badge: badge,
+badgeStyle: p.stock <= 0 ? badgeBase + '#2B2B2B; background: #2B2B2B; color: #F7F6F2;' : (p.stock <= LOW_STOCK ? badgeBase + '#2B2B2B; background: #EFEDE7; color: #2B2B2B;' : badgeBase + '#D6D4CE; color: #4A4A47;')
+};
+});
+}
+var adminPromos = [], np = { code: '', type: 'percent', value: '', hasMsg: false, msg: '', msgStyle: '' }, promoActiveCount = 0;
+if (isAdmin) {
+promoActiveCount = st.db.promos.filter(function (p) { return p.active; }).length;
+adminPromos = st.db.promos.map(function (pc) {
+var base = 'display: inline-block; font-size: 11px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; padding: 4px 10px; border: 1px solid ';
+return {
+code: pc.code, typeLabel: pc.type === 'percent' ? 'Percentage' : 'Flat',
+valueLabel: pc.type === 'percent' ? pc.value + '%' : priceLabel(pc.value),
+statusLabel: pc.active ? 'Active' : 'Off',
+badgeStyle: pc.active ? base + '#2B2B2B; background: #2B2B2B; color: #F7F6F2;' : base + '#D6D4CE; color: #4A4A47;',
+toggleLabel: pc.active ? 'Turn off' : 'Turn on',
+toggleAria: (pc.active ? 'Turn off ' : 'Turn on ') + pc.code,
+toggle: function () { self.adminTogglePromo(pc.code); }
+};
+});
+np = {
+code: st.newPromo.code, type: st.newPromo.type, value: st.newPromo.value,
+hasMsg: !!st.newPromoMsg, msg: st.newPromoMsg,
+msgStyle: 'font-size: 13px; ' + (st.newPromoOk ? 'color: #2B2B2B; font-weight: 500;' : 'color: #9B2C2C;'),
+onCode: function (e) { self.setState({ newPromo: Object.assign({}, self.state.newPromo, { code: e.target.value.toUpperCase() }), newPromoMsg: '' }); },
+onType: function (e) { self.setState({ newPromo: Object.assign({}, self.state.newPromo, { type: e.target.value }), newPromoMsg: '' }); },
+onValue: function (e) { self.setState({ newPromo: Object.assign({}, self.state.newPromo, { value: e.target.value }), newPromoMsg: '' }); },
+create: function () { self.adminCreatePromo(); }
+};
+}
+var tabStyle = function (on) {
+return 'min-height: 48px; border: 0; font: inherit; font-size: 13px; font-weight: 600; letter-spacing: 0.16em; text-transform: uppercase; cursor: pointer;' + (on ? ' background: #2B2B2B; color: #F7F6F2;' : ' background: transparent; color: #2B2B2B;');
+};
+var stepOn = 'display: flex; align-items: baseline; gap: 10px; font-size: 13px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: #2B2B2B; border-bottom: 2px solid #2B2B2B; padding-bottom: 8px;';
+var stepOff = 'display: flex; align-items: baseline; gap: 10px; font-size: 13px; font-weight: 500; letter-spacing: 0.14em; text-transform: uppercase; color: #5A5A57; border-bottom: 2px solid transparent; padding-bottom: 8px;';
+
+return {
+pills: pills, visible: visible, count: visible.length,
+hasDetail: !!found,
+detail: found ? enrich(found) : { id: '', title: '', description: '', category: '', image: '', priceLabel: '', stockLabel: '', soldOut: true, addLabel: '', addStyle: BTN_OFF, add: function () {} },
+close: function () { self.setState({ openId: null }); },
+recLoading: recLoading, recReady: !!found && !recLoading, recs: recs, noRecs: !!found && !recLoading && recs.length === 0,
+canBundle: !!canBundle, bundleLabel: priceLabel(bundleTotal),
+bundleBtnLabel: st.justAdded === 'bundle' ? 'Added to bag ✓' : 'Add all 3 to bag',
+addBundle: function () {
+var cart = Object.assign({}, self.state.cart);
+bundleItems.forEach(function (p) { if (p.stock > 0) cart[p.id] = Math.min(p.stock, (cart[p.id] || 0) + 1); });
+self.setState({ cart: cart, justAdded: 'bundle' });
+if (self._t) clearTimeout(self._t);
+self._t = setTimeout(function () { self.setState({ justAdded: null }); }, 1200);
+},
+
+cartItems: cartItems, cartCount: cartCount, hasItems: cartCount > 0, cartEmpty: cartEmpty,
+cartLabel: 'Open bag, ' + cartCount + (cartCount === 1 ? ' item' : ' items'),
+subtotalLabel: priceLabel(subtotal),
+totalLabel: priceLabel(subtotal - discount),
+discountLabel: priceLabel(discount), hasDiscount: discount > 0,
+promoApplied: promoLive, promoNotApplied: !promoLive,
+promo: promoLive ? { code: appliedPromo.code, desc: promoDesc(appliedPromo) + ' applied' } : { code: '', desc: '' },
+promoInput: st.promoInput,
+promoInvalid: (!!promoMsg && !promoMsgOk) ? 'true' : 'false',
+hasPromoMsg: !!promoMsg, promoMsg: promoMsg,
+promoMsgStyle: 'font-size: 13px; ' + (promoMsgOk ? 'color: #2B2B2B; font-weight: 500;' : 'color: #9B2C2C;'),
+onPromoInput: function (e) { self.setState({ promoInput: e.target.value.toUpperCase(), promoMsg: '' }); },
+applyPromo: function () {
+var code = self.state.promoInput.trim().toUpperCase();
+if (!code) { self.setState({ promoMsg: 'Enter a promo code.', promoMsgOk: false }); return; }
+var p = findPromo(self.state.db.promos, code);
+if (!p || !p.active) { self.setState({ promoMsg: 'That code isn\u2019t valid or has expired.', promoMsgOk: false, promoCode: null }); return; }
+var sub = Object.keys(self.state.cart).reduce(function (a, id) { return a + self.findProduct(id).price * self.state.cart[id]; }, 0);
+self.setState({ promoCode: code, promoInput: '', promoMsg: 'You save ' + priceLabel(promoDiscount(p, sub)) + ' with ' + code + '.', promoMsgOk: true });
+},
+removePromo: function () { self.setState({ promoCode: null, promoMsg: '' }); },
+drawerOpen: st.drawer,
+openCart: function () { self.setState({ drawer: true, openId: null }); },
+closeCart: function () { self.setState({ drawer: false }); },
+checkoutBtnStyle: (cartEmpty ? BTN_OFF : BTN_ON) + ' min-height: 56px;',
+goCheckout: function () { if (Object.keys(self.state.cart).length) self.setState({ drawer: false, checkout: true, step: 1, tried: false }); },
+
+checkoutOpen: st.checkout,
+closeCheckout: function () { self.setState({ checkout: false }); },
+onStep1: st.step === 1, onStep2: st.step === 2,
+onStep3: st.step === 3 && !!st.confirmation,
+step1Style: st.step === 1 ? stepOn : stepOff,
+step2Style: st.step === 2 ? stepOn : stepOff,
+step3Style: st.step === 3 ? stepOn : stepOff,
+fields: fields,
+toStep2: function () {
+var e = validate(self.state.form);
+if (Object.keys(e).length) { self.setState({ tried: true }); return; }
+self.setState({ step: 2, tried: false });
+},
+toStep1: function () { self.setState({ step: 1 }); },
+ship: {
+name: f.name, line1: f.line1, line2: f.line2, hasLine2: !!f.line2.trim(),
+cityLine: [f.city, f.district, f.state].filter(function (x) { return x.trim(); }).join(', ') + ' – ' + f.pin,
+contact: f.phone + (f.email.trim() ? ' · ' + f.email.trim() : '')
+},
+placeOrder: function () {
+var cur = self.state;
+if (cur.processing) return;
+var pe = validatePay(cur.payMethod, cur.pay);
+if (Object.keys(pe).length) { self.setState({ payTried: true, payError: '' }); return; }
+self.setState({ processing: true, payError: '', payTried: false });
+self._p = setTimeout(function () {
+var now = self.state;
+var decline = simulateCharge(now.payMethod, now.pay);
+if (decline) { self.setState({ processing: false, payError: decline }); return; }
+var fm = now.form;
+var items = Object.keys(now.cart).map(function (id) {
+var p = self.findProduct(id), q = now.cart[id];
+return { title: p.title, qty: q, lineLabel: priceLabel(p.price * q) };
+});
+var gross = Object.keys(now.cart).reduce(function (a, id) { return a + self.findProduct(id).price * now.cart[id]; }, 0);
+var appliedPromo = now.promoCode ? findPromo(now.db.promos, now.promoCode) : null;
+var savings = promoDiscount(appliedPromo, gross);
+var total = gross - savings; // this discounted amount is what is charged
+var method = now.payMethod === 'upi' ? 'UPI · ' + now.pay.upi.trim().toLowerCase() : 'card ending ' + now.pay.cardNumber.replace(/\s/g, '').slice(-4);
+var confirmation = {
+tracking: trackingNumber(),
+date: new Date().toLocaleDateString('en-IN', { day: 'numeric', month: 'short', year: 'numeric' }),
+method: method,
+firstName: fm.name.trim().split(' ')[0] || 'there',
+name: fm.name, line1: fm.line1, line2: fm.line2, hasLine2: !!fm.line2.trim(),
+cityLine: [fm.city, fm.district, fm.state].filter(function (x) { return x.trim(); }).join(', ') + ' – ' + fm.pin,
+contact: fm.phone + (fm.email.trim() ? ' · ' + fm.email.trim() : ''),
+items: items, totalLabel: priceLabel(total),
+hasSavings: savings > 0, savingsLabel: priceLabel(savings), promoCode: savings ? appliedPromo.code : ''
+};
+var next = { processing: false, step: 3, cart: {}, pay: Object.assign({}, EMPTY_PAY), confirmation: confirmation, promoCode: null, promoInput: '', promoMsg: '' };
+// Link the completed order to the signed-in customer (guest orders are not saved to any account)
+// Every order is stored (admins see all); ownerId links it to the signed-in customer, guests get null.
+// Stock is reduced by the quantities sold.
+var soldProducts = now.db.products.map(function (p) { return now.cart[p.id] ? Object.assign({}, p, { stock: Math.max(0, p.stock - now.cart[p.id]) }) : p; });
+next.db = Object.assign({}, now.db, { products: soldProducts, orders: now.db.orders.concat([{
+id: 'ORD-' + Date.now(), ownerId: now.session ? now.session.userId : null, guestName: fm.name, guestEmail: fm.email.trim(), guestPhone: fm.phone,
+tracking: confirmation.tracking, date: confirmation.date,
+method: confirmation.method, status: 'Processing', total: total,
+items: Object.keys(now.cart).map(function (id) { var p = self.findProduct(id); return { title: p.title, qty: now.cart[id], line: p.price * now.cart[id] }; }),
+shipName: fm.name, shipLine: confirmation.cityLine, promoCode: savings ? appliedPromo.code : null, savings: savings
+}]) });
+self.setState(next);
+}, 1800);
+},
+processing: st.processing, processingAttr: st.processing ? 'true' : 'false',
+placeLabel: st.processing ? 'Processing...' : 'Place order · ' + priceLabel(subtotal - discount),
+placeStyle: st.processing
+? 'min-height: 52px; padding: 0 48px; border: 1px solid #5A5A57; background: #5A5A57; color: #F7F6F2; font: inherit; font-size: 13px; font-weight: 600; letter-spacing: 0.16em; text-transform: uppercase; cursor: progress;'
+: 'min-height: 52px; padding: 0 48px; border: 1px solid #2B2B2B; background: #2B2B2B; color: #F7F6F2; font: inherit; font-size: 13px; font-weight: 600; letter-spacing: 0.16em; text-transform: uppercase; cursor: pointer;',
+upiSelected: st.payMethod === 'upi' ? 'true' : 'false',
+cardSelected: st.payMethod === 'card' ? 'true' : 'false',
+upiTabStyle: tabStyle(st.payMethod === 'upi'),
+cardTabStyle: tabStyle(st.payMethod === 'card'),
+pickUpi: function () { self.setState({ payMethod: 'upi', payTried: false, payError: '' }); },
+pickCard: function () { self.setState({ payMethod: 'card', payTried: false, payError: '' }); },
+payFields: payFields,
+hasPayError: !!st.payError, payError: st.payError,
+conf: st.confirmation || { hasSavings: false, savingsLabel: '', promoCode: '', tracking: '', date: '', method: '', firstName: '', name: '', line1: '', line2: '', hasLine2: false, cityLine: '', contact: '', items: [], totalLabel: '' },
+isAdmin: isAdmin,
+adminVisible: st.admin && isAdmin,
+openAdmin: function () { if (isAdminSession(self.state.db, self.state.session)) self.setState({ admin: true, account: false, drawer: false, openId: null }); },
+closeAdmin: function () { self.setState({ admin: false }); },
+kpi: kpi, adminOrders: adminOrders, adminInventory: adminInventory, adminPromos: adminPromos, np: np, promoActiveCount: promoActiveCount,
+statusOptions: ORDER_STATUSES.map(function (v) { return { value: v }; }),
+accountOpen: st.account,
+openAccount: function () { self.setState({ account: true, drawer: false, openId: null, authTried: false, authError: '' }); },
+closeAccount: function () { self.setState({ account: false }); },
+loggedIn: !!me, loggedOut: !me,
+accountText: me ? me.name.split(' ')[0] : 'Account',
+accountLabel: me ? 'Account – signed in as ' + me.name : 'Account – login or sign up',
+authTitle: st.authMode === 'login' ? 'Welcome back' : 'Create your account',
+loginSelected: st.authMode === 'login' ? 'true' : 'false',
+signupSelected: st.authMode === 'signup' ? 'true' : 'false',
+loginTabStyle: tabStyle(st.authMode === 'login'),
+signupTabStyle: tabStyle(st.authMode === 'signup'),
+showLogin: function () { self.setState({ authMode: 'login', authTried: false, authError: '' }); },
+showSignup: function () { self.setState({ authMode: 'signup', authTried: false, authError: '' }); },
+authFields: authFields,
+hasAuthError: !!st.authError, authError: st.authError,
+authSubmitLabel: st.authMode === 'login' ? 'Login' : 'Create account',
+submitAuth: function () {
+var cur = self.state, a = cur.auth;
+var e = validateAuth(cur.authMode, a);
+if (Object.keys(e).length) { self.setState({ authTried: true, authError: '' }); return; }
+var email = a.email.trim().toLowerCase();
+var existing = cur.db.users.filter(function (u) { return u.email === email; })[0];
+if (cur.authMode === 'login') {
+if (!existing || existing.passHash !== mockHash(a.password)) { self.setState({ authError: 'Email or password is incorrect.', authTried: false }); return; }
+self.setState({ session: { userId: existing.id }, auth: Object.assign({}, EMPTY_AUTH), authTried: false, authError: '' });
+return;
+}
+if (existing) { self.setState({ authError: 'An account with this email already exists. Please log in.', authTried: false }); return; }
+var user = {
+id: 'CUS-' + (1000 + cur.db.users.length), role: 'customer', name: a.name.trim(), email: email, phone: a.phone.replace(/\s/g, ''),
+passHash: mockHash(a.password), since: new Date().toLocaleDateString('en-IN', { day: 'numeric', month: 'short', year: 'numeric' })
+};
+self.setState({ db: Object.assign({}, cur.db, { users: cur.db.users.concat([user]) }), session: { userId: user.id }, auth: Object.assign({}, EMPTY_AUTH), authTried: false, authError: '' });
+},
+signOut: function () { self.setState({ session: null, authMode: 'login', admin: false, invDraft: {} }); },
+me: me ? { id: me.id, name: me.name, firstName: me.name.split(' ')[0], email: me.email, phone: me.phone, since: me.since } : { id: '', name: '', firstName: '', email: '', phone: '', since: '' },
+myOrders: myOrders, myOrderCount: myOrders.length, noOrders: myOrders.length === 0,
+finishOrder: function () { self.setState({ checkout: false, step: 1, confirmation: null, form: Object.assign({}, EMPTY_FORM), tried: false, payMethod: 'upi' }); }
+};
+}
+}
+</script>
+</body>
+</html>
