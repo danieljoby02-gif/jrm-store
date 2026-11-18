@@ -25,8 +25,12 @@ a{color:#2B2B2B;text-decoration:none}a:hover{color:#000000;text-decoration:under
 .jrm-menu-link{min-height:48px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid #D6D4CE;font-size:15px;font-weight:500;letter-spacing:.12em;text-transform:uppercase;color:#2B2B2B;text-decoration:none}
 .jrm-tap{min-height:44px;display:inline-flex;align-items:center}
 footer a{min-height:44px;display:inline-flex;align-items:center}
+#catalog,#new,#store{scroll-margin-top:72px}
+html{scroll-behavior:smooth}
+@media (prefers-reduced-motion: reduce){html{scroll-behavior:auto}}
 .jrm-nav a{min-height:44px;display:inline-flex;align-items:center}
 @media (max-width:1024px){
+.jrm-new-grid{grid-template-columns:repeat(2,minmax(0,1fr))!important}
 .jrm-wrap{padding-left:24px!important;padding-right:24px!important}
 .jrm-vpad{padding-top:72px!important;padding-bottom:72px!important}
 .jrm-d76{font-size:60px!important}
@@ -54,6 +58,7 @@ footer a{min-height:44px;display:inline-flex;align-items:center}
 .jrm-rec{padding:24px 20px 28px!important}
 .jrm-pad-md{padding:36px 22px!important}
 .jrm-acct-text{display:none}
+.jrm-new-grid{grid-template-columns:repeat(2,minmax(0,1fr))!important;gap:32px 12px!important}
 .jrm-hero-imgs img:last-child{margin-top:32px!important}
 }
 @media (max-width:380px){
@@ -75,11 +80,11 @@ input:focus,select:focus{outline:2px solid #2B2B2B;outline-offset:1px}
 <a href="#" class="jrm-tap" style="font-family: 'Instrument Serif', serif; font-size: 30px; letter-spacing: 0.02em; line-height: 1">JRM</a>
 </div>
 <nav aria-label="Main" class="jrm-nav" style="display: flex; flex-wrap: wrap; gap: 8px 36px; font-size: 13px; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase">
-<a href="#">Men</a>
-<a href="#">Women</a>
-<a href="#">Kids</a>
-<a href="#">Home</a>
-<a href="#">New In</a>
+<a href="#catalog" onClick="{{nav.men}}">Men</a>
+<a href="#catalog" onClick="{{nav.women}}">Women</a>
+<a href="#catalog" onClick="{{nav.kids}}">Kids</a>
+<a href="#catalog" onClick="{{nav.home}}">Home</a>
+<a href="#new">New In</a>
 <a href="#store">Our Store</a>
 <sc-if value="{{isAdmin}}" hint-placeholder-val="{{ false }}"><button type="button" onClick="{{openAdmin}}" style="min-height: 44px; border: 1px solid #2B2B2B; background: #2B2B2B; color: #F7F6F2; padding: 0 14px; font: inherit; font-size: 13px; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; cursor: pointer">Admin</button></sc-if>
 </nav>
@@ -107,13 +112,46 @@ input:focus,select:focus{outline:2px solid #2B2B2B;outline-offset:1px}
 <h1 class="jrm-d76" style="margin: 0; font-family: 'Instrument Serif', serif; font-weight: 400; font-size: 76px; line-height: 1.02; letter-spacing: -0.01em">Clothing for every day, made to last.</h1>
 <p style="margin: 0; font-size: 18px; line-height: 1.7; color: #4A4A47; max-width: 440px">Comfortable clothes for every age, from your little one’s first outfit to a crisp mundu for festive days.</p>
 <div style="display: flex; flex-wrap: wrap; gap: 16px; margin-top: 8px">
-<a href="#" style="background: #2B2B2B; color: #F7F6F2; padding: 16px 32px; font-size: 13px; font-weight: 500; letter-spacing: 0.14em; text-transform: uppercase">Shop the collection</a>
+<a href="#catalog" onClick="{{nav.all}}" style="background: #2B2B2B; color: #F7F6F2; padding: 16px 32px; font-size: 13px; font-weight: 500; letter-spacing: 0.14em; text-transform: uppercase">Shop the collection</a>
 <a href="#store" style="border: 1px solid #2B2B2B; padding: 15px 32px; font-size: 13px; font-weight: 500; letter-spacing: 0.14em; text-transform: uppercase">Visit the store</a>
 </div>
 </div>
 <div class="jrm-hero-imgs" style="flex: 1 1 440px; min-width: 0; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; align-items: start">
 <img src="./assets/8d5d784c83c0c0d5dc406b28972496bf.jpg" alt="Two men in white shirts and mundu" style="display: block; width: 100%; aspect-ratio: 2 / 3; object-fit: cover; background: #E8E6E0">
 <img src="./assets/d8b381c02f37740a90420bf1e97894ee.jpg" alt="Mother holding her baby" style="display: block; width: 100%; aspect-ratio: 2 / 3; object-fit: cover; margin-top: 64px; background: #E8E6E0">
+</div>
+</div>
+</section>
+
+<!-- New collection -->
+<section id="new" style="border-bottom: 1px solid #2B2B2B">
+<div class="jrm-wrap jrm-vpad" style="max-width: 1280px; margin: 0 auto; padding: 96px 32px; display: flex; flex-direction: column; gap: 40px">
+<div style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: flex-end; gap: 16px 48px">
+<div style="display: flex; flex-direction: column; gap: 12px; max-width: 560px">
+<p style="margin: 0; font-size: 12px; font-weight: 500; letter-spacing: 0.18em; text-transform: uppercase; color: #5A5A57">New in · [SEASON / COLLECTION NAME]</p>
+<h2 class="jrm-d48" style="margin: 0; font-family: 'Instrument Serif', serif; font-weight: 400; font-size: 48px; line-height: 1.1">The new collection</h2>
+<p style="margin: 0; font-size: 17px; line-height: 1.7; color: #4A4A47">Just arrived in store and online. [ONE LINE ON WHAT'S NEW THIS SEASON]</p>
+</div>
+<a href="#catalog" onClick="{{nav.all}}" class="jrm-tap" style="font-size: 13px; font-weight: 500; letter-spacing: 0.14em; text-transform: uppercase; border-bottom: 1px solid #2B2B2B">Shop everything</a>
+</div>
+<div class="jrm-new-grid" style="display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 32px">
+<sc-for list="{{newItems}}" as="p" hint-placeholder-count="4">
+<article style="display: flex; flex-direction: column; gap: 14px">
+<div style="position: relative">
+<img src="{{p.image}}" alt="{{p.title}}" style="display: block; width: 100%; aspect-ratio: 3 / 4; object-fit: cover; background: #E8E6E0">
+<span style="position: absolute; top: 12px; left: 12px; background: #F7F6F2; border: 1px solid #2B2B2B; padding: 4px 10px; font-size: 11px; font-weight: 600; letter-spacing: 0.16em; text-transform: uppercase">New</span>
+</div>
+<div style="display: flex; flex-direction: column; gap: 4px; border-top: 1px solid #2B2B2B; padding-top: 12px">
+<span style="font-size: 12px; font-weight: 500; letter-spacing: 0.14em; text-transform: uppercase; color: #5A5A57">{{p.category}}</span>
+<h3 style="margin: 0; font-size: 17px; font-weight: 500; line-height: 1.4">{{p.title}}</h3>
+<span style="font-size: 16px; font-weight: 600">{{p.priceLabel}}</span>
+</div>
+<div style="display: flex; flex-wrap: wrap; gap: 8px 16px; align-items: center">
+<button onClick="{{p.add}}" disabled="{{p.soldOut}}" style="{{p.newAddStyle}}">{{p.addLabel}}</button>
+<button onClick="{{p.open}}" style="min-height: 44px; border: 0; background: transparent; padding: 0; font: inherit; font-size: 12px; font-weight: 500; letter-spacing: 0.14em; text-transform: uppercase; color: #2B2B2B; text-decoration: underline; text-underline-offset: 4px; cursor: pointer">View details</button>
+</div>
+</article>
+</sc-for>
 </div>
 </div>
 </section>
@@ -224,6 +262,7 @@ input:focus,select:focus{outline:2px solid #2B2B2B;outline-offset:1px}
 <sc-for list="{{menuCats}}" as="mc" hint-placeholder-count="4">
 <a href="#catalog" class="jrm-menu-link" onClick="{{mc.go}}">{{mc.label}}<span aria-hidden="true">→</span></a>
 </sc-for>
+<a href="#new" class="jrm-menu-link" onClick="{{closeMenu}}">New In<span aria-hidden="true">→</span></a>
 <a href="#store" class="jrm-menu-link" onClick="{{closeMenu}}">Our Store<span aria-hidden="true">→</span></a>
 <button type="button" class="jrm-menu-link" onClick="{{menuAccount}}" style="width: 100%; border-top: 0; border-left: 0; border-right: 0; background: transparent; padding: 0; font: inherit; font-size: 15px; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; cursor: pointer">{{menuAccountLabel}}<span aria-hidden="true">→</span></button>
 <sc-if value="{{isAdmin}}" hint-placeholder-val="{{ false }}"><button type="button" class="jrm-menu-link" onClick="{{menuAdmin}}" style="width: 100%; border-top: 0; border-left: 0; border-right: 0; background: transparent; padding: 0; font: inherit; font-size: 15px; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; cursor: pointer">Admin dashboard<span aria-hidden="true">→</span></button></sc-if>
@@ -704,18 +743,18 @@ input:focus,select:focus{outline:2px solid #2B2B2B;outline-offset:1px}
 <div class="jrm-wrap jrm-vpad" style="max-width: 1280px; margin: 0 auto; padding: 96px 32px; display: flex; flex-direction: column; gap: 48px">
 <div style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: baseline; gap: 16px">
 <h2 class="jrm-d48" style="margin: 0; font-family: 'Instrument Serif', serif; font-weight: 400; font-size: 48px; line-height: 1.1">Shop by</h2>
-<a href="#" class="jrm-tap" style="font-size: 13px; font-weight: 500; letter-spacing: 0.14em; text-transform: uppercase">View all</a>
+<a href="#catalog" onClick="{{nav.all}}" class="jrm-tap" style="font-size: 13px; font-weight: 500; letter-spacing: 0.14em; text-transform: uppercase">View all</a>
 </div>
 <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 32px">
-<a href="#" style="display: flex; flex-direction: column; gap: 16px">
+<a href="#catalog" onClick="{{nav.men}}" style="display: flex; flex-direction: column; gap: 16px">
 <img src="./assets/4b61da041baa3b3f16d7fad90d64deff.jpg" alt="Man in a cream shirt and mundu" style="display: block; width: 100%; aspect-ratio: 3 / 4; object-fit: cover; background: #E8E6E0">
 <span style="display: flex; justify-content: space-between; border-top: 1px solid #2B2B2B; padding-top: 14px; font-size: 13px; font-weight: 500; letter-spacing: 0.14em; text-transform: uppercase">Men <span aria-hidden="true">→</span></span>
 </a>
-<a href="#" style="display: flex; flex-direction: column; gap: 16px">
+<a href="#catalog" onClick="{{nav.women}}" style="display: flex; flex-direction: column; gap: 16px">
 <img src="./assets/71aea2bae1119a862bbe3d9acc906c47.jpg" alt="Woman in a Kerala saree" style="display: block; width: 100%; aspect-ratio: 3 / 4; object-fit: cover; background: #E8E6E0">
 <span style="display: flex; justify-content: space-between; border-top: 1px solid #2B2B2B; padding-top: 14px; font-size: 13px; font-weight: 500; letter-spacing: 0.14em; text-transform: uppercase">Women <span aria-hidden="true">→</span></span>
 </a>
-<a href="#" style="display: flex; flex-direction: column; gap: 16px">
+<a href="#catalog" onClick="{{nav.kids}}" style="display: flex; flex-direction: column; gap: 16px">
 <img src="./assets/8f9442536379795ae8acc0ac77902a64.jpg" alt="Two girls in traditional pattu pavada" style="display: block; width: 100%; aspect-ratio: 3 / 4; object-fit: cover; background: #E8E6E0">
 <span style="display: flex; justify-content: space-between; border-top: 1px solid #2B2B2B; padding-top: 14px; font-size: 13px; font-weight: 500; letter-spacing: 0.14em; text-transform: uppercase">Kids <span aria-hidden="true">→</span></span>
 </a>
@@ -726,9 +765,9 @@ input:focus,select:focus{outline:2px solid #2B2B2B;outline-offset:1px}
 <!-- Brand statement -->
 <section style="border-bottom: 1px solid #2B2B2B">
 <div class="jrm-wrap jrm-vpad" style="max-width: 880px; margin: 0 auto; padding: 120px 32px; text-align: center; display: flex; flex-direction: column; gap: 28px; align-items: center">
-<p style="margin: 0; font-size: 12px; font-weight: 500; letter-spacing: 0.18em; text-transform: uppercase; color: #5A5A57">About JRM</p>
-<p class="jrm-d40" style="margin: 0; font-family: 'Instrument Serif', serif; font-size: 40px; line-height: 1.3">[BRAND STATEMENT – a short, honest line on what JRM stands for]</p>
-<a href="#" class="jrm-tap" style="font-size: 13px; font-weight: 500; letter-spacing: 0.14em; text-transform: uppercase; border-bottom: 1px solid #2B2B2B; padding-bottom: 4px">Our story</a>
+
+<p class="jrm-d40" style="margin: 0; font-family: 'Instrument Serif', serif; font-size: 40px; line-height: 1.3; width: 907px; height: 229px"><b><u>About JRM</u><br>Clothes For The Whole Family. Under One Roof.<br></b><br>We didn’t set out to build a big store. We set out to build the right one. Everything your family needs. Nothing it doesn’t.</p>
+<a href="#" class="jrm-tap" style="font-size: 13px; font-weight: 500; letter-spacing: 0.14em; text-transform: uppercase; border-bottom: 1px solid #2B2B2B; padding-bottom: 4px"><br></a>
 </div>
 </section>
 
@@ -757,7 +796,7 @@ input:focus,select:focus{outline:2px solid #2B2B2B;outline-offset:1px}
 </div>
 <div style="display: flex; flex-direction: column; gap: 10px; font-size: 14px">
 <span style="font-size: 12px; font-weight: 500; letter-spacing: 0.16em; text-transform: uppercase; color: #5A5A57">Shop</span>
-<a href="#">Men</a><a href="#">Women</a><a href="#">Kids</a><a href="#">Home</a>
+<a href="#catalog" onClick="{{nav.men}}">Men</a><a href="#catalog" onClick="{{nav.women}}">Women</a><a href="#catalog" onClick="{{nav.kids}}">Kids</a><a href="#catalog" onClick="{{nav.home}}">Home</a><a href="#new">New In</a>
 </div>
 <div style="display: flex; flex-direction: column; gap: 10px; font-size: 14px">
 <span style="font-size: 12px; font-weight: 500; letter-spacing: 0.16em; text-transform: uppercase; color: #5A5A57">Help</span>
@@ -773,7 +812,7 @@ input:focus,select:focus{outline:2px solid #2B2B2B;outline-offset:1px}
 
 </div>
 </x-dc>
-<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":4900}}'>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":5800}}'>
 // Mock product database (placeholder data; images are free Pexels stock photos – replace with the real stock list and photos)
 var PRODUCTS = [
 { id: 'JRM-M01', title: 'Cotton Oxford Shirt', description: 'Mock description: a regular-fit cotton shirt for everyday wear.', price: 1299, category: 'Men', image: './assets/e02d3b307f3a830febc624e820787029.jpg', stock: 14 },
@@ -790,6 +829,8 @@ var PRODUCTS = [
 { id: 'JRM-H03', title: 'Cotton Lungi', description: 'Mock description: a checked cotton lungi for daily use.', price: 499, category: 'Home', image: './assets/c12e75e352d474bf2fcfb71f6c01fee7.jpg', stock: 25 }
 ];
 var CATEGORIES = ['All', 'Men', 'Women', 'Kids', 'Home'];
+// Products shown in the New collection section (mock pick – replace with the real new arrivals)
+var NEW_IN = ['JRM-W02', 'JRM-K03', 'JRM-M02', 'JRM-H01'];
 
 // Category tags used by the recommendation engine (mock – adjust to the real range)
 var TAGS = {
@@ -1117,6 +1158,10 @@ open: function () { self.openProduct(p.id); }
 });
 };
 var visible = st.db.products.filter(function (p) { return filter === 'All' || p.category === filter; }).map(enrich);
+var newItems = NEW_IN.map(function (id) { return self.findProduct(id); }).filter(Boolean).map(function (p) {
+var e = enrich(p);
+return Object.assign(e, { newAddStyle: e.addStyle + ' width: auto; min-height: 44px; padding: 0 18px; font-size: 12px;' });
+});
 var found = self.findProduct(st.openId);
 var recLoading = !!found && st.recReadyFor !== st.openId;
 var recList = (found && !recLoading) ? recommend(st.db.products, found.id, st.cart) : [];
@@ -1399,6 +1444,14 @@ payFields: payFields,
 hasPayError: !!st.payError, payError: st.payError,
 conf: st.confirmation || { hasSavings: false, savingsLabel: '', promoCode: '', tracking: '', date: '', method: '', firstName: '', name: '', line1: '', line2: '', hasLine2: false, cityLine: '', contact: '', items: [], totalLabel: '' },
 isAdmin: isAdmin,
+newItems: newItems,
+nav: {
+all: function () { self.setState({ filter: 'All', menu: false }); },
+men: function () { self.setState({ filter: 'Men', menu: false }); },
+women: function () { self.setState({ filter: 'Women', menu: false }); },
+kids: function () { self.setState({ filter: 'Kids', menu: false }); },
+home: function () { self.setState({ filter: 'Home', menu: false }); }
+},
 menuOpen: st.menu, menuExpanded: st.menu ? 'true' : 'false',
 openMenu: function () { self.setState({ menu: true, drawer: false }); },
 closeMenu: function () { self.setState({ menu: false }); },
