@@ -21,6 +21,10 @@ a{color:#2B2B2B;text-decoration:none}a:hover{color:#000000;text-decoration:under
 .jrm-spin{animation:jrmSpin 900ms linear infinite}
 @media (prefers-reduced-motion: reduce){.jrm-spin{animation-duration:2400ms}}
 @keyframes jrmSlideLeft{from{transform:translateX(-100%)}to{transform:translateX(0)}}
+@keyframes jrmHeroIn{from{transform:translateX(12%);opacity:0}to{transform:translateX(0);opacity:1}}
+.jrm-hero-slide{animation:jrmHeroIn 800ms cubic-bezier(.2,.7,.2,1)}
+.jrm-split-inset{position:absolute;width:34%;aspect-ratio:3/4;object-fit:cover;border:8px solid #F7F6F2;display:block;background:#E8E6E0}
+@media (prefers-reduced-motion: reduce){.jrm-hero-slide{animation:jrmFadeIn 300ms ease-out}}
 .jrm-burger{display:none}
 .jrm-menu-link{min-height:48px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid #D6D4CE;font-size:15px;font-weight:500;letter-spacing:.12em;text-transform:uppercase;color:#2B2B2B;text-decoration:none}
 .jrm-tap{min-height:44px;display:inline-flex;align-items:center}
@@ -31,6 +35,7 @@ html{scroll-behavior:smooth}
 @media (prefers-reduced-motion: reduce){html{scroll-behavior:auto}}
 .jrm-nav a{min-height:44px;display:inline-flex;align-items:center}
 @media (max-width:1024px){
+.jrm-split-text{padding:64px 32px!important}
 .jrm-new-grid{grid-template-columns:repeat(2,minmax(0,1fr))!important}
 .jrm-wrap{padding-left:24px!important;padding-right:24px!important}
 .jrm-vpad{padding-top:72px!important;padding-bottom:72px!important}
@@ -59,8 +64,13 @@ html{scroll-behavior:smooth}
 .jrm-rec{padding:24px 20px 28px!important}
 .jrm-pad-md{padding:36px 22px!important}
 .jrm-acct-text{display:none}
+.jrm-split{grid-template-columns:minmax(0,1fr)!important;min-height:0!important}
+.jrm-split-img{order:-1!important;min-height:360px!important}
+.jrm-split-text{padding:40px 20px 48px!important}
+.jrm-full{min-height:560px!important}
+.jrm-collage{height:380px!important}
+.jrm-split-inset{width:38%!important;border-width:6px!important}
 .jrm-new-grid{grid-template-columns:repeat(2,minmax(0,1fr))!important;gap:32px 12px!important}
-.jrm-hero-imgs img:last-child{margin-top:32px!important}
 }
 @media (max-width:380px){
 .jrm-prod-grid{grid-template-columns:minmax(0,1fr)!important}
@@ -105,21 +115,85 @@ input:focus,select:focus{outline:2px solid #2B2B2B;outline-offset:1px}
 </div>
 </header>
 
-<!-- Hero -->
-<section style="border-bottom: 1px solid #2B2B2B">
-<div class="jrm-wrap jrm-vpad" style="max-width: 1280px; margin: 0 auto; padding: 96px 32px; display: flex; flex-wrap: wrap; gap: 48px; align-items: center">
-<div style="flex: 1 1 440px; display: flex; flex-direction: column; gap: 28px">
+<!-- Hero (auto-rotating slides, a different layout per slide) -->
+<section aria-roledescription="carousel" aria-label="Featured" onMouseEnter="{{heroHoverOn}}" onMouseLeave="{{heroHoverOff}}" style="border-bottom: 1px solid #2B2B2B; overflow: hidden">
+<sc-for list="{{heroSlides}}" as="hs" hint-placeholder-count="1">
+<sc-if value="{{hs.active}}" hint-placeholder-val="{{ true }}">
+<div role="group" aria-roledescription="slide" aria-label="{{hs.position}}" class="jrm-hero-slide">
 
-<h1 class="jrm-d76" style="margin: 0; font-family: 'Instrument Serif', serif; font-weight: 400; font-size: 76px; line-height: 1.02; letter-spacing: -0.01em; height: 330px; width: 614px"><b>Your idea, <br>need &amp; want of<br>clothing for every day, made to last.</b></h1>
-<p style="margin: 0; font-size: 18px; line-height: 1.7; color: #4A4A47; max-width: 440px">Comfortable clothes for every age, from your little one’s first outfit to a crisp mundu for festive days.</p>
+<sc-if value="{{hs.isSplit}}" hint-placeholder-val="{{ true }}">
+<div class="jrm-split" style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); min-height: 680px">
+<div class="jrm-split-text" style="{{hs.splitTextStyle}}">
+<div style="max-width: 560px; display: flex; flex-direction: column; gap: 28px">
+<p style="margin: 0; font-size: 12px; font-weight: 500; letter-spacing: 0.18em; text-transform: uppercase; color: #5A5A57">{{hs.eyebrow}}</p>
+<h1 class="jrm-d76" style="margin: 0; font-family: 'Instrument Serif', serif; font-weight: 700; font-size: 76px; line-height: 1.02; letter-spacing: -0.01em; white-space: pre-line; color: #2B2B2B">{{hs.title}}</h1>
+<p style="margin: 0; font-size: 18px; line-height: 1.7; color: #4A4A47; max-width: 460px">{{hs.body}}</p>
 <div style="display: flex; flex-wrap: wrap; gap: 16px; margin-top: 8px">
-<a href="#catalog" onClick="{{nav.all}}" style="background: #2B2B2B; color: #F7F6F2; padding: 16px 32px; font-size: 13px; font-weight: 500; letter-spacing: 0.14em; text-transform: uppercase">Shop the collection</a>
-<a href="#store" style="border: 1px solid #2B2B2B; padding: 15px 32px; font-size: 13px; font-weight: 500; letter-spacing: 0.14em; text-transform: uppercase">Visit the store</a>
+<a href="{{hs.cta1Href}}" onClick="{{hs.cta1Go}}" style="background: #2B2B2B; color: #F7F6F2; padding: 16px 32px; font-size: 13px; font-weight: 500; letter-spacing: 0.14em; text-transform: uppercase; text-decoration: none">{{hs.cta1}}</a>
+<a href="{{hs.cta2Href}}" target="{{hs.cta2Target}}" rel="noopener" style="border: 1px solid #2B2B2B; color: #2B2B2B; padding: 15px 32px; font-size: 13px; font-weight: 500; letter-spacing: 0.14em; text-transform: uppercase; text-decoration: none">{{hs.cta2}}</a>
 </div>
 </div>
-<div class="jrm-hero-imgs" style="flex: 1 1 440px; min-width: 0; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; align-items: start">
-<img src="../assets/8d5d784c83c0c0d5dc406b28972496bf.jpg" alt="Two men in white shirts and mundu" style="display: block; width: 100%; aspect-ratio: 2 / 3; object-fit: cover; background: #E8E6E0">
-<img src="../assets/d8b381c02f37740a90420bf1e97894ee.jpg" alt="Mother holding her baby" style="display: block; width: 100%; aspect-ratio: 2 / 3; object-fit: cover; margin-top: 64px; background: #E8E6E0">
+</div>
+<div class="jrm-split-img" style="{{hs.splitImgStyle}}">
+<img src="{{hs.img1}}" alt="{{hs.alt1}}" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; display: block; background: #E8E6E0">
+<img src="{{hs.img2}}" alt="{{hs.alt2}}" class="jrm-split-inset" style="{{hs.insetStyle}}">
+</div>
+</div>
+</sc-if>
+
+<sc-if value="{{hs.isFull}}" hint-placeholder-val="{{ false }}">
+<div class="jrm-full" style="position: relative; min-height: 680px; display: flex; align-items: center; background: #2B2B2B">
+<img src="{{hs.img1}}" alt="{{hs.alt1}}" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; display: block">
+<div aria-hidden="true" style="{{hs.shadeStyle}}"></div>
+<div class="jrm-wrap" style="position: relative; width: 100%; max-width: 1280px; margin: 0 auto; padding: 96px 32px; box-sizing: border-box; display: flex; justify-content: {{hs.fullAlign}}">
+<div style="max-width: 560px; display: flex; flex-direction: column; gap: 28px">
+<p style="margin: 0; font-size: 12px; font-weight: 500; letter-spacing: 0.18em; text-transform: uppercase; color: #E8E6E0">{{hs.eyebrow}}</p>
+<h1 class="jrm-d76" style="margin: 0; font-family: 'Instrument Serif', serif; font-weight: 700; font-size: 76px; line-height: 1.02; letter-spacing: -0.01em; white-space: pre-line; color: #F7F6F2">{{hs.title}}</h1>
+<p style="margin: 0; font-size: 18px; line-height: 1.7; color: #F7F6F2; max-width: 460px">{{hs.body}}</p>
+<div style="display: flex; flex-wrap: wrap; gap: 16px; margin-top: 8px">
+<a href="{{hs.cta1Href}}" onClick="{{hs.cta1Go}}" style="background: #F7F6F2; color: #2B2B2B; padding: 16px 32px; font-size: 13px; font-weight: 500; letter-spacing: 0.14em; text-transform: uppercase; text-decoration: none">{{hs.cta1}}</a>
+<a href="{{hs.cta2Href}}" target="{{hs.cta2Target}}" rel="noopener" style="border: 1px solid #F7F6F2; color: #F7F6F2; padding: 15px 32px; font-size: 13px; font-weight: 500; letter-spacing: 0.14em; text-transform: uppercase; text-decoration: none">{{hs.cta2}}</a>
+</div>
+</div>
+</div>
+</div>
+</sc-if>
+
+<sc-if value="{{hs.isCollage}}" hint-placeholder-val="{{ false }}">
+<div class="jrm-wrap jrm-vpad" style="max-width: 1280px; margin: 0 auto; padding: 88px 32px; display: flex; flex-wrap: wrap; gap: 48px; align-items: center; min-height: 680px; box-sizing: border-box">
+<div style="flex: 1 1 400px; min-width: 0; display: flex; flex-direction: column; gap: 28px">
+<p style="margin: 0; font-size: 12px; font-weight: 500; letter-spacing: 0.18em; text-transform: uppercase; color: #5A5A57">{{hs.eyebrow}}</p>
+<h1 class="jrm-d76" style="margin: 0; font-family: 'Instrument Serif', serif; font-weight: 700; font-size: 76px; line-height: 1.02; letter-spacing: -0.01em; white-space: pre-line; color: #2B2B2B">{{hs.title}}</h1>
+<p style="margin: 0; font-size: 18px; line-height: 1.7; color: #4A4A47; max-width: 460px">{{hs.body}}</p>
+<div style="display: flex; flex-wrap: wrap; gap: 16px; margin-top: 8px">
+<a href="{{hs.cta1Href}}" onClick="{{hs.cta1Go}}" style="background: #2B2B2B; color: #F7F6F2; padding: 16px 32px; font-size: 13px; font-weight: 500; letter-spacing: 0.14em; text-transform: uppercase; text-decoration: none">{{hs.cta1}}</a>
+<a href="{{hs.cta2Href}}" target="{{hs.cta2Target}}" rel="noopener" style="border: 1px solid #2B2B2B; color: #2B2B2B; padding: 15px 32px; font-size: 13px; font-weight: 500; letter-spacing: 0.14em; text-transform: uppercase; text-decoration: none">{{hs.cta2}}</a>
+</div>
+</div>
+<div class="jrm-collage" style="flex: 1 1 480px; min-width: 0; display: grid; grid-template-columns: minmax(0, 3fr) minmax(0, 2fr); grid-template-rows: repeat(2, minmax(0, 1fr)); gap: 16px; height: 540px">
+<img src="{{hs.img1}}" alt="{{hs.alt1}}" style="grid-row: 1 / span 2; width: 100%; height: 100%; object-fit: cover; display: block; background: #E8E6E0">
+<img src="{{hs.img2}}" alt="{{hs.alt2}}" style="width: 100%; height: 100%; object-fit: cover; display: block; background: #E8E6E0">
+<img src="{{hs.img3}}" alt="{{hs.alt3}}" style="width: 100%; height: 100%; object-fit: cover; display: block; background: #E8E6E0">
+</div>
+</div>
+</sc-if>
+
+</div>
+</sc-if>
+</sc-for>
+<div class="jrm-wrap" style="max-width: 1280px; margin: 0 auto; padding: 16px 32px 20px; display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 16px">
+<div role="group" aria-label="Choose slide" style="display: flex; align-items: center">
+<sc-for list="{{heroDots}}" as="d" hint-placeholder-count="6">
+<button type="button" aria-label="{{d.label}}" aria-current="{{d.current}}" onClick="{{d.go}}" style="width: 44px; height: 44px; border: 0; background: transparent; display: flex; align-items: center; justify-content: center; cursor: pointer"><span style="{{d.style}}"></span></button>
+</sc-for>
+</div>
+<div style="display: flex; align-items: center; gap: 12px">
+<button type="button" aria-label="Previous slide" onClick="{{heroPrev}}" style="width: 44px; height: 44px; border: 1px solid #2B2B2B; background: transparent; display: flex; align-items: center; justify-content: center; cursor: pointer"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#2B2B2B" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 6l-6 6 6 6"></path></svg></button>
+<button type="button" aria-label="Next slide" onClick="{{heroNext}}" style="width: 44px; height: 44px; border: 1px solid #2B2B2B; background: transparent; display: flex; align-items: center; justify-content: center; cursor: pointer"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#2B2B2B" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 6l6 6-6 6"></path></svg></button>
+<button type="button" aria-label="{{heroPauseLabel}}" onClick="{{heroTogglePause}}" style="width: 44px; height: 44px; border: 1px solid #2B2B2B; background: transparent; display: flex; align-items: center; justify-content: center; cursor: pointer">
+<sc-if value="{{heroPlaying}}" hint-placeholder-val="{{ true }}"><svg width="16" height="16" viewBox="0 0 24 24" fill="#2B2B2B" aria-hidden="true"><rect x="6" y="5" width="4" height="14"></rect><rect x="14" y="5" width="4" height="14"></rect></svg></sc-if>
+<sc-if value="{{heroPaused}}" hint-placeholder-val="{{ false }}"><svg width="16" height="16" viewBox="0 0 24 24" fill="#2B2B2B" aria-hidden="true"><path d="M7 5l12 7-12 7z"></path></svg></sc-if>
+</button>
 </div>
 </div>
 </section>
@@ -830,6 +904,42 @@ var PRODUCTS = [
 { id: 'JRM-H03', title: 'Cotton Lungi', description: 'Mock description: a checked cotton lungi for daily use.', price: 499, category: 'Home', image: '../assets/c12e75e352d474bf2fcfb71f6c01fee7.jpg', stock: 25 }
 ];
 var CATEGORIES = ['All', 'Men', 'Women', 'Kids', 'Home'];
+// Hero slides (rotate every 10 seconds)
+var MAPS_URL = 'https://maps.app.goo.gl/X3cSjj9D9pmM9Bc26';
+var HERO_SLIDES = [
+{ type: 'split', imageSide: 'right', eyebrow: 'JRM Enterprises · Chalakudy', title: 'Your idea,\nneed & want of\nclothing for every day, made to last.',
+body: 'Comfortable clothes for every age, from your little one\u2019s first outfit to a crisp mundu for festive days.',
+cta1: 'Shop the collection', filter: 'All', cta2: 'Visit the store', cta2Href: '#store',
+img1: '../assets/8d5d784c83c0c0d5dc406b28972496bf.jpg', alt1: 'Two men in white shirts and mundu',
+img2: '../assets/d8b381c02f37740a90420bf1e97894ee.jpg', alt2: 'Mother holding her baby' },
+{ type: 'full', textSide: 'right', eyebrow: 'Festive wear', title: 'Dressed For The Occasion.\nWithout The Hunt.',
+body: 'Kurtas, mundu, pattu pavada and churidar sets for weddings, Onam and every celebration in between.',
+cta1: 'Shop festive wear', filter: 'All', cta2: 'See what\u2019s new', cta2Href: '#new',
+img1: '../assets/eb8c3417beb08be964f44425a3b75e3e.jpg', alt1: 'Children in traditional Kerala clothes arranging flowers on stone steps' },
+{ type: 'collage', eyebrow: 'Women', title: 'Everyday Kurtis.\nEasy To Wear.',
+body: 'Cotton kurtis, churidar sets and dupattas that work from morning to evening.',
+cta1: 'Shop women', filter: 'Women', cta2: 'See what\u2019s new', cta2Href: '#new',
+img1: '../assets/da24134fc945c0e94c58dd85c218c46b.jpg', alt1: 'Woman in a yellow floral kurta set',
+img2: '../assets/a27e291e59ec5af72a760f4bc8be36c3.jpg', alt2: 'Woman in a pale green kurti',
+img3: '../assets/71aea2bae1119a862bbe3d9acc906c47.jpg', alt3: 'Woman in a Kerala saree' },
+{ type: 'split', imageSide: 'left', eyebrow: 'Kids', title: 'Little Ones.\nWell Covered.',
+body: 'Rompers, frocks and everyday cotton sets, from the first months to school days.',
+cta1: 'Shop kids', filter: 'Kids', cta2: 'See what\u2019s new', cta2Href: '#new',
+img1: '../assets/c0032b83a95988b8eb7adbc27b5314a3.jpg', alt1: 'Boy in a black shirt and white mundu',
+img2: '../assets/ffcfdc56d749d9d079f67d465f0b5e73.jpg', alt2: 'Two young sisters in traditional dresses' },
+{ type: 'full', textSide: 'left', eyebrow: 'Home', title: 'Soft Cotton.\nFor Every Room.',
+body: 'Bedsheets, towels and lungis in simple cotton, made for daily use.',
+cta1: 'Shop home', filter: 'Home', cta2: 'Visit the store', cta2Href: '#store',
+img1: '../assets/03f5806605278d0e19f99a297d9da6ce.jpg', alt1: 'Bed with soft white pillows and linen' },
+{ type: 'collage', eyebrow: 'Visit us · Old NH Road', title: 'See It In Person.\nOpen All Week.',
+body: 'Walk in any day from 10 AM to 8 PM and see the full range on Old NH Road, Chalakudy.',
+cta1: 'Shop online', filter: 'All', cta2: 'Get directions', cta2Href: MAPS_URL, external: true,
+img1: '../assets/17499a4131be2c4403994b974359b6fc.jpg', alt1: 'Clothing store interior',
+img2: '../assets/89ad6de3bc1089a721f00b13bd06365b.jpg', alt2: 'Clothing rack with neutral garments',
+img3: '../assets/2aed7581aca98a5b04e4f46c49ae5b77.jpg', alt3: 'Minimal clothing display' }
+];
+var HERO_MS = 10000;
+
 // Products shown in the New collection section (mock pick – replace with the real new arrivals)
 var NEW_IN = ['JRM-W02', 'JRM-K03', 'JRM-M02', 'JRM-H01'];
 
@@ -1055,12 +1165,22 @@ form: Object.assign({}, EMPTY_FORM), tried: false,
 payMethod: 'upi', pay: Object.assign({}, EMPTY_PAY), payTried: false, payError: '', processing: false,
 confirmation: null,
 db: { users: SEED_USERS.slice(), orders: SEED_ORDERS.slice(), promos: SEED_PROMOS.map(function (p) { return Object.assign({}, p); }), products: PRODUCTS.map(function (p) { return Object.assign({}, p); }) },
-admin: false, invDraft: {}, recReadyFor: null, menu: false,
+admin: false, invDraft: {}, recReadyFor: null, menu: false, hero: 0, heroPaused: false, heroHover: false,
 promoCode: null, promoInput: '', promoMsg: '', promoMsgOk: false, newPromo: { code: '', type: 'percent', value: '' }, newPromoMsg: '', newPromoOk: false,
 session: null, account: false, authMode: 'login', auth: Object.assign({}, EMPTY_AUTH), authTried: false, authError: ''
 };
 }
-componentWillUnmount() { if (this._t) clearTimeout(this._t); if (this._p) clearTimeout(this._p); if (this._r) clearTimeout(this._r); }
+componentDidMount() { this.startHero(); }
+startHero() {
+var self = this;
+if (this._h) clearInterval(this._h);
+this._h = setInterval(function () {
+if (self.state.heroPaused || self.state.heroHover) return;
+self.setState({ hero: (self.state.hero + 1) % HERO_SLIDES.length });
+}, HERO_MS);
+}
+goHero(i) { this.setState({ hero: (i + HERO_SLIDES.length) % HERO_SLIDES.length }); this.startHero(); }
+componentWillUnmount() { if (this._t) clearTimeout(this._t); if (this._p) clearTimeout(this._p); if (this._r) clearTimeout(this._r); if (this._h) clearInterval(this._h); }
 
 findProduct(id) { return findProductIn(this.state.db.products, id); }
 adminUpdateOrder(orderId, status) {
@@ -1445,6 +1565,39 @@ payFields: payFields,
 hasPayError: !!st.payError, payError: st.payError,
 conf: st.confirmation || { hasSavings: false, savingsLabel: '', promoCode: '', tracking: '', date: '', method: '', firstName: '', name: '', line1: '', line2: '', hasLine2: false, cityLine: '', contact: '', items: [], totalLabel: '' },
 isAdmin: isAdmin,
+heroSlides: HERO_SLIDES.map(function (h, i) {
+return Object.assign({}, h, {
+active: i === st.hero,
+position: (i + 1) + ' of ' + HERO_SLIDES.length,
+cta1Href: '#catalog',
+cta1Go: function () { self.setState({ filter: h.filter }); },
+cta2Target: h.external ? '_blank' : '_self',
+isSplit: h.type === 'split', isFull: h.type === 'full', isCollage: h.type === 'collage',
+img2: h.img2 || '', alt2: h.alt2 || '', img3: h.img3 || '', alt3: h.alt3 || '',
+splitTextStyle: 'display: flex; align-items: center; padding: 88px 64px; box-sizing: border-box; order: ' + (h.imageSide === 'left' ? 2 : 1) + ';',
+splitImgStyle: 'position: relative; min-height: 520px; order: ' + (h.imageSide === 'left' ? 1 : 2) + ';',
+insetStyle: h.imageSide === 'left' ? 'right: -1px; bottom: 32px;' : 'left: -1px; bottom: 32px;',
+fullAlign: h.textSide === 'right' ? 'flex-end' : 'flex-start',
+shadeStyle: 'position: absolute; inset: 0; background: rgba(28, 28, 27, 0.48);',
+cta2Go: function () {}
+});
+}),
+heroDots: HERO_SLIDES.map(function (h, i) {
+var on = i === st.hero;
+return {
+label: 'Go to slide ' + (i + 1), current: on ? 'true' : 'false',
+style: 'display: block; height: 2px; width: ' + (on ? '28px' : '14px') + '; background: ' + (on ? '#2B2B2B' : '#B9B6AE') + '; transition: width 300ms ease, background 300ms ease;',
+go: function () { self.goHero(i); }
+};
+}),
+heroCounter: ('0' + (st.hero + 1)).slice(-2) + ' / ' + ('0' + HERO_SLIDES.length).slice(-2),
+heroPrev: function () { self.goHero(self.state.hero - 1); },
+heroNext: function () { self.goHero(self.state.hero + 1); },
+heroPlaying: !st.heroPaused, heroPaused: st.heroPaused,
+heroPauseLabel: st.heroPaused ? 'Play slideshow' : 'Pause slideshow',
+heroTogglePause: function () { self.setState({ heroPaused: !self.state.heroPaused }); },
+heroHoverOn: function () { self.setState({ heroHover: true }); },
+heroHoverOff: function () { self.setState({ heroHover: false }); },
 newItems: newItems,
 nav: {
 all: function () { self.setState({ filter: 'All', menu: false }); },
