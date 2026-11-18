@@ -20,6 +20,46 @@ a{color:#2B2B2B;text-decoration:none}a:hover{color:#000000;text-decoration:under
 @keyframes jrmSpin{to{transform:rotate(360deg)}}
 .jrm-spin{animation:jrmSpin 900ms linear infinite}
 @media (prefers-reduced-motion: reduce){.jrm-spin{animation-duration:2400ms}}
+@keyframes jrmSlideLeft{from{transform:translateX(-100%)}to{transform:translateX(0)}}
+.jrm-burger{display:none}
+.jrm-menu-link{min-height:48px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid #D6D4CE;font-size:15px;font-weight:500;letter-spacing:.12em;text-transform:uppercase;color:#2B2B2B;text-decoration:none}
+.jrm-tap{min-height:44px;display:inline-flex;align-items:center}
+footer a{min-height:44px;display:inline-flex;align-items:center}
+.jrm-nav a{min-height:44px;display:inline-flex;align-items:center}
+@media (max-width:1024px){
+.jrm-wrap{padding-left:24px!important;padding-right:24px!important}
+.jrm-vpad{padding-top:72px!important;padding-bottom:72px!important}
+.jrm-d76{font-size:60px!important}
+.jrm-d64,.jrm-d56{font-size:48px!important}
+}
+@media (max-width:1100px){
+.jrm-nav{display:none!important}
+.jrm-burger{display:flex!important}
+}
+@media (max-width:600px){
+.jrm-wrap{padding-left:20px!important;padding-right:20px!important}
+.jrm-vpad{padding-top:56px!important;padding-bottom:56px!important}
+.jrm-d76{font-size:44px!important}
+.jrm-d64{font-size:40px!important}
+.jrm-d56,.jrm-d52{font-size:36px!important}
+.jrm-d48{font-size:34px!important}
+.jrm-d44{font-size:32px!important}
+.jrm-d40{font-size:28px!important}
+.jrm-d32{font-size:26px!important}
+.jrm-d30{font-size:26px!important}
+.jrm-form-grid{grid-template-columns:minmax(0,1fr)!important}
+.jrm-prod-grid{grid-template-columns:repeat(2,minmax(0,1fr))!important;gap:32px 12px!important}
+.jrm-detail-info{padding:24px 20px!important}
+.jrm-detail-img{min-height:300px!important}
+.jrm-rec{padding:24px 20px 28px!important}
+.jrm-pad-md{padding:36px 22px!important}
+.jrm-acct-text{display:none}
+.jrm-hero-imgs img:last-child{margin-top:32px!important}
+}
+@media (max-width:380px){
+.jrm-prod-grid{grid-template-columns:minmax(0,1fr)!important}
+}
+
 input:focus,select:focus{outline:2px solid #2B2B2B;outline-offset:1px}
 </style>
 </helmet>
@@ -27,16 +67,21 @@ input:focus,select:focus{outline:2px solid #2B2B2B;outline-offset:1px}
 
 <!-- Sticky navigation -->
 <header style="position: sticky; top: 0; z-index: 10; background: #F7F6F2; border-bottom: 1px solid #2B2B2B">
-<div style="max-width: 1280px; margin: 0 auto; padding: 0 32px; min-height: 76px; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 16px 32px">
-<a href="#" style="font-family: 'Instrument Serif', serif; font-size: 30px; letter-spacing: 0.02em; line-height: 1">JRM</a>
-<nav aria-label="Main" style="display: flex; flex-wrap: wrap; gap: 8px 36px; font-size: 13px; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase">
+<div class="jrm-wrap" style="max-width: 1280px; margin: 0 auto; padding: 0 32px; min-height: 64px; display: flex; flex-wrap: nowrap; align-items: center; justify-content: space-between; gap: 12px 32px">
+<div style="display: flex; align-items: center; gap: 8px">
+<button type="button" class="jrm-burger" aria-label="Open menu" aria-expanded="{{menuExpanded}}" onClick="{{openMenu}}" style="width: 44px; height: 44px; margin-left: -10px; border: 0; background: transparent; align-items: center; justify-content: center; cursor: pointer">
+<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#2B2B2B" stroke-width="1.5" stroke-linecap="round" aria-hidden="true"><path d="M3 6h18M3 12h18M3 18h18"></path></svg>
+</button>
+<a href="#" class="jrm-tap" style="font-family: 'Instrument Serif', serif; font-size: 30px; letter-spacing: 0.02em; line-height: 1">JRM</a>
+</div>
+<nav aria-label="Main" class="jrm-nav" style="display: flex; flex-wrap: wrap; gap: 8px 36px; font-size: 13px; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase">
 <a href="#">Men</a>
 <a href="#">Women</a>
 <a href="#">Kids</a>
 <a href="#">Home</a>
 <a href="#">New In</a>
 <a href="#store">Our Store</a>
-<sc-if value="{{isAdmin}}" hint-placeholder-val="{{ false }}"><button type="button" onClick="{{openAdmin}}" style="min-height: 32px; border: 1px solid #2B2B2B; background: #2B2B2B; color: #F7F6F2; padding: 0 12px; font: inherit; font-size: 13px; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; cursor: pointer">Admin</button></sc-if>
+<sc-if value="{{isAdmin}}" hint-placeholder-val="{{ false }}"><button type="button" onClick="{{openAdmin}}" style="min-height: 44px; border: 1px solid #2B2B2B; background: #2B2B2B; color: #F7F6F2; padding: 0 14px; font: inherit; font-size: 13px; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; cursor: pointer">Admin</button></sc-if>
 </nav>
 <div style="display: flex; align-items: center; gap: 4px">
 <button aria-label="Search" style="width: 44px; height: 44px; border: 0; background: transparent; display: flex; align-items: center; justify-content: center; cursor: pointer">
@@ -44,7 +89,7 @@ input:focus,select:focus{outline:2px solid #2B2B2B;outline-offset:1px}
 </button>
 <button aria-label="{{accountLabel}}" onClick="{{openAccount}}" style="height: 44px; padding: 0 10px; border: 0; background: transparent; display: flex; align-items: center; gap: 8px; cursor: pointer; font: inherit; font-size: 13px; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; color: #2B2B2B">
 <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#2B2B2B" stroke-width="1.5" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="8" r="4"></circle><path d="M4 21c0-4 4-6 8-6s8 2 8 6"></path></svg>
-<span>{{accountText}}</span>
+<span class="jrm-acct-text">{{accountText}}</span>
 </button>
 <button aria-label="{{cartLabel}}" onClick="{{openCart}}" style="position: relative; width: 44px; height: 44px; border: 0; background: transparent; display: flex; align-items: center; justify-content: center; cursor: pointer">
 <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#2B2B2B" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 8h14l-1 13H6L5 8z"></path><path d="M9 8a3 3 0 0 1 6 0"></path></svg>
@@ -56,17 +101,17 @@ input:focus,select:focus{outline:2px solid #2B2B2B;outline-offset:1px}
 
 <!-- Hero -->
 <section style="border-bottom: 1px solid #2B2B2B">
-<div style="max-width: 1280px; margin: 0 auto; padding: 96px 32px; display: flex; flex-wrap: wrap; gap: 64px; align-items: center">
+<div class="jrm-wrap jrm-vpad" style="max-width: 1280px; margin: 0 auto; padding: 96px 32px; display: flex; flex-wrap: wrap; gap: 48px; align-items: center">
 <div style="flex: 1 1 440px; display: flex; flex-direction: column; gap: 28px">
-<p style="margin: 0; font-size: 12px; font-weight: 500; letter-spacing: 0.18em; text-transform: uppercase; color: #5A5A57">Chalakudy · Kerala</p>
-<h1 style="margin: 0; font-family: 'Instrument Serif', serif; font-weight: 400; font-size: 76px; line-height: 1.02; letter-spacing: -0.01em">Clothing for every day, made to last.</h1>
-<p style="margin: 0; font-size: 18px; line-height: 1.7; color: #4A4A47; max-width: 440px">[ONE OR TWO LINES ABOUT JRM – what the store offers and who it's for]</p>
+
+<h1 class="jrm-d76" style="margin: 0; font-family: 'Instrument Serif', serif; font-weight: 400; font-size: 76px; line-height: 1.02; letter-spacing: -0.01em">Clothing for every day, made to last.</h1>
+<p style="margin: 0; font-size: 18px; line-height: 1.7; color: #4A4A47; max-width: 440px">Comfortable clothes for every age, from your little one’s first outfit to a crisp mundu for festive days.</p>
 <div style="display: flex; flex-wrap: wrap; gap: 16px; margin-top: 8px">
 <a href="#" style="background: #2B2B2B; color: #F7F6F2; padding: 16px 32px; font-size: 13px; font-weight: 500; letter-spacing: 0.14em; text-transform: uppercase">Shop the collection</a>
 <a href="#store" style="border: 1px solid #2B2B2B; padding: 15px 32px; font-size: 13px; font-weight: 500; letter-spacing: 0.14em; text-transform: uppercase">Visit the store</a>
 </div>
 </div>
-<div style="flex: 1 1 440px; min-width: 0; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; align-items: start">
+<div class="jrm-hero-imgs" style="flex: 1 1 440px; min-width: 0; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; align-items: start">
 <img src="./assets/8d5d784c83c0c0d5dc406b28972496bf.jpg" alt="Two men in white shirts and mundu" style="display: block; width: 100%; aspect-ratio: 2 / 3; object-fit: cover; background: #E8E6E0">
 <img src="./assets/d8b381c02f37740a90420bf1e97894ee.jpg" alt="Mother holding her baby" style="display: block; width: 100%; aspect-ratio: 2 / 3; object-fit: cover; margin-top: 64px; background: #E8E6E0">
 </div>
@@ -75,9 +120,9 @@ input:focus,select:focus{outline:2px solid #2B2B2B;outline-offset:1px}
 
 <!-- Product catalog -->
 <section id="catalog" style="border-bottom: 1px solid #2B2B2B">
-<div style="max-width: 1280px; margin: 0 auto; padding: 96px 32px; display: flex; flex-direction: column; gap: 40px">
+<div class="jrm-wrap jrm-vpad" style="max-width: 1280px; margin: 0 auto; padding: 96px 32px; display: flex; flex-direction: column; gap: 40px">
 <div style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: baseline; gap: 16px">
-<h2 style="margin: 0; font-family: 'Instrument Serif', serif; font-weight: 400; font-size: 48px; line-height: 1.1">The collection</h2>
+<h2 class="jrm-d48" style="margin: 0; font-family: 'Instrument Serif', serif; font-weight: 400; font-size: 48px; line-height: 1.1">The collection</h2>
 <span style="font-size: 13px; color: #5A5A57">Showing {{count}} products</span>
 </div>
 <div role="group" aria-label="Filter by category" style="display: flex; flex-wrap: wrap; gap: 12px">
@@ -85,7 +130,7 @@ input:focus,select:focus{outline:2px solid #2B2B2B;outline-offset:1px}
 <button aria-pressed="{{pill.pressed}}" onClick="{{pill.pick}}" style="{{pill.style}}">{{pill.label}}</button>
 </sc-for>
 </div>
-<div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 48px 32px">
+<div class="jrm-prod-grid" style="display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 48px 32px">
 <sc-for list="{{visible}}" as="p" hint-placeholder-count="12">
 <article style="display: flex; flex-direction: column; gap: 14px">
 <img src="{{p.image}}" alt="{{p.title}}" style="display: block; width: 100%; aspect-ratio: 3 / 4; object-fit: cover; background: #E8E6E0">
@@ -111,21 +156,21 @@ input:focus,select:focus{outline:2px solid #2B2B2B;outline-offset:1px}
 <sc-if value="{{hasDetail}}" hint-placeholder-val="{{ false }}">
 <div style="position: fixed; inset: 0; z-index: 20; background: rgba(43,43,43,0.45); display: flex; align-items: center; justify-content: center; padding: 24px; overflow-y: auto">
 <div role="dialog" aria-modal="true" aria-label="Product details" style="background: #F7F6F2; border: 1px solid #2B2B2B; max-width: 880px; width: 100%; max-height: calc(100vh - 48px); overflow-y: auto; display: flex; flex-wrap: wrap">
-<div style="flex: 1 1 320px; min-height: 380px; background: #E8E6E0"><sc-if value="{{hasDetail}}" hint-placeholder-val="{{ false }}"><img src="{{detail.image}}" alt="{{detail.title}}" style="display: block; width: 100%; height: 100%; object-fit: cover"></sc-if></div>
-<div style="flex: 1 1 360px; padding: 40px; display: flex; flex-direction: column; gap: 16px">
+<div class="jrm-detail-img" style="flex: 1 1 320px; min-height: 380px; background: #E8E6E0"><sc-if value="{{hasDetail}}" hint-placeholder-val="{{ false }}"><img src="{{detail.image}}" alt="{{detail.title}}" style="display: block; width: 100%; height: 100%; object-fit: cover"></sc-if></div>
+<div class="jrm-detail-info" style="flex: 1 1 360px; padding: 40px; display: flex; flex-direction: column; gap: 16px">
 <div style="display: flex; justify-content: space-between; align-items: flex-start; gap: 16px">
 <span style="font-size: 12px; font-weight: 500; letter-spacing: 0.14em; text-transform: uppercase; color: #5A5A57">{{detail.category}} · {{detail.id}}</span>
 <button aria-label="Close details" onClick="{{close}}" style="width: 44px; height: 44px; margin: -12px -12px 0 0; border: 0; background: transparent; display: flex; align-items: center; justify-content: center; cursor: pointer">
 <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#2B2B2B" stroke-width="1.5" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"></path></svg>
 </button>
 </div>
-<h3 style="margin: 0; font-family: 'Instrument Serif', serif; font-weight: 400; font-size: 40px; line-height: 1.1">{{detail.title}}</h3>
+<h3 class="jrm-d40" style="margin: 0; font-family: 'Instrument Serif', serif; font-weight: 400; font-size: 40px; line-height: 1.1">{{detail.title}}</h3>
 <span style="font-size: 20px; font-weight: 600">{{detail.priceLabel}}</span>
 <p style="margin: 0; font-size: 16px; line-height: 1.7; color: #4A4A47">{{detail.description}}</p>
 <span style="font-size: 14px; color: #5A5A57; border-top: 1px solid #D6D4CE; padding-top: 14px">{{detail.stockLabel}}</span>
 <button onClick="{{detail.add}}" disabled="{{detail.soldOut}}" style="{{detail.addStyle}}">{{detail.addLabel}}</button>
 </div>
-<section aria-label="Recommended for You" style="flex: 1 1 100%; border-top: 1px solid #2B2B2B; padding: 28px 40px 36px; display: flex; flex-direction: column; gap: 20px">
+<section aria-label="Recommended for You" class="jrm-rec" style="flex: 1 1 100%; border-top: 1px solid #2B2B2B; padding: 28px 40px 36px; display: flex; flex-direction: column; gap: 20px">
 <div style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: baseline; gap: 8px">
 <h4 style="margin: 0; font-family: 'Instrument Serif', serif; font-weight: 400; font-size: 30px; line-height: 1.1">Recommended for You</h4>
 <span style="font-size: 12px; font-weight: 500; letter-spacing: 0.16em; text-transform: uppercase; color: #5A5A57">Pairs with {{detail.title}}</span>
@@ -167,13 +212,34 @@ input:focus,select:focus{outline:2px solid #2B2B2B;outline-offset:1px}
 </div>
 </sc-if>
 
+<!-- Mobile menu -->
+<sc-if value="{{menuOpen}}" hint-placeholder-val="{{ false }}">
+<div style="position: fixed; inset: 0; z-index: 35; display: flex">
+<aside role="dialog" aria-modal="true" aria-label="Menu" style="position: relative; z-index: 1; width: 320px; max-width: 86%; height: 100%; box-sizing: border-box; background: #F7F6F2; border-right: 1px solid #2B2B2B; display: flex; flex-direction: column; animation: jrmSlideLeft 260ms ease-out; overflow-y: auto">
+<div style="display: flex; justify-content: space-between; align-items: center; padding: 10px 12px 10px 20px; border-bottom: 1px solid #2B2B2B">
+<span style="font-family: 'Instrument Serif', serif; font-size: 30px; line-height: 1">JRM</span>
+<button type="button" aria-label="Close menu" onClick="{{closeMenu}}" style="width: 44px; height: 44px; border: 0; background: transparent; display: flex; align-items: center; justify-content: center; cursor: pointer"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#2B2B2B" stroke-width="1.5" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"></path></svg></button>
+</div>
+<nav aria-label="Mobile" style="display: flex; flex-direction: column; padding: 8px 20px 24px">
+<sc-for list="{{menuCats}}" as="mc" hint-placeholder-count="4">
+<a href="#catalog" class="jrm-menu-link" onClick="{{mc.go}}">{{mc.label}}<span aria-hidden="true">→</span></a>
+</sc-for>
+<a href="#store" class="jrm-menu-link" onClick="{{closeMenu}}">Our Store<span aria-hidden="true">→</span></a>
+<button type="button" class="jrm-menu-link" onClick="{{menuAccount}}" style="width: 100%; border-top: 0; border-left: 0; border-right: 0; background: transparent; padding: 0; font: inherit; font-size: 15px; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; cursor: pointer">{{menuAccountLabel}}<span aria-hidden="true">→</span></button>
+<sc-if value="{{isAdmin}}" hint-placeholder-val="{{ false }}"><button type="button" class="jrm-menu-link" onClick="{{menuAdmin}}" style="width: 100%; border-top: 0; border-left: 0; border-right: 0; background: transparent; padding: 0; font: inherit; font-size: 15px; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; cursor: pointer">Admin dashboard<span aria-hidden="true">→</span></button></sc-if>
+</nav>
+</aside>
+<button type="button" aria-label="Close menu" onClick="{{closeMenu}}" style="position: absolute; inset: 0; border: 0; padding: 0; background: rgba(43,43,43,0.45); cursor: pointer; animation: jrmFadeIn 200ms ease-out"></button>
+</div>
+</sc-if>
+
 <!-- Cart drawer -->
 <sc-if value="{{drawerOpen}}" hint-placeholder-val="{{ false }}">
 <div style="position: fixed; inset: 0; z-index: 30; display: flex; justify-content: flex-end">
 <button aria-label="Close bag" onClick="{{closeCart}}" style="position: absolute; inset: 0; border: 0; padding: 0; background: rgba(43,43,43,0.45); cursor: pointer; animation: jrmFadeIn 200ms ease-out"></button>
 <aside role="dialog" aria-modal="true" aria-label="Your bag" style="position: relative; width: 440px; max-width: 100%; height: 100%; box-sizing: border-box; background: #F7F6F2; border-left: 1px solid #2B2B2B; display: flex; flex-direction: column; animation: jrmSlideIn 280ms ease-out">
 <div style="display: flex; justify-content: space-between; align-items: center; padding: 20px 24px; border-bottom: 1px solid #2B2B2B">
-<h2 style="margin: 0; font-family: 'Instrument Serif', serif; font-weight: 400; font-size: 32px; line-height: 1.1">Your bag <span style="font-family: Inter, sans-serif; font-size: 14px; color: #5A5A57">({{cartCount}})</span></h2>
+<h2 class="jrm-d32" style="margin: 0; font-family: 'Instrument Serif', serif; font-weight: 400; font-size: 32px; line-height: 1.1">Your bag <span style="font-family: Inter, sans-serif; font-size: 14px; color: #5A5A57">({{cartCount}})</span></h2>
 <button aria-label="Close bag" onClick="{{closeCart}}" style="width: 44px; height: 44px; border: 0; background: transparent; display: flex; align-items: center; justify-content: center; cursor: pointer"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#2B2B2B" stroke-width="1.5" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"></path></svg></button>
 </div>
 <div style="flex: 1 1 auto; overflow-y: auto; padding: 0 24px">
@@ -217,7 +283,7 @@ input:focus,select:focus{outline:2px solid #2B2B2B;outline-offset:1px}
 <sc-if value="{{promoApplied}}" hint-placeholder-val="{{ false }}">
 <div style="display: flex; justify-content: space-between; align-items: center; gap: 12px; border: 1px solid #2B2B2B; padding: 4px 4px 4px 14px">
 <span style="font-size: 13px"><strong style="letter-spacing: 0.08em">{{promo.code}}</strong> · {{promo.desc}}</span>
-<button type="button" onClick="{{removePromo}}" style="min-height: 40px; border: 0; background: transparent; padding: 0 10px; font: inherit; font-size: 12px; color: #2B2B2B; text-decoration: underline; text-underline-offset: 4px; cursor: pointer">Remove</button>
+<button type="button" onClick="{{removePromo}}" style="min-height: 44px; border: 0; background: transparent; padding: 0 10px; font: inherit; font-size: 12px; color: #2B2B2B; text-decoration: underline; text-underline-offset: 4px; cursor: pointer">Remove</button>
 </div>
 </sc-if>
 <sc-if value="{{hasPromoMsg}}" hint-placeholder-val="{{ false }}"><span role="status" style="{{promoMsgStyle}}">{{promoMsg}}</span></sc-if>
@@ -236,12 +302,12 @@ input:focus,select:focus{outline:2px solid #2B2B2B;outline-offset:1px}
 <sc-if value="{{checkoutOpen}}" hint-placeholder-val="{{ false }}">
 <div role="dialog" aria-modal="true" aria-label="Checkout" style="position: fixed; inset: 0; z-index: 40; background: #F7F6F2; overflow-y: auto; animation: jrmFadeIn 200ms ease-out">
 <div style="border-bottom: 1px solid #2B2B2B">
-<div style="max-width: 1120px; margin: 0 auto; padding: 0 32px; min-height: 76px; display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 12px">
+<div class="jrm-wrap" style="max-width: 1120px; margin: 0 auto; padding: 0 32px; min-height: 76px; display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 12px">
 <span style="font-family: 'Instrument Serif', serif; font-size: 30px; line-height: 1">JRM <span style="font-family: Inter, sans-serif; font-size: 12px; font-weight: 500; letter-spacing: 0.18em; text-transform: uppercase; color: #5A5A57; vertical-align: middle; margin-left: 12px">Checkout</span></span>
 <button onClick="{{closeCheckout}}" style="min-height: 44px; border: 0; background: transparent; font: inherit; font-size: 13px; font-weight: 500; letter-spacing: 0.14em; text-transform: uppercase; color: #2B2B2B; cursor: pointer; text-decoration: underline; text-underline-offset: 4px">Back to store</button>
 </div>
 </div>
-<div style="max-width: 1120px; margin: 0 auto; padding: 48px 32px 96px; display: flex; flex-direction: column; gap: 40px">
+<div class="jrm-wrap jrm-vpad" style="max-width: 1120px; margin: 0 auto; padding: 48px 32px 96px; display: flex; flex-direction: column; gap: 40px">
 <ol aria-label="Checkout steps" style="list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: 12px 40px">
 <li style="{{step1Style}}"><span style="font-family: 'Instrument Serif', serif; font-size: 28px; line-height: 1">01</span> Shipping address</li>
 <li style="{{step2Style}}"><span style="font-family: 'Instrument Serif', serif; font-size: 28px; line-height: 1">02</span> Review &amp; pay</li>
@@ -251,8 +317,8 @@ input:focus,select:focus{outline:2px solid #2B2B2B;outline-offset:1px}
 <sc-if value="{{onStep1}}" hint-placeholder-val="{{ true }}">
 <div style="display: flex; flex-wrap: wrap; gap: 48px; align-items: flex-start">
 <form aria-label="Shipping address" style="flex: 999 1 520px; min-width: 0; display: flex; flex-direction: column; gap: 28px">
-<h2 style="margin: 0; font-family: 'Instrument Serif', serif; font-weight: 400; font-size: 44px; line-height: 1.1">Where should we deliver?</h2>
-<div style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 20px 24px">
+<h2 class="jrm-d44" style="margin: 0; font-family: 'Instrument Serif', serif; font-weight: 400; font-size: 44px; line-height: 1.1">Where should we deliver?</h2>
+<div class="jrm-form-grid" style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 20px 24px">
 <sc-for list="{{fields}}" as="fld" hint-placeholder-count="9">
 <div style="{{fld.wrapStyle}}">
 <label for="{{fld.id}}" style="font-size: 12px; font-weight: 500; letter-spacing: 0.16em; text-transform: uppercase; color: #5A5A57">{{fld.label}}</label>
@@ -279,7 +345,7 @@ input:focus,select:focus{outline:2px solid #2B2B2B;outline-offset:1px}
 
 <sc-if value="{{onStep2}}" hint-placeholder-val="{{ false }}">
 <div style="display: flex; flex-direction: column; gap: 32px; max-width: 760px">
-<h2 style="margin: 0; font-family: 'Instrument Serif', serif; font-weight: 400; font-size: 44px; line-height: 1.1">Review &amp; pay</h2>
+<h2 class="jrm-d44" style="margin: 0; font-family: 'Instrument Serif', serif; font-weight: 400; font-size: 44px; line-height: 1.1">Review &amp; pay</h2>
 <section style="border-top: 1px solid #2B2B2B; padding-top: 20px; display: flex; flex-wrap: wrap; justify-content: space-between; gap: 16px">
 <div style="display: flex; flex-direction: column; gap: 4px; font-size: 15px">
 <span style="font-size: 12px; font-weight: 500; letter-spacing: 0.16em; text-transform: uppercase; color: #5A5A57; margin-bottom: 6px">Deliver to</span>
@@ -313,7 +379,7 @@ input:focus,select:focus{outline:2px solid #2B2B2B;outline-offset:1px}
 <sc-if value="{{promoApplied}}" hint-placeholder-val="{{ false }}">
 <div style="display: flex; justify-content: space-between; align-items: center; gap: 12px; border: 1px solid #2B2B2B; padding: 4px 4px 4px 14px">
 <span style="font-size: 13px"><strong style="letter-spacing: 0.08em">{{promo.code}}</strong> · {{promo.desc}}</span>
-<button type="button" onClick="{{removePromo}}" style="min-height: 40px; border: 0; background: transparent; padding: 0 10px; font: inherit; font-size: 12px; color: #2B2B2B; text-decoration: underline; text-underline-offset: 4px; cursor: pointer">Remove</button>
+<button type="button" onClick="{{removePromo}}" style="min-height: 44px; border: 0; background: transparent; padding: 0 10px; font: inherit; font-size: 12px; color: #2B2B2B; text-decoration: underline; text-underline-offset: 4px; cursor: pointer">Remove</button>
 </div>
 </sc-if>
 <sc-if value="{{hasPromoMsg}}" hint-placeholder-val="{{ false }}"><span role="status" style="{{promoMsgStyle}}">{{promoMsg}}</span></sc-if>
@@ -332,7 +398,7 @@ input:focus,select:focus{outline:2px solid #2B2B2B;outline-offset:1px}
 <button type="button" role="tab" aria-selected="{{upiSelected}}" onClick="{{pickUpi}}" disabled="{{processing}}" style="{{upiTabStyle}}">UPI</button>
 <button type="button" role="tab" aria-selected="{{cardSelected}}" onClick="{{pickCard}}" disabled="{{processing}}" style="{{cardTabStyle}}">Card</button>
 </div>
-<div style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 20px 24px">
+<div class="jrm-form-grid" style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 20px 24px">
 <sc-for list="{{payFields}}" as="fld" hint-placeholder-count="1">
 <div style="{{fld.wrapStyle}}">
 <label for="{{fld.id}}" style="font-size: 12px; font-weight: 500; letter-spacing: 0.16em; text-transform: uppercase; color: #5A5A57">{{fld.label}}</label>
@@ -359,13 +425,13 @@ input:focus,select:focus{outline:2px solid #2B2B2B;outline-offset:1px}
 <div style="display: flex; flex-direction: column; gap: 36px; max-width: 760px">
 <div style="display: flex; flex-direction: column; gap: 16px">
 <svg width="56" height="56" viewBox="0 0 56 56" fill="none" stroke="#2B2B2B" stroke-width="1.5" aria-hidden="true"><circle cx="28" cy="28" r="26"></circle><path d="M17 29l7 7 15-16" stroke-linecap="round" stroke-linejoin="round"></path></svg>
-<h2 style="margin: 0; font-family: 'Instrument Serif', serif; font-weight: 400; font-size: 56px; line-height: 1.05">Thank you, {{conf.firstName}}.</h2>
+<h2 class="jrm-d56" style="margin: 0; font-family: 'Instrument Serif', serif; font-weight: 400; font-size: 56px; line-height: 1.05">Thank you, {{conf.firstName}}.</h2>
 <p style="margin: 0; font-size: 18px; color: #4A4A47">Your order is confirmed. Keep your tracking number to follow its progress.</p>
 </div>
 <div style="border: 1px solid #2B2B2B; padding: 28px; display: flex; flex-wrap: wrap; justify-content: space-between; align-items: flex-end; gap: 16px">
 <div style="display: flex; flex-direction: column; gap: 8px">
 <span style="font-size: 12px; font-weight: 500; letter-spacing: 0.16em; text-transform: uppercase; color: #5A5A57">Order tracking number</span>
-<span style="font-family: 'Instrument Serif', serif; font-size: 44px; line-height: 1; letter-spacing: 0.04em">{{conf.tracking}}</span>
+<span class="jrm-d44" style="font-family: 'Instrument Serif', serif; font-size: 44px; line-height: 1; letter-spacing: 0.04em">{{conf.tracking}}</span>
 </div>
 <div style="display: flex; flex-direction: column; gap: 4px; font-size: 14px; color: #4A4A47; text-align: right">
 <span>Placed {{conf.date}}</span>
@@ -401,16 +467,16 @@ input:focus,select:focus{outline:2px solid #2B2B2B;outline-offset:1px}
 <sc-if value="{{accountOpen}}" hint-placeholder-val="{{ false }}">
 <div role="dialog" aria-modal="true" aria-label="Account" style="position: fixed; inset: 0; z-index: 40; background: #F7F6F2; overflow-y: auto; animation: jrmFadeIn 200ms ease-out">
 <div style="border-bottom: 1px solid #2B2B2B">
-<div style="max-width: 1120px; margin: 0 auto; padding: 0 32px; min-height: 76px; display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 12px">
+<div class="jrm-wrap" style="max-width: 1120px; margin: 0 auto; padding: 0 32px; min-height: 76px; display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 12px">
 <span style="font-family: 'Instrument Serif', serif; font-size: 30px; line-height: 1">JRM <span style="font-family: Inter, sans-serif; font-size: 12px; font-weight: 500; letter-spacing: 0.18em; text-transform: uppercase; color: #5A5A57; vertical-align: middle; margin-left: 12px">Account</span></span>
 <button onClick="{{closeAccount}}" style="min-height: 44px; border: 0; background: transparent; padding: 0; font: inherit; font-size: 13px; font-weight: 500; letter-spacing: 0.14em; text-transform: uppercase; color: #2B2B2B; text-decoration: underline; text-underline-offset: 4px; cursor: pointer">Back to store</button>
 </div>
 </div>
 
 <sc-if value="{{loggedOut}}" hint-placeholder-val="{{ true }}">
-<div style="max-width: 1120px; margin: 0 auto; padding: 64px 32px 96px; display: flex; flex-wrap: wrap; gap: 64px; align-items: flex-start">
+<div class="jrm-wrap jrm-vpad" style="max-width: 1120px; margin: 0 auto; padding: 64px 32px 96px; display: flex; flex-wrap: wrap; gap: 64px; align-items: flex-start">
 <div style="flex: 999 1 440px; min-width: 0; max-width: 520px; display: flex; flex-direction: column; gap: 32px">
-<h1 style="margin: 0; font-family: 'Instrument Serif', serif; font-weight: 400; font-size: 52px; line-height: 1.05">{{authTitle}}</h1>
+<h1 class="jrm-d52" style="margin: 0; font-family: 'Instrument Serif', serif; font-weight: 400; font-size: 52px; line-height: 1.05">{{authTitle}}</h1>
 <div role="tablist" aria-label="Sign in or create account" style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); border: 1px solid #2B2B2B">
 <button type="button" role="tab" aria-selected="{{loginSelected}}" onClick="{{showLogin}}" style="{{loginTabStyle}}">Login</button>
 <button type="button" role="tab" aria-selected="{{signupSelected}}" onClick="{{showSignup}}" style="{{signupTabStyle}}">Sign up</button>
@@ -438,11 +504,11 @@ input:focus,select:focus{outline:2px solid #2B2B2B;outline-offset:1px}
 </sc-if>
 
 <sc-if value="{{loggedIn}}" hint-placeholder-val="{{ false }}">
-<div style="max-width: 1120px; margin: 0 auto; padding: 64px 32px 96px; display: flex; flex-direction: column; gap: 48px">
+<div class="jrm-wrap jrm-vpad" style="max-width: 1120px; margin: 0 auto; padding: 64px 32px 96px; display: flex; flex-direction: column; gap: 48px">
 <div style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: flex-end; gap: 16px">
 <div style="display: flex; flex-direction: column; gap: 8px">
 <span style="font-size: 12px; font-weight: 500; letter-spacing: 0.16em; text-transform: uppercase; color: #5A5A57">My account</span>
-<h1 style="margin: 0; font-family: 'Instrument Serif', serif; font-weight: 400; font-size: 56px; line-height: 1.05">Hello, {{me.firstName}}.</h1>
+<h1 class="jrm-d56" style="margin: 0; font-family: 'Instrument Serif', serif; font-weight: 400; font-size: 56px; line-height: 1.05">Hello, {{me.firstName}}.</h1>
 </div>
 <button type="button" onClick="{{signOut}}" style="min-height: 48px; padding: 0 24px; border: 1px solid #2B2B2B; background: transparent; color: #2B2B2B; font: inherit; font-size: 13px; font-weight: 500; letter-spacing: 0.14em; text-transform: uppercase; cursor: pointer">Sign out</button>
 </div>
@@ -471,7 +537,7 @@ input:focus,select:focus{outline:2px solid #2B2B2B;outline-offset:1px}
 <div style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: flex-start; gap: 12px">
 <div style="display: flex; flex-direction: column; gap: 6px">
 <span style="font-size: 12px; font-weight: 500; letter-spacing: 0.16em; text-transform: uppercase; color: #5A5A57">Tracking number</span>
-<span style="font-family: 'Instrument Serif', serif; font-size: 32px; line-height: 1; letter-spacing: 0.04em">{{o.tracking}}</span>
+<span class="jrm-d32" style="font-family: 'Instrument Serif', serif; font-size: 32px; line-height: 1; letter-spacing: 0.04em">{{o.tracking}}</span>
 </div>
 <div style="display: flex; flex-direction: column; align-items: flex-end; gap: 6px; text-align: right">
 <span style="font-size: 11px; font-weight: 600; letter-spacing: 0.16em; text-transform: uppercase; border: 1px solid #2B2B2B; padding: 4px 10px">{{o.status}}</span>
@@ -507,34 +573,34 @@ input:focus,select:focus{outline:2px solid #2B2B2B;outline-offset:1px}
 <sc-if value="{{adminVisible}}" hint-placeholder-val="{{ false }}">
 <div role="dialog" aria-modal="true" aria-label="Admin dashboard" style="position: fixed; inset: 0; z-index: 40; background: #F7F6F2; overflow-y: auto; animation: jrmFadeIn 200ms ease-out">
 <div style="border-bottom: 1px solid #2B2B2B">
-<div style="max-width: 1280px; margin: 0 auto; padding: 0 32px; min-height: 76px; display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 12px">
+<div class="jrm-wrap" style="max-width: 1280px; margin: 0 auto; padding: 0 32px; min-height: 76px; display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 12px">
 <span style="font-family: 'Instrument Serif', serif; font-size: 30px; line-height: 1">JRM <span style="font-family: Inter, sans-serif; font-size: 12px; font-weight: 500; letter-spacing: 0.18em; text-transform: uppercase; color: #5A5A57; vertical-align: middle; margin-left: 12px">Admin · {{me.name}}</span></span>
 <button onClick="{{closeAdmin}}" style="min-height: 44px; border: 0; background: transparent; padding: 0; font: inherit; font-size: 13px; font-weight: 500; letter-spacing: 0.14em; text-transform: uppercase; color: #2B2B2B; text-decoration: underline; text-underline-offset: 4px; cursor: pointer">Back to store</button>
 </div>
 </div>
-<div style="max-width: 1280px; margin: 0 auto; padding: 48px 32px 96px; display: flex; flex-direction: column; gap: 56px">
+<div class="jrm-wrap jrm-vpad" style="max-width: 1280px; margin: 0 auto; padding: 48px 32px 96px; display: flex; flex-direction: column; gap: 56px">
 
 <section aria-label="Key metrics" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 24px">
 <div style="border: 1px solid #2B2B2B; padding: 24px; display: flex; flex-direction: column; gap: 10px">
 <span style="font-size: 12px; font-weight: 500; letter-spacing: 0.16em; text-transform: uppercase; color: #5A5A57">Total sales revenue</span>
-<span style="font-family: 'Instrument Serif', serif; font-size: 48px; line-height: 1">{{kpi.revenue}}</span>
+<span class="jrm-d48" style="font-family: 'Instrument Serif', serif; font-size: 48px; line-height: 1">{{kpi.revenue}}</span>
 <span style="font-size: 13px; color: #5A5A57">Across {{kpi.orderCount}} paid orders</span>
 </div>
 <div style="border: 1px solid #2B2B2B; padding: 24px; display: flex; flex-direction: column; gap: 10px">
 <span style="font-size: 12px; font-weight: 500; letter-spacing: 0.16em; text-transform: uppercase; color: #5A5A57">Processed orders</span>
-<span style="font-family: 'Instrument Serif', serif; font-size: 48px; line-height: 1">{{kpi.processed}}</span>
+<span class="jrm-d48" style="font-family: 'Instrument Serif', serif; font-size: 48px; line-height: 1">{{kpi.processed}}</span>
 <span style="font-size: 13px; color: #5A5A57">Shipped or delivered · {{kpi.pending}} still processing</span>
 </div>
 <div style="border: 1px solid #2B2B2B; padding: 24px; display: flex; flex-direction: column; gap: 10px; background: {{kpi.lowBg}}">
 <span style="font-size: 12px; font-weight: 500; letter-spacing: 0.16em; text-transform: uppercase; color: #5A5A57">Low stock alerts</span>
-<span style="font-family: 'Instrument Serif', serif; font-size: 48px; line-height: 1">{{kpi.lowCount}}</span>
+<span class="jrm-d48" style="font-family: 'Instrument Serif', serif; font-size: 48px; line-height: 1">{{kpi.lowCount}}</span>
 <span style="font-size: 13px; color: #5A5A57">{{kpi.lowNote}}</span>
 </div>
 </section>
 
 <section aria-label="Order management" style="display: flex; flex-direction: column; gap: 20px">
 <div style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: baseline; gap: 12px">
-<h2 style="margin: 0; font-family: 'Instrument Serif', serif; font-weight: 400; font-size: 40px; line-height: 1.1">Orders</h2>
+<h2 class="jrm-d40" style="margin: 0; font-family: 'Instrument Serif', serif; font-weight: 400; font-size: 40px; line-height: 1.1">Orders</h2>
 <span style="font-size: 13px; color: #5A5A57">{{kpi.orderCount}} total · newest first</span>
 </div>
 <div style="overflow-x: auto; border-top: 1px solid #2B2B2B">
@@ -572,7 +638,7 @@ input:focus,select:focus{outline:2px solid #2B2B2B;outline-offset:1px}
 
 <section aria-label="Promo codes" style="display: flex; flex-direction: column; gap: 20px">
 <div style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: baseline; gap: 12px">
-<h2 style="margin: 0; font-family: 'Instrument Serif', serif; font-weight: 400; font-size: 40px; line-height: 1.1">Promo codes</h2>
+<h2 class="jrm-d40" style="margin: 0; font-family: 'Instrument Serif', serif; font-weight: 400; font-size: 40px; line-height: 1.1">Promo codes</h2>
 <span style="font-size: 13px; color: #5A5A57">{{promoActiveCount}} active</span>
 </div>
 <form aria-label="Create promo code" style="display: flex; flex-wrap: wrap; align-items: flex-end; gap: 16px; border: 1px solid #2B2B2B; padding: 20px">
@@ -593,7 +659,7 @@ input:focus,select:focus{outline:2px solid #2B2B2B;outline-offset:1px}
 <td style="padding: 14px 16px; border-bottom: 1px solid #D6D4CE; vertical-align: middle">{{pc.typeLabel}}</td>
 <td style="padding: 14px 16px; border-bottom: 1px solid #D6D4CE; vertical-align: middle">{{pc.valueLabel}}</td>
 <td style="padding: 14px 16px; border-bottom: 1px solid #D6D4CE; vertical-align: middle"><span style="{{pc.badgeStyle}}">{{pc.statusLabel}}</span></td>
-<td style="padding: 14px 16px; border-bottom: 1px solid #D6D4CE; vertical-align: middle; text-align: right"><button type="button" onClick="{{pc.toggle}}" aria-label="{{pc.toggleAria}}" style="min-height: 40px; padding: 0 16px; border: 1px solid #2B2B2B; background: transparent; color: #2B2B2B; font: inherit; font-size: 12px; font-weight: 500; letter-spacing: 0.14em; text-transform: uppercase; cursor: pointer">{{pc.toggleLabel}}</button></td>
+<td style="padding: 14px 16px; border-bottom: 1px solid #D6D4CE; vertical-align: middle; text-align: right"><button type="button" onClick="{{pc.toggle}}" aria-label="{{pc.toggleAria}}" style="min-height: 44px; padding: 0 16px; border: 1px solid #2B2B2B; background: transparent; color: #2B2B2B; font: inherit; font-size: 12px; font-weight: 500; letter-spacing: 0.14em; text-transform: uppercase; cursor: pointer">{{pc.toggleLabel}}</button></td>
 </tr>
 </sc-for>
 </tbody>
@@ -603,7 +669,7 @@ input:focus,select:focus{outline:2px solid #2B2B2B;outline-offset:1px}
 
 <section aria-label="Inventory management" style="display: flex; flex-direction: column; gap: 20px">
 <div style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: baseline; gap: 12px">
-<h2 style="margin: 0; font-family: 'Instrument Serif', serif; font-weight: 400; font-size: 40px; line-height: 1.1">Inventory</h2>
+<h2 class="jrm-d40" style="margin: 0; font-family: 'Instrument Serif', serif; font-weight: 400; font-size: 40px; line-height: 1.1">Inventory</h2>
 <span style="font-size: 13px; color: #5A5A57">Changes go live on the storefront instantly · low stock = 5 or fewer</span>
 </div>
 <div style="overflow-x: auto; border-top: 1px solid #2B2B2B">
@@ -635,10 +701,10 @@ input:focus,select:focus{outline:2px solid #2B2B2B;outline-offset:1px}
 
 <!-- Shop by -->
 <section style="border-bottom: 1px solid #2B2B2B">
-<div style="max-width: 1280px; margin: 0 auto; padding: 96px 32px; display: flex; flex-direction: column; gap: 48px">
+<div class="jrm-wrap jrm-vpad" style="max-width: 1280px; margin: 0 auto; padding: 96px 32px; display: flex; flex-direction: column; gap: 48px">
 <div style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: baseline; gap: 16px">
-<h2 style="margin: 0; font-family: 'Instrument Serif', serif; font-weight: 400; font-size: 48px; line-height: 1.1">Shop by</h2>
-<a href="#" style="font-size: 13px; font-weight: 500; letter-spacing: 0.14em; text-transform: uppercase">View all</a>
+<h2 class="jrm-d48" style="margin: 0; font-family: 'Instrument Serif', serif; font-weight: 400; font-size: 48px; line-height: 1.1">Shop by</h2>
+<a href="#" class="jrm-tap" style="font-size: 13px; font-weight: 500; letter-spacing: 0.14em; text-transform: uppercase">View all</a>
 </div>
 <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 32px">
 <a href="#" style="display: flex; flex-direction: column; gap: 16px">
@@ -659,19 +725,19 @@ input:focus,select:focus{outline:2px solid #2B2B2B;outline-offset:1px}
 
 <!-- Brand statement -->
 <section style="border-bottom: 1px solid #2B2B2B">
-<div style="max-width: 880px; margin: 0 auto; padding: 120px 32px; text-align: center; display: flex; flex-direction: column; gap: 28px; align-items: center">
+<div class="jrm-wrap jrm-vpad" style="max-width: 880px; margin: 0 auto; padding: 120px 32px; text-align: center; display: flex; flex-direction: column; gap: 28px; align-items: center">
 <p style="margin: 0; font-size: 12px; font-weight: 500; letter-spacing: 0.18em; text-transform: uppercase; color: #5A5A57">About JRM</p>
-<p style="margin: 0; font-family: 'Instrument Serif', serif; font-size: 40px; line-height: 1.3">[BRAND STATEMENT – a short, honest line on what JRM stands for]</p>
-<a href="#" style="font-size: 13px; font-weight: 500; letter-spacing: 0.14em; text-transform: uppercase; border-bottom: 1px solid #2B2B2B; padding-bottom: 4px">Our story</a>
+<p class="jrm-d40" style="margin: 0; font-family: 'Instrument Serif', serif; font-size: 40px; line-height: 1.3">[BRAND STATEMENT – a short, honest line on what JRM stands for]</p>
+<a href="#" class="jrm-tap" style="font-size: 13px; font-weight: 500; letter-spacing: 0.14em; text-transform: uppercase; border-bottom: 1px solid #2B2B2B; padding-bottom: 4px">Our story</a>
 </div>
 </section>
 
 <!-- Store -->
 <section id="store" style="border-bottom: 1px solid #2B2B2B">
-<div style="max-width: 1280px; margin: 0 auto; padding: 96px 32px; display: flex; flex-wrap: wrap; gap: 64px; align-items: stretch">
+<div class="jrm-wrap jrm-vpad" style="max-width: 1280px; margin: 0 auto; padding: 96px 32px; display: flex; flex-wrap: wrap; gap: 64px; align-items: stretch">
 <div style="flex: 1 1 440px; min-height: 360px; background: #E8E6E0; display: flex; align-items: flex-end; padding: 24px; box-sizing: border-box; font-size: 13px; color: #5A5A57">Store photo</div>
 <div style="flex: 1 1 380px; display: flex; flex-direction: column; justify-content: center; gap: 24px">
-<h2 style="margin: 0; font-family: 'Instrument Serif', serif; font-weight: 400; font-size: 48px; line-height: 1.1">Visit the store</h2>
+<h2 class="jrm-d48" style="margin: 0; font-family: 'Instrument Serif', serif; font-weight: 400; font-size: 48px; line-height: 1.1">Visit the store</h2>
 <div style="display: flex; flex-direction: column; gap: 0; border-top: 1px solid #2B2B2B">
 <div style="display: flex; justify-content: space-between; gap: 24px; padding: 16px 0; border-bottom: 1px solid #D6D4CE"><span style="font-size: 13px; letter-spacing: 0.14em; text-transform: uppercase; color: #5A5A57">Address</span><span style="text-align: right">[ADDRESS], Old NH Road, Chalakudy</span></div>
 <div style="display: flex; justify-content: space-between; gap: 24px; padding: 16px 0; border-bottom: 1px solid #D6D4CE"><span style="font-size: 13px; letter-spacing: 0.14em; text-transform: uppercase; color: #5A5A57">Hours</span><span style="text-align: right">[DAYS] · [TIMINGS]</span></div>
@@ -684,7 +750,7 @@ input:focus,select:focus{outline:2px solid #2B2B2B;outline-offset:1px}
 
 <!-- Footer -->
 <footer>
-<div style="max-width: 1280px; margin: 0 auto; padding: 72px 32px 40px; display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 40px">
+<div class="jrm-wrap jrm-vpad" style="max-width: 1280px; margin: 0 auto; padding: 72px 32px 40px; display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 40px">
 <div style="display: flex; flex-direction: column; gap: 12px">
 <span style="font-family: 'Instrument Serif', serif; font-size: 30px; line-height: 1">JRM</span>
 <span style="font-size: 14px; color: #5A5A57">Chalakudy, Kerala</span>
@@ -702,7 +768,7 @@ input:focus,select:focus{outline:2px solid #2B2B2B;outline-offset:1px}
 <a href="#">Instagram</a><a href="#">Facebook</a><a href="#">WhatsApp</a>
 </div>
 </div>
-<div style="max-width: 1280px; margin: 0 auto; padding: 24px 32px 40px; border-top: 1px solid #2B2B2B; font-size: 12px; color: #5A5A57">© JRM Enterprises</div>
+<div class="jrm-wrap" style="max-width: 1280px; margin: 0 auto; padding: 24px 32px 40px; border-top: 1px solid #2B2B2B; font-size: 12px; color: #5A5A57">© JRM Enterprises</div>
 </footer>
 
 </div>
@@ -947,7 +1013,7 @@ form: Object.assign({}, EMPTY_FORM), tried: false,
 payMethod: 'upi', pay: Object.assign({}, EMPTY_PAY), payTried: false, payError: '', processing: false,
 confirmation: null,
 db: { users: SEED_USERS.slice(), orders: SEED_ORDERS.slice(), promos: SEED_PROMOS.map(function (p) { return Object.assign({}, p); }), products: PRODUCTS.map(function (p) { return Object.assign({}, p); }) },
-admin: false, invDraft: {}, recReadyFor: null,
+admin: false, invDraft: {}, recReadyFor: null, menu: false,
 promoCode: null, promoInput: '', promoMsg: '', promoMsgOk: false, newPromo: { code: '', type: 'percent', value: '' }, newPromoMsg: '', newPromoOk: false,
 session: null, account: false, authMode: 'login', auth: Object.assign({}, EMPTY_AUTH), authTried: false, authError: ''
 };
@@ -1333,6 +1399,13 @@ payFields: payFields,
 hasPayError: !!st.payError, payError: st.payError,
 conf: st.confirmation || { hasSavings: false, savingsLabel: '', promoCode: '', tracking: '', date: '', method: '', firstName: '', name: '', line1: '', line2: '', hasLine2: false, cityLine: '', contact: '', items: [], totalLabel: '' },
 isAdmin: isAdmin,
+menuOpen: st.menu, menuExpanded: st.menu ? 'true' : 'false',
+openMenu: function () { self.setState({ menu: true, drawer: false }); },
+closeMenu: function () { self.setState({ menu: false }); },
+menuCats: ['Men', 'Women', 'Kids', 'Home'].map(function (c) { return { label: c, go: function () { self.setState({ menu: false, filter: c }); } }; }),
+menuAccountLabel: me ? 'My account (' + me.name.split(' ')[0] + ')' : 'Login / Sign up',
+menuAccount: function () { self.setState({ menu: false, account: true, drawer: false, openId: null, authTried: false, authError: '' }); },
+menuAdmin: function () { if (isAdminSession(self.state.db, self.state.session)) self.setState({ menu: false, admin: true }); },
 adminVisible: st.admin && isAdmin,
 openAdmin: function () { if (isAdminSession(self.state.db, self.state.session)) self.setState({ admin: true, account: false, drawer: false, openId: null }); },
 closeAdmin: function () { self.setState({ admin: false }); },

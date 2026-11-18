@@ -1,0 +1,189 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>JRM Enterprises – Homepage</title>
+<script src="../vendor/react.js"></script>
+<script src="../vendor/react-dom.js"></script>
+<script src="../support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;family=Space+Grotesk:wght@500;600;700&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0;background:#FFFFFF}
+a{color:#16181D;text-decoration:none}a:hover{color:#0E6B5C}
+</style>
+</helmet>
+<div style="font-family: Inter, system-ui, sans-serif; color: #16181D; background: #FFFFFF; width: 100%">
+
+<!-- Announcement bar -->
+<div style="background: {{accent}}; color: #FFFFFF; font-size: 14px; text-align: center; padding: 10px 16px">[ANNOUNCEMENT – e.g. opening offer or delivery info]</div>
+
+<!-- Header -->
+<header style="border-bottom: 1px solid #E4E7E5">
+<div style="max-width: 1240px; margin: 0 auto; padding: 18px 24px; display: flex; flex-wrap: wrap; align-items: center; gap: 24px">
+<a href="#" style="display: flex; align-items: center; gap: 10px">
+<span style="width: 40px; height: 40px; border-radius: 10px; background: {{accent}}; color: #FFFFFF; display: flex; align-items: center; justify-content: center; font-family: 'Space Grotesk', sans-serif; font-weight: 700; font-size: 16px">JRM</span>
+<span style="font-family: 'Space Grotesk', sans-serif; font-weight: 600; font-size: 20px">JRM Enterprises</span>
+</a>
+<nav aria-label="Main" style="display: flex; flex-wrap: wrap; gap: 28px; font-size: 15px; font-weight: 500; flex: 1 1 360px">
+<a href="#">Men</a>
+<a href="#">Women</a>
+<a href="#">Kids</a>
+<a href="#">Home Textiles</a>
+<a href="#">New Arrivals</a>
+</nav>
+<div style="display: flex; align-items: center; gap: 12px">
+<label for="search" style="position: absolute; left: -9999px">Search products</label>
+<input id="search" type="search" placeholder="Search products" style="height: 44px; width: 220px; max-width: 100%; box-sizing: border-box; border: 1px solid #D5DAD7; border-radius: 10px; padding: 0 14px; font: inherit; font-size: 14px">
+<button aria-label="Account" style="width: 44px; height: 44px; border: 1px solid #D5DAD7; border-radius: 10px; background: #FFFFFF; display: flex; align-items: center; justify-content: center; cursor: pointer">
+<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#16181D" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="8" r="4"></circle><path d="M4 21c0-4 4-6 8-6s8 2 8 6"></path></svg>
+</button>
+<button aria-label="Cart" style="width: 44px; height: 44px; border: 1px solid #D5DAD7; border-radius: 10px; background: #FFFFFF; display: flex; align-items: center; justify-content: center; cursor: pointer">
+<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#16181D" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 7h12l-1 13H7L6 7z"></path><path d="M9 7a3 3 0 0 1 6 0"></path></svg>
+</button>
+</div>
+</div>
+</header>
+
+<!-- Hero -->
+<section style="max-width: 1240px; margin: 0 auto; padding: 40px 24px 0">
+<div style="display: flex; flex-wrap: wrap; gap: 32px; align-items: stretch; background: #F4F6F5; border-radius: 20px; overflow: hidden">
+<div style="flex: 1 1 420px; padding: 64px 56px; display: flex; flex-direction: column; justify-content: center; gap: 20px">
+<p style="margin: 0; font-size: 14px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: #0E6B5C">Now open in Chalakudy</p>
+<h1 style="margin: 0; font-family: 'Space Grotesk', sans-serif; font-size: 52px; line-height: 1.08; font-weight: 600">Everyday clothing for the whole family</h1>
+<p style="margin: 0; font-size: 18px; line-height: 1.6; color: #4A504D; max-width: 460px">[SHORT LINE ABOUT THE STORE – what you sell and why people should shop here]</p>
+<div style="display: flex; flex-wrap: wrap; gap: 12px; margin-top: 8px">
+<a href="#" style="background: {{accent}}; color: #FFFFFF; padding: 14px 26px; border-radius: 10px; font-weight: 600; font-size: 16px">Shop now</a>
+<a href="#visit" style="border: 1px solid #16181D; padding: 13px 26px; border-radius: 10px; font-weight: 600; font-size: 16px">Visit our store</a>
+</div>
+</div>
+<div style="flex: 1 1 420px; min-height: 440px; background: #E3E8E6; display: flex; align-items: center; justify-content: center; color: #5B625F; font-size: 15px">Hero photo – family / new collection</div>
+</div>
+</section>
+
+<!-- Categories -->
+<section style="max-width: 1240px; margin: 0 auto; padding: 80px 24px 0">
+<div style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: flex-end; gap: 12px; margin-bottom: 28px">
+<h2 style="margin: 0; font-family: 'Space Grotesk', sans-serif; font-size: 34px; font-weight: 600">Shop by category</h2>
+<a href="#" style="font-weight: 600; color: #0E6B5C">View all</a>
+</div>
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 20px">
+<a href="#" style="display: flex; flex-direction: column; gap: 14px">
+<div style="aspect-ratio: 4 / 5; border-radius: 16px; background: #EEF1EF; display: flex; align-items: center; justify-content: center; color: #5B625F; font-size: 14px">Category photo</div>
+<span style="font-size: 18px; font-weight: 600">Men</span>
+</a>
+<a href="#" style="display: flex; flex-direction: column; gap: 14px">
+<div style="aspect-ratio: 4 / 5; border-radius: 16px; background: #EEF1EF; display: flex; align-items: center; justify-content: center; color: #5B625F; font-size: 14px">Category photo</div>
+<span style="font-size: 18px; font-weight: 600">Women</span>
+</a>
+<a href="#" style="display: flex; flex-direction: column; gap: 14px">
+<div style="aspect-ratio: 4 / 5; border-radius: 16px; background: #EEF1EF; display: flex; align-items: center; justify-content: center; color: #5B625F; font-size: 14px">Category photo</div>
+<span style="font-size: 18px; font-weight: 600">Kids</span>
+</a>
+<a href="#" style="display: flex; flex-direction: column; gap: 14px">
+<div style="aspect-ratio: 4 / 5; border-radius: 16px; background: #EEF1EF; display: flex; align-items: center; justify-content: center; color: #5B625F; font-size: 14px">Category photo</div>
+<span style="font-size: 18px; font-weight: 600">Home Textiles</span>
+</a>
+</div>
+</section>
+
+<!-- Featured products -->
+<section style="max-width: 1240px; margin: 0 auto; padding: 80px 24px 0">
+<div style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: flex-end; gap: 12px; margin-bottom: 28px">
+<h2 style="margin: 0; font-family: 'Space Grotesk', sans-serif; font-size: 34px; font-weight: 600">New arrivals</h2>
+<a href="#" style="font-weight: 600; color: #0E6B5C">See all products</a>
+</div>
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 24px">
+<sc-for list="{{products}}" as="p" hint-placeholder-count="4">
+<div style="display: flex; flex-direction: column; gap: 10px">
+<div style="aspect-ratio: 3 / 4; border-radius: 14px; background: #F1F3F2; display: flex; align-items: center; justify-content: center; color: #5B625F; font-size: 14px">Product photo</div>
+<span style="font-size: 13px; color: #5B625F">{{p.cat}}</span>
+<span style="font-size: 16px; font-weight: 500">[PRODUCT NAME]</span>
+<span style="font-size: 16px; font-weight: 600">₹ [PRICE]</span>
+<a href="#" style="margin-top: 4px; text-align: center; border: 1px solid #16181D; border-radius: 10px; padding: 11px 0; font-weight: 600; font-size: 15px">Add to cart</a>
+</div>
+</sc-for>
+</div>
+</section>
+
+<!-- Why shop with us -->
+<section style="max-width: 1240px; margin: 0 auto; padding: 80px 24px 0">
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 20px">
+<div style="border: 1px solid #E4E7E5; border-radius: 16px; padding: 28px; display: flex; flex-direction: column; gap: 10px">
+<svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#0E6B5C" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 7h11v9H3z"></path><path d="M14 10h4l3 3v3h-7"></path><circle cx="7" cy="18" r="2"></circle><circle cx="17" cy="18" r="2"></circle></svg>
+<h3 style="margin: 0; font-size: 18px; font-weight: 600">Delivery</h3>
+<p style="margin: 0; font-size: 15px; line-height: 1.55; color: #4A504D">[DELIVERY AREA AND CHARGES]</p>
+</div>
+<div style="border: 1px solid #E4E7E5; border-radius: 16px; padding: 28px; display: flex; flex-direction: column; gap: 10px">
+<svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#0E6B5C" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12a8 8 0 0 1 14-5l2 2"></path><path d="M20 4v5h-5"></path><path d="M20 12a8 8 0 0 1-14 5l-2-2"></path><path d="M4 20v-5h5"></path></svg>
+<h3 style="margin: 0; font-size: 18px; font-weight: 600">Returns &amp; exchanges</h3>
+<p style="margin: 0; font-size: 15px; line-height: 1.55; color: #4A504D">[RETURN / SIZE EXCHANGE POLICY]</p>
+</div>
+<div style="border: 1px solid #E4E7E5; border-radius: 16px; padding: 28px; display: flex; flex-direction: column; gap: 10px">
+<svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#0E6B5C" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="6" width="18" height="13" rx="2"></rect><path d="M3 10h18"></path></svg>
+<h3 style="margin: 0; font-size: 18px; font-weight: 600">Payments</h3>
+<p style="margin: 0; font-size: 15px; line-height: 1.55; color: #4A504D">[PAYMENT OPTIONS – UPI, cards, COD?]</p>
+</div>
+</div>
+</section>
+
+<!-- Visit the store -->
+<section id="visit" style="max-width: 1240px; margin: 0 auto; padding: 80px 24px 0">
+<div style="display: flex; flex-wrap: wrap; gap: 0; border-radius: 20px; overflow: hidden; background: #16181D; color: #FFFFFF">
+<div style="flex: 1 1 420px; padding: 56px; display: flex; flex-direction: column; gap: 16px">
+<h2 style="margin: 0; font-family: 'Space Grotesk', sans-serif; font-size: 34px; font-weight: 600">Visit our store</h2>
+<p style="margin: 0; font-size: 17px; line-height: 1.6; color: #C9CFCC">[FULL STORE ADDRESS], Old NH Road, Chalakudy</p>
+<p style="margin: 0; font-size: 17px; line-height: 1.6; color: #C9CFCC">Open [DAYS] · [TIMINGS]</p>
+<p style="margin: 0; font-size: 17px; line-height: 1.6; color: #C9CFCC">Phone / WhatsApp: [NUMBER]</p>
+<div style="display: flex; flex-wrap: wrap; gap: 12px; margin-top: 8px">
+<a href="#" style="background: #FFFFFF; color: #16181D; padding: 13px 24px; border-radius: 10px; font-weight: 600">Get directions</a>
+<a href="#" style="border: 1px solid #FFFFFF; color: #FFFFFF; padding: 12px 24px; border-radius: 10px; font-weight: 600">Chat on WhatsApp</a>
+</div>
+</div>
+<div style="flex: 1 1 420px; min-height: 320px; background: #2A2E2C; display: flex; align-items: center; justify-content: center; color: #B4BBB8; font-size: 15px">Store photo or map</div>
+</div>
+</section>
+
+<!-- Footer -->
+<footer style="margin-top: 80px; border-top: 1px solid #E4E7E5">
+<div style="max-width: 1240px; margin: 0 auto; padding: 48px 24px; display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 32px">
+<div style="display: flex; flex-direction: column; gap: 10px">
+<span style="font-family: 'Space Grotesk', sans-serif; font-weight: 600; font-size: 20px">JRM Enterprises</span>
+<span style="font-size: 14px; line-height: 1.6; color: #4A504D">Chalakudy, Kerala</span>
+</div>
+<div style="display: flex; flex-direction: column; gap: 10px; font-size: 14px">
+<span style="font-weight: 600">Shop</span>
+<a href="#">Men</a><a href="#">Women</a><a href="#">Kids</a><a href="#">Home Textiles</a>
+</div>
+<div style="display: flex; flex-direction: column; gap: 10px; font-size: 14px">
+<span style="font-weight: 600">Help</span>
+<a href="#">Shipping</a><a href="#">Returns &amp; exchanges</a><a href="#">Size guide</a><a href="#">Contact us</a>
+</div>
+<div style="display: flex; flex-direction: column; gap: 10px; font-size: 14px">
+<span style="font-weight: 600">Follow us</span>
+<a href="#">Instagram</a><a href="#">Facebook</a><a href="#">WhatsApp</a>
+</div>
+</div>
+<div style="max-width: 1240px; margin: 0 auto; padding: 0 24px 32px; font-size: 13px; color: #5B625F">© JRM Enterprises</div>
+</footer>
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"accent":{"editor":"color","default":"#0E6B5C","options":["#0E6B5C","#1F3A93","#7A2E3A","#16181D"]},"$preview":{"width":1440,"height":2600}}'>
+class Component extends DCLogic {
+renderVals() {
+return {
+accent: this.props.accent ?? '#0E6B5C',
+products: [
+{ cat: 'Men' }, { cat: 'Women' }, { cat: 'Kids' }, { cat: 'Home Textiles' }
+]
+};
+}
+}
+</script>
+</body>
+</html>

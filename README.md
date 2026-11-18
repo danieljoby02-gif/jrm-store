@@ -9,9 +9,11 @@ rather than copy wholesale.
 
 ## Contents
 
-- `Premium-Home.dc.html` — the artboard (a Design Component: an `<x-dc>`
+- `index.html` — the Premium homepage artboard, the main store page (a Design Component: an `<x-dc>`
   template + a small logic class). The values to replicate live in its
   inline `style="…"` attributes and the `<helmet><style>` block.
+- `project/` — all canvas artboards (`Premium-Home.dc.html`, `Main.dc.html`,
+  `Foundation.dc.html`) and the canvas index `canvas.json`
 - `assets/` — files uploaded to the design (images, fonts, media)
 - `support.js`, `vendor/react*.js` — the runtime that renders the
   component in a browser; not part of the design.
@@ -25,5 +27,5 @@ reference a script puts together while the page runs (for example
 
 ## Viewing
 
-Serve the folder (e.g. `python3 -m http.server`) and open `Premium-Home.dc.html`;
+Serve the folder (e.g. `python3 -m http.server`) and open `index.html`;
 some browsers block the scripts over file://.
