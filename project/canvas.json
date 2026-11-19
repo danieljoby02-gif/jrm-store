@@ -12,11 +12,12 @@
     },
     "Main.dc.html": {
       "expand": "fill",
-      "h": 2600,
+      "h": 7330,
       "title": "Homepage – v1",
       "w": 1440,
       "x": 0,
-      "y": 0
+      "y": 0,
+      "is_interactive": true
     },
     "Premium-Home.dc.html": {
       "expand": "fill",
