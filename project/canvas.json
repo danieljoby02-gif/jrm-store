@@ -27,6 +27,15 @@
       "w": 1434,
       "x": 1526,
       "y": 0
+    },
+    "Premium-Kitex.dc.html": {
+      "expand": "fill",
+      "h": 9200,
+      "is_interactive": true,
+      "title": "Kitex Exclusive Store – Premium",
+      "w": 1440,
+      "x": 4566,
+      "y": 0
     }
   },
   "createdOnFiles": {
@@ -41,6 +50,7 @@
   "order": [
     "Main.dc.html",
     "Premium-Home.dc.html",
+    "Premium-Kitex.dc.html",
     "Foundation.dc.html"
   ],
   "pages": [],
