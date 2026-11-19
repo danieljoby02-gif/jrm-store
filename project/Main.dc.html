@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<title>JRM Enterprises – Homepage v1</title>
+<title>Kitex Exclusive Store – Chalakudy</title>
 <script src="../vendor/react.js"></script>
 <script src="../vendor/react-dom.js"></script>
 <script src="../support.js"></script>
@@ -42,7 +42,7 @@ html{scroll-behavior:smooth}
 .jrm-d76{font-size:60px!important}
 .jrm-d64,.jrm-d56{font-size:48px!important}
 }
-@media (max-width:1100px){
+@media (max-width:1300px){
 .jrm-nav{display:none!important}
 .jrm-burger{display:flex!important}
 }
@@ -99,15 +99,16 @@ input:focus,select:focus{outline:2px solid #16181D;outline-offset:1px}
 <button type="button" class="jrm-burger" aria-label="Open menu" aria-expanded="{{menuExpanded}}" onClick="{{openMenu}}" style="width: 44px; height: 44px; margin-left: -10px; border: 0; background: transparent; align-items: center; justify-content: center; cursor: pointer">
 <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#16181D" stroke-width="1.5" stroke-linecap="round" aria-hidden="true"><path d="M3 6h18M3 12h18M3 18h18"></path></svg>
 </button>
-<a href="#" class="jrm-tap" style="display: inline-flex; align-items: center; gap: 10px; text-decoration: none"><span style="width: 40px; height: 40px; border-radius: 10px; background: #0E6B5C; color: #FFFFFF; display: inline-flex; align-items: center; justify-content: center; font-family: 'Space Grotesk', sans-serif; font-weight: 700; font-size: 15px">JRM</span><span class="jrm-logo-text" style="font-family: 'Space Grotesk', sans-serif; font-weight: 600; font-size: 20px; color: #16181D">JRM Enterprises</span></a>
+<a href="#" class="jrm-tap" style="display: inline-flex; align-items: center; gap: 10px; text-decoration: none"><img src="../assets/e38b19474d28da6c70acbe64a76472e6.png" alt="Kitex" style="display: block; flex: none; height: 34px; width: 104px; object-fit: contain"><span class="jrm-logo-text" style="white-space: nowrap; font-family: 'Space Grotesk', sans-serif; font-weight: 600; font-size: 18px; letter-spacing: 0.02em; color: #8E2B2B; text-transform: uppercase">Exclusive Store</span></a>
 </div>
-<nav aria-label="Main" class="jrm-nav" style="display: flex; flex-wrap: wrap; gap: 8px 36px; font-size: 13px; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase">
-<a href="#catalog" onClick="{{nav.men}}">Men</a>
-<a href="#catalog" onClick="{{nav.women}}">Women</a>
-<a href="#catalog" onClick="{{nav.kids}}">Kids</a>
-<a href="#catalog" onClick="{{nav.home}}">Home</a>
+<nav aria-label="Main" class="jrm-nav" style="display: flex; flex-wrap: nowrap; white-space: nowrap; gap: 8px 22px; font-size: 13px; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase">
+<a href="#catalog" onClick="{{nav.bed}}">Bedsheets</a>
+<a href="#catalog" onClick="{{nav.towel}}">Towels</a>
+<a href="#catalog" onClick="{{nav.dhoti}}">Dhothi & Lungi</a>
+<a href="#catalog" onClick="{{nav.inner}}">Innerwear</a>
+<a href="#catalog" onClick="{{nav.baby}}">Baby Wear</a>
+<a href="#catalog" onClick="{{nav.bags}}">Bags</a>
 <a href="#new">New In</a>
-<a href="#store">Our Store</a>
 <sc-if value="{{isAdmin}}" hint-placeholder-val="{{ false }}"><button type="button" onClick="{{openAdmin}}" style="min-height: 44px; border: 1px solid #C9CFCC; background: #0E6B5C; color: #FFFFFF; padding: 0 14px; font: inherit; font-size: 13px; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; cursor: pointer">Admin</button></sc-if>
 </nav>
 <div style="display: flex; align-items: center; gap: 4px">
@@ -141,7 +142,7 @@ input:focus,select:focus{outline:2px solid #16181D;outline-offset:1px}
 <p style="margin: 0; font-size: 18px; line-height: 1.7; color: #4A504D; max-width: 460px">{{hs.body}}</p>
 <div style="display: flex; flex-wrap: wrap; gap: 16px; margin-top: 8px">
 <a href="{{hs.cta1Href}}" onClick="{{hs.cta1Go}}" style="background: #0E6B5C; color: #FFFFFF; padding: 16px 32px; font-size: 13px; font-weight: 500; letter-spacing: 0.14em; text-transform: uppercase; text-decoration: none">{{hs.cta1}}</a>
-<a href="{{hs.cta2Href}}" target="{{hs.cta2Target}}" rel="noopener" style="border: 1px solid #C9CFCC; color: #16181D; padding: 15px 32px; font-size: 13px; font-weight: 500; letter-spacing: 0.14em; text-transform: uppercase; text-decoration: none">{{hs.cta2}}</a>
+<a href="{{hs.cta2Href}}" target="{{hs.cta2Target}}" rel="noopener" onClick="{{hs.cta2Go}}" style="border: 1px solid #C9CFCC; color: #16181D; padding: 15px 32px; font-size: 13px; font-weight: 500; letter-spacing: 0.14em; text-transform: uppercase; text-decoration: none">{{hs.cta2}}</a>
 </div>
 </div>
 </div>
@@ -163,7 +164,7 @@ input:focus,select:focus{outline:2px solid #16181D;outline-offset:1px}
 <p style="margin: 0; font-size: 18px; line-height: 1.7; color: #FFFFFF; max-width: 460px">{{hs.body}}</p>
 <div style="display: flex; flex-wrap: wrap; gap: 16px; margin-top: 8px">
 <a href="{{hs.cta1Href}}" onClick="{{hs.cta1Go}}" style="background: #FFFFFF; color: #16181D; padding: 16px 32px; font-size: 13px; font-weight: 500; letter-spacing: 0.14em; text-transform: uppercase; text-decoration: none">{{hs.cta1}}</a>
-<a href="{{hs.cta2Href}}" target="{{hs.cta2Target}}" rel="noopener" style="border: 1px solid #FFFFFF; color: #FFFFFF; padding: 15px 32px; font-size: 13px; font-weight: 500; letter-spacing: 0.14em; text-transform: uppercase; text-decoration: none">{{hs.cta2}}</a>
+<a href="{{hs.cta2Href}}" target="{{hs.cta2Target}}" rel="noopener" onClick="{{hs.cta2Go}}" style="border: 1px solid #FFFFFF; color: #FFFFFF; padding: 15px 32px; font-size: 13px; font-weight: 500; letter-spacing: 0.14em; text-transform: uppercase; text-decoration: none">{{hs.cta2}}</a>
 </div>
 </div>
 </div>
@@ -178,7 +179,7 @@ input:focus,select:focus{outline:2px solid #16181D;outline-offset:1px}
 <p style="margin: 0; font-size: 18px; line-height: 1.7; color: #4A504D; max-width: 460px">{{hs.body}}</p>
 <div style="display: flex; flex-wrap: wrap; gap: 16px; margin-top: 8px">
 <a href="{{hs.cta1Href}}" onClick="{{hs.cta1Go}}" style="background: #0E6B5C; color: #FFFFFF; padding: 16px 32px; font-size: 13px; font-weight: 500; letter-spacing: 0.14em; text-transform: uppercase; text-decoration: none">{{hs.cta1}}</a>
-<a href="{{hs.cta2Href}}" target="{{hs.cta2Target}}" rel="noopener" style="border: 1px solid #C9CFCC; color: #16181D; padding: 15px 32px; font-size: 13px; font-weight: 500; letter-spacing: 0.14em; text-transform: uppercase; text-decoration: none">{{hs.cta2}}</a>
+<a href="{{hs.cta2Href}}" target="{{hs.cta2Target}}" rel="noopener" onClick="{{hs.cta2Go}}" style="border: 1px solid #C9CFCC; color: #16181D; padding: 15px 32px; font-size: 13px; font-weight: 500; letter-spacing: 0.14em; text-transform: uppercase; text-decoration: none">{{hs.cta2}}</a>
 </div>
 </div>
 <div class="jrm-collage" style="flex: 1 1 480px; min-width: 0; display: grid; grid-template-columns: minmax(0, 3fr) minmax(0, 2fr); grid-template-rows: repeat(2, minmax(0, 1fr)); gap: 16px; height: 540px">
@@ -341,11 +342,11 @@ input:focus,select:focus{outline:2px solid #16181D;outline-offset:1px}
 <div style="position: fixed; inset: 0; z-index: 35; display: flex">
 <aside role="dialog" aria-modal="true" aria-label="Menu" style="position: relative; z-index: 1; width: 320px; max-width: 86%; height: 100%; box-sizing: border-box; background: #FFFFFF; border-right: 1px solid #E4E7E5; display: flex; flex-direction: column; animation: jrmSlideLeft 260ms ease-out; overflow-y: auto">
 <div style="display: flex; justify-content: space-between; align-items: center; padding: 10px 12px 10px 20px; border-bottom: 1px solid #E4E7E5">
-<span style="font-family: 'Space Grotesk', sans-serif; font-size: 30px; line-height: 1">JRM</span>
+<img src="../assets/e38b19474d28da6c70acbe64a76472e6.png" alt="Kitex Exclusive Store" style="display: block; flex: none; height: 32px; width: 98px; object-fit: contain">
 <button type="button" aria-label="Close menu" onClick="{{closeMenu}}" style="width: 44px; height: 44px; border: 0; background: transparent; display: flex; align-items: center; justify-content: center; cursor: pointer"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#16181D" stroke-width="1.5" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"></path></svg></button>
 </div>
 <nav aria-label="Mobile" style="display: flex; flex-direction: column; padding: 8px 20px 24px">
-<sc-for list="{{menuCats}}" as="mc" hint-placeholder-count="4">
+<sc-for list="{{menuCats}}" as="mc" hint-placeholder-count="6">
 <a href="#catalog" class="jrm-menu-link" onClick="{{mc.go}}">{{mc.label}}<span aria-hidden="true">→</span></a>
 </sc-for>
 <a href="#new" class="jrm-menu-link" onClick="{{closeMenu}}">New In<span aria-hidden="true">→</span></a>
@@ -428,7 +429,7 @@ input:focus,select:focus{outline:2px solid #16181D;outline-offset:1px}
 <div role="dialog" aria-modal="true" aria-label="Checkout" style="position: fixed; inset: 0; z-index: 40; background: #FFFFFF; overflow-y: auto; animation: jrmFadeIn 200ms ease-out">
 <div style="border-bottom: 1px solid #E4E7E5">
 <div class="jrm-wrap" style="max-width: 1120px; margin: 0 auto; padding: 0 32px; min-height: 76px; display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 12px">
-<span style="font-family: 'Space Grotesk', sans-serif; font-size: 30px; line-height: 1">JRM <span style="font-family: Inter, sans-serif; font-size: 12px; font-weight: 500; letter-spacing: 0.18em; text-transform: uppercase; color: #5B625F; vertical-align: middle; margin-left: 12px">Checkout</span></span>
+<span style="font-family: 'Space Grotesk', sans-serif; font-size: 30px; line-height: 1">Kitex <span style="font-family: Inter, sans-serif; font-size: 12px; font-weight: 500; letter-spacing: 0.18em; text-transform: uppercase; color: #5B625F; vertical-align: middle; margin-left: 12px">Checkout</span></span>
 <button onClick="{{closeCheckout}}" style="min-height: 44px; border: 0; background: transparent; font: inherit; font-size: 13px; font-weight: 500; letter-spacing: 0.14em; text-transform: uppercase; color: #16181D; cursor: pointer; text-decoration: underline; text-underline-offset: 4px">Back to store</button>
 </div>
 </div>
@@ -593,7 +594,7 @@ input:focus,select:focus{outline:2px solid #16181D;outline-offset:1px}
 <div role="dialog" aria-modal="true" aria-label="Account" style="position: fixed; inset: 0; z-index: 40; background: #FFFFFF; overflow-y: auto; animation: jrmFadeIn 200ms ease-out">
 <div style="border-bottom: 1px solid #E4E7E5">
 <div class="jrm-wrap" style="max-width: 1120px; margin: 0 auto; padding: 0 32px; min-height: 76px; display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 12px">
-<span style="font-family: 'Space Grotesk', sans-serif; font-size: 30px; line-height: 1">JRM <span style="font-family: Inter, sans-serif; font-size: 12px; font-weight: 500; letter-spacing: 0.18em; text-transform: uppercase; color: #5B625F; vertical-align: middle; margin-left: 12px">Account</span></span>
+<span style="font-family: 'Space Grotesk', sans-serif; font-size: 30px; line-height: 1">Kitex <span style="font-family: Inter, sans-serif; font-size: 12px; font-weight: 500; letter-spacing: 0.18em; text-transform: uppercase; color: #5B625F; vertical-align: middle; margin-left: 12px">Account</span></span>
 <button onClick="{{closeAccount}}" style="min-height: 44px; border: 0; background: transparent; padding: 0; font: inherit; font-size: 13px; font-weight: 500; letter-spacing: 0.14em; text-transform: uppercase; color: #16181D; text-decoration: underline; text-underline-offset: 4px; cursor: pointer">Back to store</button>
 </div>
 </div>
@@ -699,7 +700,7 @@ input:focus,select:focus{outline:2px solid #16181D;outline-offset:1px}
 <div role="dialog" aria-modal="true" aria-label="Admin dashboard" style="position: fixed; inset: 0; z-index: 40; background: #FFFFFF; overflow-y: auto; animation: jrmFadeIn 200ms ease-out">
 <div style="border-bottom: 1px solid #E4E7E5">
 <div class="jrm-wrap" style="max-width: 1280px; margin: 0 auto; padding: 0 32px; min-height: 76px; display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 12px">
-<span style="font-family: 'Space Grotesk', sans-serif; font-size: 30px; line-height: 1">JRM <span style="font-family: Inter, sans-serif; font-size: 12px; font-weight: 500; letter-spacing: 0.18em; text-transform: uppercase; color: #5B625F; vertical-align: middle; margin-left: 12px">Admin · {{me.name}}</span></span>
+<span style="font-family: 'Space Grotesk', sans-serif; font-size: 30px; line-height: 1">Kitex <span style="font-family: Inter, sans-serif; font-size: 12px; font-weight: 500; letter-spacing: 0.18em; text-transform: uppercase; color: #5B625F; vertical-align: middle; margin-left: 12px">Admin · {{me.name}}</span></span>
 <button onClick="{{closeAdmin}}" style="min-height: 44px; border: 0; background: transparent; padding: 0; font: inherit; font-size: 13px; font-weight: 500; letter-spacing: 0.14em; text-transform: uppercase; color: #16181D; text-decoration: underline; text-underline-offset: 4px; cursor: pointer">Back to store</button>
 </div>
 </div>
@@ -831,18 +832,30 @@ input:focus,select:focus{outline:2px solid #16181D;outline-offset:1px}
 <h2 class="jrm-d48" style="margin: 0; font-family: 'Space Grotesk', sans-serif; font-weight: 600; font-size: 48px; line-height: 1.1">Shop by</h2>
 <a href="#catalog" onClick="{{nav.all}}" class="jrm-tap" style="font-size: 13px; font-weight: 500; letter-spacing: 0.14em; text-transform: uppercase">View all</a>
 </div>
-<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 32px">
-<a href="#catalog" onClick="{{nav.men}}" style="display: flex; flex-direction: column; gap: 16px">
-<img src="../assets/4b61da041baa3b3f16d7fad90d64deff.jpg" alt="Man in a cream shirt and mundu" style="display: block; width: 100%; aspect-ratio: 3 / 4; object-fit: cover; background: #EEF1EF">
-<span style="display: flex; justify-content: space-between; border-top: 1px solid #E4E7E5; padding-top: 14px; font-size: 13px; font-weight: 500; letter-spacing: 0.14em; text-transform: uppercase">Men <span aria-hidden="true">→</span></span>
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(170px, 1fr)); gap: 24px">
+<a href="#catalog" onClick="{{nav.bed}}" style="display: flex; flex-direction: column; gap: 14px">
+<img src="../assets/b2c6222c33312457ce226e7ffcc8fbb5.jpg" alt="Floral bedsheet on a bed" style="display: block; width: 100%; aspect-ratio: 3 / 4; object-fit: cover; background: #EEF1EF">
+<span style="display: flex; justify-content: space-between; border-top: 1px solid #E4E7E5; padding-top: 12px; font-size: 12px; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase">Bedsheets <span aria-hidden="true">→</span></span>
 </a>
-<a href="#catalog" onClick="{{nav.women}}" style="display: flex; flex-direction: column; gap: 16px">
-<img src="../assets/71aea2bae1119a862bbe3d9acc906c47.jpg" alt="Woman in a Kerala saree" style="display: block; width: 100%; aspect-ratio: 3 / 4; object-fit: cover; background: #EEF1EF">
-<span style="display: flex; justify-content: space-between; border-top: 1px solid #E4E7E5; padding-top: 14px; font-size: 13px; font-weight: 500; letter-spacing: 0.14em; text-transform: uppercase">Women <span aria-hidden="true">→</span></span>
+<a href="#catalog" onClick="{{nav.towel}}" style="display: flex; flex-direction: column; gap: 14px">
+<img src="../assets/14f59b77e2dca6947df58eb8efe3076a.jpg" alt="Stack of striped cotton towels" style="display: block; width: 100%; aspect-ratio: 3 / 4; object-fit: cover; background: #EEF1EF">
+<span style="display: flex; justify-content: space-between; border-top: 1px solid #E4E7E5; padding-top: 12px; font-size: 12px; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase">Towels <span aria-hidden="true">→</span></span>
 </a>
-<a href="#catalog" onClick="{{nav.kids}}" style="display: flex; flex-direction: column; gap: 16px">
-<img src="../assets/8f9442536379795ae8acc0ac77902a64.jpg" alt="Two girls in traditional pattu pavada" style="display: block; width: 100%; aspect-ratio: 3 / 4; object-fit: cover; background: #EEF1EF">
-<span style="display: flex; justify-content: space-between; border-top: 1px solid #E4E7E5; padding-top: 14px; font-size: 13px; font-weight: 500; letter-spacing: 0.14em; text-transform: uppercase">Kids <span aria-hidden="true">→</span></span>
+<a href="#catalog" onClick="{{nav.dhoti}}" style="display: flex; flex-direction: column; gap: 14px">
+<img src="../assets/4b61da041baa3b3f16d7fad90d64deff.jpg" alt="Man in a cream shirt and dhothi" style="display: block; width: 100%; aspect-ratio: 3 / 4; object-fit: cover; background: #EEF1EF">
+<span style="display: flex; justify-content: space-between; border-top: 1px solid #E4E7E5; padding-top: 12px; font-size: 12px; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase">Dhothi &amp; Lungi <span aria-hidden="true">→</span></span>
+</a>
+<a href="#catalog" onClick="{{nav.inner}}" style="display: flex; flex-direction: column; gap: 14px">
+<img src="../assets/543c8a6fe845d0dd290a50fc0563ecc0.jpg" alt="Folded cotton innerwear" style="display: block; width: 100%; aspect-ratio: 3 / 4; object-fit: cover; background: #EEF1EF">
+<span style="display: flex; justify-content: space-between; border-top: 1px solid #E4E7E5; padding-top: 12px; font-size: 12px; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase">Innerwear <span aria-hidden="true">→</span></span>
+</a>
+<a href="#catalog" onClick="{{nav.baby}}" style="display: flex; flex-direction: column; gap: 14px">
+<img src="../assets/f6ecf438d64d695b8ce716e06c768e24.jpg" alt="Baby clothes on a wooden rack" style="display: block; width: 100%; aspect-ratio: 3 / 4; object-fit: cover; background: #EEF1EF">
+<span style="display: flex; justify-content: space-between; border-top: 1px solid #E4E7E5; padding-top: 12px; font-size: 12px; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase">Baby Wear <span aria-hidden="true">→</span></span>
+</a>
+<a href="#catalog" onClick="{{nav.bags}}" style="display: flex; flex-direction: column; gap: 14px">
+<img src="../assets/57adfe15669f6b68ace5707f33fdb2f9.jpg" alt="Child walking with a red school backpack" style="display: block; width: 100%; aspect-ratio: 3 / 4; object-fit: cover; background: #EEF1EF">
+<span style="display: flex; justify-content: space-between; border-top: 1px solid #E4E7E5; padding-top: 12px; font-size: 12px; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase">Bags <span aria-hidden="true">→</span></span>
 </a>
 </div>
 </div>
@@ -864,7 +877,7 @@ input:focus,select:focus{outline:2px solid #16181D;outline-offset:1px}
 <div style="flex: 1 1 380px; display: flex; flex-direction: column; justify-content: center; gap: 24px">
 <h2 class="jrm-d48" style="margin: 0; font-family: 'Space Grotesk', sans-serif; font-weight: 600; font-size: 48px; line-height: 1.1">Visit the store</h2>
 <div style="display: flex; flex-direction: column; gap: 0; border-top: 1px solid #E4E7E5">
-<div style="display: flex; justify-content: space-between; gap: 24px; padding: 16px 0; border-bottom: 1px solid #E4E7E5"><span style="font-size: 13px; letter-spacing: 0.14em; text-transform: uppercase; color: #5B625F">Address</span><span style="text-align: right">JRM Enterprises, Old NH Road, Chalakudy</span></div>
+<div style="display: flex; justify-content: space-between; gap: 24px; padding: 16px 0; border-bottom: 1px solid #E4E7E5"><span style="font-size: 13px; letter-spacing: 0.14em; text-transform: uppercase; color: #5B625F">Address</span><span style="text-align: right">Kitex Exclusive Store (JRM Enterprise), Old NH Road, Chalakudy</span></div>
 <div style="display: flex; justify-content: space-between; gap: 24px; padding: 16px 0; border-bottom: 1px solid #E4E7E5"><span style="font-size: 13px; letter-spacing: 0.14em; text-transform: uppercase; color: #5B625F">Hours</span><span style="text-align: right">7 DAYS · 10 AM - 8 PM</span></div>
 <div style="display: flex; justify-content: space-between; gap: 24px; padding: 16px 0; border-bottom: 1px solid #E4E7E5"><span style="font-size: 13px; letter-spacing: 0.14em; text-transform: uppercase; color: #5B625F">Phone</span><span style="text-align: right">9746541762</span></div>
 </div>
@@ -877,12 +890,12 @@ input:focus,select:focus{outline:2px solid #16181D;outline-offset:1px}
 <footer>
 <div class="jrm-wrap jrm-vpad" style="max-width: 1280px; margin: 0 auto; padding: 72px 32px 40px; display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 40px">
 <div style="display: flex; flex-direction: column; gap: 12px">
-<span style="font-family: 'Space Grotesk', sans-serif; font-size: 30px; line-height: 1">JRM</span>
-<span style="font-size: 14px; color: #5B625F">Chalakudy, Kerala</span>
+<div style="display: flex; align-items: center; gap: 12px; align-self: flex-start"><img src="../assets/e38b19474d28da6c70acbe64a76472e6.png" alt="Kitex" style="display: block; flex: none; height: 44px; width: 134px; object-fit: contain"><span style="font-family: 'Space Grotesk', sans-serif; font-weight: 600; font-size: 16px; letter-spacing: 0.04em; text-transform: uppercase; color: #8E2B2B; white-space: nowrap">Exclusive Store</span></div>
+<span style="font-size: 14px; color: #5B625F">Old NH Road, Chalakudy<br>Run by JRM Enterprise</span>
 </div>
 <div style="display: flex; flex-direction: column; gap: 10px; font-size: 14px">
 <span style="font-size: 12px; font-weight: 500; letter-spacing: 0.16em; text-transform: uppercase; color: #5B625F">Shop</span>
-<a href="#catalog" onClick="{{nav.men}}">Men</a><a href="#catalog" onClick="{{nav.women}}">Women</a><a href="#catalog" onClick="{{nav.kids}}">Kids</a><a href="#catalog" onClick="{{nav.home}}">Home</a><a href="#new">New In</a>
+<a href="#catalog" onClick="{{nav.bed}}">Bedsheets</a><a href="#catalog" onClick="{{nav.towel}}">Towels</a><a href="#catalog" onClick="{{nav.dhoti}}">Dhothi & Lungi</a><a href="#catalog" onClick="{{nav.inner}}">Innerwear</a><a href="#catalog" onClick="{{nav.baby}}">Baby Wear</a><a href="#catalog" onClick="{{nav.bags}}">Bags</a><a href="#new">New In</a>
 </div>
 <div style="display: flex; flex-direction: column; gap: 10px; font-size: 14px">
 <span style="font-size: 12px; font-weight: 500; letter-spacing: 0.16em; text-transform: uppercase; color: #5B625F">Help</span>
@@ -893,55 +906,64 @@ input:focus,select:focus{outline:2px solid #16181D;outline-offset:1px}
 <a href="#">Instagram</a><a href="#">Facebook</a><a href="#">WhatsApp</a>
 </div>
 </div>
-<div class="jrm-wrap" style="max-width: 1280px; margin: 0 auto; padding: 24px 32px 40px; border-top: 1px solid #E4E7E5; font-size: 12px; color: #5B625F">© JRM Enterprises</div>
+<div class="jrm-wrap" style="max-width: 1280px; margin: 0 auto; padding: 24px 32px 40px; border-top: 1px solid #E4E7E5; font-size: 12px; color: #5B625F">© Kitex Exclusive Store, Chalakudy · JRM Enterprise</div>
 </footer>
 
 </div>
 </x-dc>
-<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":7330}}'>
-// Mock product database (placeholder data; images are free Pexels stock photos – replace with the real stock list and photos)
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":9170}}'>
+// Mock product database (placeholder data based on the store's range; images are free Pexels stock photos – replace with the real stock list and photos)
 var PRODUCTS = [
-{ id: 'JRM-M01', title: 'Cotton Oxford Shirt', description: 'Mock description: a regular-fit cotton shirt for everyday wear.', price: 1299, category: 'Men', image: '../assets/e02d3b307f3a830febc624e820787029.jpg', stock: 14 },
-{ id: 'JRM-M02', title: 'Linen Blend Kurta', description: 'Mock description: a light, breathable kurta for warm days.', price: 1599, category: 'Men', image: '../assets/244613990030ca51f481aa5e15f9ff2d.jpg', stock: 6 },
-{ id: 'JRM-M03', title: 'Cotton Mundu', description: 'Mock description: a classic white cotton mundu with a simple border.', price: 899, category: 'Men', image: '../assets/5fa8e2117b9a0a0642d6295ba0e1a0ed.jpg', stock: 0 },
-{ id: 'JRM-W01', title: 'Cotton Kurti', description: 'Mock description: a straight-cut printed kurti for daily wear.', price: 1199, category: 'Women', image: '../assets/261c6d71b02a6c6b8a7dde101222fefd.jpg', stock: 9 },
-{ id: 'JRM-W02', title: 'Churidar Set', description: 'Mock description: a three-piece churidar set with dupatta.', price: 1899, category: 'Women', image: '../assets/98af95dd70dc46946a48e3aa6a296271.jpg', stock: 4 },
-{ id: 'JRM-W03', title: 'Cotton Dupatta', description: 'Mock description: a soft cotton dupatta in a solid colour.', price: 699, category: 'Women', image: '../assets/5ce57bdedf45baf68276cd226c795e3f.jpg', stock: 20 },
-{ id: 'JRM-K01', title: 'Infant Romper Set', description: 'Mock description: a soft cotton romper set for babies.', price: 649, category: 'Kids', image: '../assets/5ced7b025b9e5507af6729d2695702c1.jpg', stock: 18 },
-{ id: 'JRM-K02', title: 'Kids T-shirt, Pack of 3', description: 'Mock description: three everyday cotton t-shirts for kids.', price: 799, category: 'Kids', image: '../assets/7f6d52df23dbde7f6095854decfe55ad.jpg', stock: 11 },
-{ id: 'JRM-K03', title: 'Girls Cotton Frock', description: 'Mock description: a light cotton frock for everyday wear.', price: 999, category: 'Kids', image: '../assets/6185d3abe5ec9ff1c5a0e7c4b4e3aeec.jpg', stock: 3 },
-{ id: 'JRM-H01', title: 'Double Bedsheet Set', description: 'Mock description: a cotton double bedsheet with two pillow covers.', price: 1499, category: 'Home', image: '../assets/5ece37cde16adf6c940d7abcc10aaa17.jpg', stock: 7 },
-{ id: 'JRM-H02', title: 'Bath Towel, Pair', description: 'Mock description: two absorbent cotton bath towels.', price: 749, category: 'Home', image: '../assets/0af3b7a0f9a00ed46517897e0e38577b.jpg', stock: 15 },
-{ id: 'JRM-H03', title: 'Cotton Lungi', description: 'Mock description: a checked cotton lungi for daily use.', price: 499, category: 'Home', image: '../assets/c12e75e352d474bf2fcfb71f6c01fee7.jpg', stock: 25 }
+{ id: 'KES-B01', title: 'Double Bedsheet Set', description: 'Mock description: a cotton double bedsheet with two pillow covers.', price: 1499, category: 'Bedsheets', image: '../assets/5ece37cde16adf6c940d7abcc10aaa17.jpg', stock: 7 },
+{ id: 'KES-B02', title: 'Floral Print Bedsheet', description: 'Mock description: a printed cotton bedsheet in warm, deep colours.', price: 1299, category: 'Bedsheets', image: '../assets/b2c6222c33312457ce226e7ffcc8fbb5.jpg', stock: 5 },
+{ id: 'KES-B03', title: 'Solid Colour Bedsheet', description: 'Mock description: a plain cotton bedsheet with matching pillow covers.', price: 1199, category: 'Bedsheets', image: '../assets/e64a91b10dede4fe23797491a9bd5e73.jpg', stock: 0 },
+{ id: 'KES-T01', title: 'Bath Towel, Pair', description: 'Mock description: two absorbent cotton bath towels.', price: 749, category: 'Towels', image: '../assets/0af3b7a0f9a00ed46517897e0e38577b.jpg', stock: 15 },
+{ id: 'KES-T02', title: 'Striped Cotton Towel', description: 'Mock description: a light striped towel that dries quickly.', price: 349, category: 'Towels', image: '../assets/14f59b77e2dca6947df58eb8efe3076a.jpg', stock: 22 },
+{ id: 'KES-T03', title: 'Hand Towels, Set of 4', description: 'Mock description: four small cotton towels for the kitchen and wash basin.', price: 499, category: 'Towels', image: '../assets/5ffad7fb18e44c84a869a886c495fb9f.jpg', stock: 3 },
+{ id: 'KES-D01', title: 'White Cotton Dhothi', description: 'Mock description: a classic white cotton dhothi with a simple border.', price: 899, category: 'Dhothi & Lungi', image: '../assets/5fa8e2117b9a0a0642d6295ba0e1a0ed.jpg', stock: 0 },
+{ id: 'KES-D02', title: 'Kasavu Border Dhothi', description: 'Mock description: a cream dhothi with a gold border for festive days.', price: 1199, category: 'Dhothi & Lungi', image: '../assets/4b61da041baa3b3f16d7fad90d64deff.jpg', stock: 6 },
+{ id: 'KES-L01', title: 'Checked Cotton Lungi', description: 'Mock description: a checked cotton lungi for daily use.', price: 499, category: 'Dhothi & Lungi', image: '../assets/c12e75e352d474bf2fcfb71f6c01fee7.jpg', stock: 25 },
+{ id: 'KES-L02', title: 'Printed Lungi', description: 'Mock description: a soft printed lungi in a deep green.', price: 449, category: 'Dhothi & Lungi', image: '../assets/e001c56a5a07a2aa6dcb511fb9e89d79.jpg', stock: 12 },
+{ id: 'KES-I01', title: 'Men\'s Cotton Vests, Pack of 3', description: 'Mock description: three everyday cotton vests.', price: 399, category: 'Innerwear', image: '../assets/37d0d37aaf5729a8111f072567f0780c.jpg', stock: 30 },
+{ id: 'KES-I02', title: 'Men\'s Cotton Trunks, Pack of 3', description: 'Mock description: three comfortable cotton trunks.', price: 449, category: 'Innerwear', image: '../assets/543c8a6fe845d0dd290a50fc0563ecc0.jpg', stock: 18 },
+{ id: 'KES-I03', title: 'Women\'s Everyday Bra', description: 'Mock description: a soft, seamless bra for all-day comfort.', price: 549, category: 'Innerwear', image: '../assets/84a09e4c74bc1f1d2b43d73bafeaf267.jpg', stock: 14 },
+{ id: 'KES-I04', title: 'Women\'s Cotton Bra, Pack of 2', description: 'Mock description: two plain cotton bras in everyday shades.', price: 699, category: 'Innerwear', image: '../assets/1dfb878a6b76a1e7bb2bf678ab1e4606.jpg', stock: 10 },
+{ id: 'KES-Y01', title: 'Baby Romper Set', description: 'Mock description: a soft cotton romper set for babies.', price: 649, category: 'Baby Wear', image: '../assets/5ced7b025b9e5507af6729d2695702c1.jpg', stock: 18 },
+{ id: 'KES-Y02', title: 'Newborn Gift Box', description: 'Mock description: a boxed set of baby clothes, ready to gift.', price: 1499, category: 'Baby Wear', image: '../assets/721029aa30f54d8f75fdf336fdc6af59.jpg', stock: 4 },
+{ id: 'KES-Y03', title: 'Baby Essentials Set', description: 'Mock description: onesies, caps and socks in plain cotton.', price: 799, category: 'Baby Wear', image: '../assets/8cdd6cb7534aa3e926f06afeb8f43610.jpg', stock: 9 },
+{ id: 'KES-Y04', title: 'Printed Baby Set', description: 'Mock description: a light printed top and bottom set.', price: 699, category: 'Baby Wear', image: '../assets/4d6f5dddd68c2a2bd42b36612721464e.jpg', stock: 11 },
+{ id: 'KES-G01', title: 'School Backpack', description: 'Mock description: a roomy school bag with padded straps.', price: 1299, category: 'Bags', image: '../assets/57adfe15669f6b68ace5707f33fdb2f9.jpg', stock: 8 },
+{ id: 'KES-G02', title: 'Travel Trolley Bag', description: 'Mock description: a hard-shell trolley bag with wheels.', price: 3499, category: 'Bags', image: '../assets/e84be26dc0569ae8249e6513ac401538.jpg', stock: 4 },
+{ id: 'KES-G03', title: 'Everyday Backpack', description: 'Mock description: a light backpack for college and daily use.', price: 1499, category: 'Bags', image: '../assets/ff69c572dee69a09c527c3ad12b66e92.jpg', stock: 9 }
 ];
-var CATEGORIES = ['All', 'Men', 'Women', 'Kids', 'Home'];
+var CATEGORIES = ['All', 'Bedsheets', 'Towels', 'Dhothi & Lungi', 'Innerwear', 'Baby Wear', 'Bags'];
 // Hero slides (rotate every 10 seconds)
 var MAPS_URL = 'https://maps.app.goo.gl/X3cSjj9D9pmM9Bc26';
 var HERO_SLIDES = [
-{ type: 'split', imageSide: 'right', eyebrow: 'JRM Enterprises · Chalakudy', title: 'Your idea,\nneed & want of\nclothing for every day, made to last.',
-body: 'Comfortable clothes for every age, from your little one\u2019s first outfit to a crisp mundu for festive days.',
+{ type: 'split', imageSide: 'right', eyebrow: 'Kitex Exclusive Store · Chalakudy', title: 'Your idea,\nneed & want of\nclothing for every day, made to last.',
+body: 'Bedsheets, towels, dhothis, innerwear, baby wear and bags. Everyday Kitex essentials, all in one store.',
 cta1: 'Shop the collection', filter: 'All', cta2: 'Visit the store', cta2Href: '#store',
-img1: '../assets/8d5d784c83c0c0d5dc406b28972496bf.jpg', alt1: 'Two men in white shirts and mundu',
-img2: '../assets/d8b381c02f37740a90420bf1e97894ee.jpg', alt2: 'Mother holding her baby' },
-{ type: 'full', textSide: 'right', eyebrow: 'Festive wear', title: 'Dressed For The Occasion.\nWithout The Hunt.',
-body: 'Kurtas, mundu, pattu pavada and churidar sets for weddings, Onam and every celebration in between.',
-cta1: 'Shop festive wear', filter: 'All', cta2: 'See what\u2019s new', cta2Href: '#new',
-img1: '../assets/eb8c3417beb08be964f44425a3b75e3e.jpg', alt1: 'Children in traditional Kerala clothes arranging flowers on stone steps' },
-{ type: 'collage', eyebrow: 'Women', title: 'Everyday Kurtis.\nEasy To Wear.',
-body: 'Cotton kurtis, churidar sets and dupattas that work from morning to evening.',
-cta1: 'Shop women', filter: 'Women', cta2: 'See what\u2019s new', cta2Href: '#new',
-img1: '../assets/da24134fc945c0e94c58dd85c218c46b.jpg', alt1: 'Woman in a yellow floral kurta set',
-img2: '../assets/a27e291e59ec5af72a760f4bc8be36c3.jpg', alt2: 'Woman in a pale green kurti',
-img3: '../assets/71aea2bae1119a862bbe3d9acc906c47.jpg', alt3: 'Woman in a Kerala saree' },
-{ type: 'split', imageSide: 'left', eyebrow: 'Kids', title: 'Little Ones.\nWell Covered.',
-body: 'Rompers, frocks and everyday cotton sets, from the first months to school days.',
-cta1: 'Shop kids', filter: 'Kids', cta2: 'See what\u2019s new', cta2Href: '#new',
-img1: '../assets/c0032b83a95988b8eb7adbc27b5314a3.jpg', alt1: 'Boy in a black shirt and white mundu',
-img2: '../assets/ffcfdc56d749d9d079f67d465f0b5e73.jpg', alt2: 'Two young sisters in traditional dresses' },
-{ type: 'full', textSide: 'left', eyebrow: 'Home', title: 'Soft Cotton.\nFor Every Room.',
-body: 'Bedsheets, towels and lungis in simple cotton, made for daily use.',
-cta1: 'Shop home', filter: 'Home', cta2: 'Visit the store', cta2Href: '#store',
-img1: '../assets/03f5806605278d0e19f99a297d9da6ce.jpg', alt1: 'Bed with soft white pillows and linen' },
+img1: '../assets/8d5d784c83c0c0d5dc406b28972496bf.jpg', alt1: 'Two men in white shirts and dhothi',
+img2: '../assets/b2c6222c33312457ce226e7ffcc8fbb5.jpg', alt2: 'Floral bedsheet on a bed' },
+{ type: 'full', textSide: 'right', eyebrow: 'Bedsheets & towels', title: 'Soft Cotton.\nFor Every Room.',
+body: 'Bedsheets, pillow covers and towels in plain cotton, made for daily use and many washes.',
+cta1: 'Shop bedsheets', filter: 'Bedsheets', cta2: 'Shop towels', cta2Filter: 'Towels', cta2Href: '#catalog',
+img1: '../assets/7042d723e0703ae6be9c8289b8000a88.jpg', alt1: 'Bedroom with a green and striped bedsheet' },
+{ type: 'collage', eyebrow: 'Dhothi & lungi', title: 'Kerala Classics.\nDone Simply.',
+body: 'White dhothis for the occasion. Checked and printed lungis for every other day.',
+cta1: 'Shop dhothi & lungi', filter: 'Dhothi & Lungi', cta2: 'See what’s new', cta2Href: '#new',
+img1: '../assets/4b61da041baa3b3f16d7fad90d64deff.jpg', alt1: 'Man in a cream shirt and dhothi',
+img2: '../assets/c12e75e352d474bf2fcfb71f6c01fee7.jpg', alt2: 'Checked cotton lungi',
+img3: '../assets/e001c56a5a07a2aa6dcb511fb9e89d79.jpg', alt3: 'Man wearing a printed lungi' },
+{ type: 'split', imageSide: 'left', eyebrow: 'Baby wear · Baby Scoobee', title: 'Little Ones.\nWell Covered.',
+body: 'Soft cotton sets, rompers and gift boxes for the first months and beyond.',
+cta1: 'Shop baby wear', filter: 'Baby Wear', cta2: 'See what’s new', cta2Href: '#new',
+img1: '../assets/f6ecf438d64d695b8ce716e06c768e24.jpg', alt1: 'Baby clothes on a wooden rack',
+img2: '../assets/4d6f5dddd68c2a2bd42b36612721464e.jpg', alt2: 'Folded baby clothes in soft colours' },
+{ type: 'full', textSide: 'left', eyebrow: 'Bags · Scoobee Day · TraWellDay · Dezire', title: 'Packed For School.\nAnd Everywhere After.',
+body: 'School backpacks, travel trolleys and everyday bags, built for daily wear and tear.',
+cta1: 'Shop bags', filter: 'Bags', cta2: 'Visit the store', cta2Href: '#store',
+img1: '../assets/fadf59cc4a69ac1c13b5fed8cfcce50f.jpg', alt1: 'Rows of travel trolley bags' },
 { type: 'collage', eyebrow: 'Visit us · Old NH Road', title: 'See It In Person.\nOpen All Week.',
 body: 'Walk in any day from 10 AM to 8 PM and see the full range on Old NH Road, Chalakudy.',
 cta1: 'Shop online', filter: 'All', cta2: 'Get directions', cta2Href: MAPS_URL, external: true,
@@ -952,25 +974,34 @@ img3: '../assets/2aed7581aca98a5b04e4f46c49ae5b77.jpg', alt3: 'Minimal clothing 
 var HERO_MS = 10000;
 
 // Products shown in the New collection section (mock pick – replace with the real new arrivals)
-var NEW_IN = ['JRM-W02', 'JRM-K03', 'JRM-M02', 'JRM-H01'];
+var NEW_IN = ['KES-G02', 'KES-Y02', 'KES-B02', 'KES-L02'];
 
 // Category tags used by the recommendation engine (mock – adjust to the real range)
 var TAGS = {
-'JRM-M01': ['men', 'shirt', 'cotton', 'everyday', 'pairs-mundu'],
-'JRM-M02': ['men', 'ethnic', 'festive', 'cotton', 'pairs-mundu'],
-'JRM-M03': ['men', 'ethnic', 'festive', 'kerala', 'cotton', 'bottomwear'],
-'JRM-W01': ['women', 'ethnic', 'everyday', 'cotton', 'pairs-dupatta'],
-'JRM-W02': ['women', 'ethnic', 'festive', 'set', 'pairs-dupatta'],
-'JRM-W03': ['women', 'ethnic', 'accessory', 'dupatta'],
-'JRM-K01': ['kids', 'infant', 'cotton', 'gift'],
-'JRM-K02': ['kids', 'everyday', 'cotton', 'value-pack'],
-'JRM-K03': ['kids', 'girls', 'festive', 'gift'],
-'JRM-H01': ['home', 'bedding', 'cotton', 'gift'],
-'JRM-H02': ['home', 'bath', 'cotton', 'gift'],
-'JRM-H03': ['home', 'men', 'everyday', 'cotton', 'bottomwear']
+'KES-B01': ['bedding', 'home', 'cotton', 'gift', 'pairs-towel'],
+'KES-B02': ['bedding', 'home', 'cotton', 'printed', 'pairs-towel'],
+'KES-B03': ['bedding', 'home', 'cotton', 'pairs-towel'],
+'KES-T01': ['towel', 'home', 'bath', 'cotton', 'gift'],
+'KES-T02': ['towel', 'home', 'bath', 'cotton', 'everyday'],
+'KES-T03': ['towel', 'home', 'cotton', 'value-pack'],
+'KES-D01': ['dhothi', 'men', 'kerala', 'festive', 'cotton', 'pairs-inner'],
+'KES-D02': ['dhothi', 'men', 'kerala', 'festive', 'cotton', 'pairs-inner'],
+'KES-L01': ['lungi', 'men', 'kerala', 'everyday', 'cotton', 'pairs-inner'],
+'KES-L02': ['lungi', 'men', 'kerala', 'everyday', 'printed', 'pairs-inner'],
+'KES-I01': ['innerwear', 'men', 'everyday', 'cotton', 'value-pack'],
+'KES-I02': ['innerwear', 'men', 'everyday', 'cotton', 'value-pack'],
+'KES-I03': ['innerwear', 'women', 'everyday'],
+'KES-I04': ['innerwear', 'women', 'everyday', 'cotton', 'value-pack'],
+'KES-Y01': ['baby', 'cotton', 'gift', 'pairs-towel'],
+'KES-Y02': ['baby', 'cotton', 'gift'],
+'KES-Y03': ['baby', 'cotton', 'everyday', 'value-pack'],
+'KES-Y04': ['baby', 'cotton', 'printed', 'everyday'],
+'KES-G01': ['bag', 'school', 'everyday'],
+'KES-G02': ['bag', 'travel', 'gift'],
+'KES-G03': ['bag', 'everyday', 'travel']
 };
-var PAIR_RULES = { 'pairs-mundu': 'bottomwear', 'pairs-dupatta': 'dupatta' }; // "goes with" accessories
-var TAG_LABELS = { ethnic: 'Ethnic wear', festive: 'Festive', cotton: 'Cotton', everyday: 'Everyday', gift: 'Gifting', kerala: 'Kerala classic', bottomwear: 'Mundu & lungi', dupatta: 'Dupatta' };
+var PAIR_RULES = { 'pairs-towel': 'towel', 'pairs-inner': 'innerwear' }; // "goes with" items
+var TAG_LABELS = { cotton: 'Cotton', everyday: 'Everyday', gift: 'Gifting', kerala: 'Kerala classic', festive: 'Festive', printed: 'Printed', 'value-pack': 'Value pack', travel: 'Travel', school: 'School', home: 'For the home' };
 // Scores every other in-stock product against the active item and returns the top 2.
 function recommend(products, activeId, cart) {
 var at = TAGS[activeId] || [];
@@ -1072,19 +1103,19 @@ var h = 5381; for (var i = 0; i < pw.length; i++) h = ((h << 5) + h + pw.charCod
 return 'h' + (h >>> 0).toString(16);
 }
 var SEED_USERS = [
-{ id: 'ADM-0001', role: 'admin', name: 'JRM Admin', email: 'admin@jrm.test', phone: '9847000000', passHash: mockHash('jrmadmin1'), since: '1 Nov 2026' },
+{ id: 'ADM-0001', role: 'admin', name: 'Store Admin', email: 'admin@jrm.test', phone: '9847000000', passHash: mockHash('jrmadmin1'), since: '1 Nov 2026' },
 { id: 'CUS-1001', role: 'customer', name: 'Anu Thomas', email: 'anu@jrm.test', phone: '9847000001', passHash: mockHash('jrmtest1'), since: '2 Nov 2026' },
 { id: 'CUS-1002', role: 'customer', name: 'Rahul Menon', email: 'rahul@jrm.test', phone: '9847000002', passHash: mockHash('jrmtest2'), since: '9 Nov 2026' }
 ];
 var SEED_ORDERS = [
 { id: 'ORD-1', ownerId: 'CUS-1001', tracking: 'JRM-261104-K7PQ2M', date: '4 Nov 2026', method: 'UPI · success@razorpay', status: 'Delivered',
-items: [{ title: 'Cotton Kurti', qty: 1, line: 1199 }, { title: 'Infant Romper Set', qty: 2, line: 1298 }], total: 2497,
+items: [{ title: 'Bath Towel, Pair', qty: 1, line: 749 }, { title: 'Baby Romper Set', qty: 2, line: 1298 }], total: 2047,
 shipName: 'Anu Thomas', shipLine: 'Chalakudy, Thrissur, Kerala – 680307' },
 { id: 'ORD-2', ownerId: 'CUS-1001', tracking: 'JRM-261112-Z3HWR8', date: '12 Nov 2026', method: 'card ending 4366', status: 'Shipped',
 items: [{ title: 'Double Bedsheet Set', qty: 1, line: 1499 }], total: 1499,
 shipName: 'Anu Thomas', shipLine: 'Chalakudy, Thrissur, Kerala – 680307' },
 { id: 'ORD-3', ownerId: 'CUS-1002', tracking: 'JRM-261110-B5XN4T', date: '10 Nov 2026', method: 'UPI · success@razorpay', status: 'Processing',
-items: [{ title: 'Linen Blend Kurta', qty: 1, line: 1599 }, { title: 'Cotton Mundu', qty: 1, line: 899 }], total: 2498,
+items: [{ title: 'Kasavu Border Dhothi', qty: 1, line: 1199 }, { title: 'Men\'s Cotton Vests, Pack of 3', qty: 1, line: 399 }], total: 1598,
 shipName: 'Rahul Menon', shipLine: 'Irinjalakuda, Thrissur, Kerala – 680121' }
 ];
 // Row-level access rules: every read of customer data goes through these and is
@@ -1590,7 +1621,7 @@ splitImgStyle: 'position: relative; min-height: 520px; order: ' + (h.imageSide =
 insetStyle: h.imageSide === 'left' ? 'right: -1px; bottom: 32px;' : 'left: -1px; bottom: 32px;',
 fullAlign: h.textSide === 'right' ? 'flex-end' : 'flex-start',
 shadeStyle: 'position: absolute; inset: 0; background: rgba(28, 28, 27, 0.48);',
-cta2Go: function () {}
+cta2Go: function () { if (h.cta2Filter) self.setState({ filter: h.cta2Filter }); }
 });
 }),
 heroDots: HERO_SLIDES.map(function (h, i) {
@@ -1612,15 +1643,17 @@ heroHoverOff: function () { self.setState({ heroHover: false }); },
 newItems: newItems,
 nav: {
 all: function () { self.setState({ filter: 'All', menu: false }); },
-men: function () { self.setState({ filter: 'Men', menu: false }); },
-women: function () { self.setState({ filter: 'Women', menu: false }); },
-kids: function () { self.setState({ filter: 'Kids', menu: false }); },
-home: function () { self.setState({ filter: 'Home', menu: false }); }
+bed: function () { self.setState({ filter: 'Bedsheets', menu: false }); },
+towel: function () { self.setState({ filter: 'Towels', menu: false }); },
+dhoti: function () { self.setState({ filter: 'Dhothi & Lungi', menu: false }); },
+inner: function () { self.setState({ filter: 'Innerwear', menu: false }); },
+baby: function () { self.setState({ filter: 'Baby Wear', menu: false }); },
+bags: function () { self.setState({ filter: 'Bags', menu: false }); }
 },
 menuOpen: st.menu, menuExpanded: st.menu ? 'true' : 'false',
 openMenu: function () { self.setState({ menu: true, drawer: false }); },
 closeMenu: function () { self.setState({ menu: false }); },
-menuCats: ['Men', 'Women', 'Kids', 'Home'].map(function (c) { return { label: c, go: function () { self.setState({ menu: false, filter: c }); } }; }),
+menuCats: CATEGORIES.slice(1).map(function (c) { return { label: c, go: function () { self.setState({ menu: false, filter: c }); } }; }),
 menuAccountLabel: me ? 'My account (' + me.name.split(' ')[0] + ')' : 'Login / Sign up',
 menuAccount: function () { self.setState({ menu: false, account: true, drawer: false, openId: null, authTried: false, authError: '' }); },
 menuAdmin: function () { if (isAdminSession(self.state.db, self.state.session)) self.setState({ menu: false, admin: true }); },
