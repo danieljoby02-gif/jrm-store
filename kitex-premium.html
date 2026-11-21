@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Kitex Exclusive Store – Premium Homepage</title>
 <script src="./vendor/react.js"></script>
 <script src="./vendor/react-dom.js"></script>
@@ -77,6 +78,22 @@ html{scroll-behavior:smooth}
 }
 
 input:focus,select:focus{outline:2px solid #2B2B2B;outline-offset:1px}
+/* Phone readability fixes */
+@media (max-width:600px){
+body [style*="font-size: 11px"]{font-size:12.5px!important}
+body [style*="font-size: 12px"]{font-size:13px!important}
+body [style*="font-size: 13px"]{font-size:14px!important}
+body input,body select,body textarea{font-size:16px!important}
+.jrm-cta-row{flex-direction:column;gap:12px!important}
+.jrm-cta-row>a{display:flex;align-items:center;justify-content:center;min-height:52px;box-sizing:border-box;padding-left:16px!important;padding-right:16px!important;text-align:center}
+.jrm-hero-ctrls{flex-wrap:nowrap!important;gap:8px!important}
+.jrm-hero-ctrls [aria-label="Choose slide"] button{width:30px!important}
+.jrm-hero-ctrls>div:last-child{gap:8px!important}
+body article button{min-height:48px}
+.jrm-detail-img{flex-basis:auto!important;min-height:0!important;height:42vh!important}
+.jrm-logo-text,.jrm-acct-text{display:none!important}
+}
+
 </style>
 </helmet>
 <div style="font-family: Inter, system-ui, sans-serif; color: #2B2B2B; background: #F7F6F2; width: 100%; font-size: 16px; line-height: 1.6">
@@ -129,7 +146,7 @@ input:focus,select:focus{outline:2px solid #2B2B2B;outline-offset:1px}
 <p style="margin: 0; font-size: 12px; font-weight: 500; letter-spacing: 0.18em; text-transform: uppercase; color: #5A5A57">{{hs.eyebrow}}</p>
 <h1 class="jrm-d76" style="margin: 0; font-family: 'Instrument Serif', serif; font-weight: 700; font-size: 76px; line-height: 1.02; letter-spacing: -0.01em; white-space: pre-line; color: #2B2B2B">{{hs.title}}</h1>
 <p style="margin: 0; font-size: 18px; line-height: 1.7; color: #4A4A47; max-width: 460px">{{hs.body}}</p>
-<div style="display: flex; flex-wrap: wrap; gap: 16px; margin-top: 8px">
+<div class="jrm-cta-row" style="display: flex; flex-wrap: wrap; gap: 16px; margin-top: 8px">
 <a href="{{hs.cta1Href}}" onClick="{{hs.cta1Go}}" style="background: #2B2B2B; color: #F7F6F2; padding: 16px 32px; font-size: 13px; font-weight: 500; letter-spacing: 0.14em; text-transform: uppercase; text-decoration: none">{{hs.cta1}}</a>
 <a href="{{hs.cta2Href}}" target="{{hs.cta2Target}}" rel="noopener" onClick="{{hs.cta2Go}}" style="border: 1px solid #2B2B2B; color: #2B2B2B; padding: 15px 32px; font-size: 13px; font-weight: 500; letter-spacing: 0.14em; text-transform: uppercase; text-decoration: none">{{hs.cta2}}</a>
 </div>
@@ -151,7 +168,7 @@ input:focus,select:focus{outline:2px solid #2B2B2B;outline-offset:1px}
 <p style="margin: 0; font-size: 12px; font-weight: 500; letter-spacing: 0.18em; text-transform: uppercase; color: #E8E6E0">{{hs.eyebrow}}</p>
 <h1 class="jrm-d76" style="margin: 0; font-family: 'Instrument Serif', serif; font-weight: 700; font-size: 76px; line-height: 1.02; letter-spacing: -0.01em; white-space: pre-line; color: #F7F6F2">{{hs.title}}</h1>
 <p style="margin: 0; font-size: 18px; line-height: 1.7; color: #F7F6F2; max-width: 460px">{{hs.body}}</p>
-<div style="display: flex; flex-wrap: wrap; gap: 16px; margin-top: 8px">
+<div class="jrm-cta-row" style="display: flex; flex-wrap: wrap; gap: 16px; margin-top: 8px">
 <a href="{{hs.cta1Href}}" onClick="{{hs.cta1Go}}" style="background: #F7F6F2; color: #2B2B2B; padding: 16px 32px; font-size: 13px; font-weight: 500; letter-spacing: 0.14em; text-transform: uppercase; text-decoration: none">{{hs.cta1}}</a>
 <a href="{{hs.cta2Href}}" target="{{hs.cta2Target}}" rel="noopener" onClick="{{hs.cta2Go}}" style="border: 1px solid #F7F6F2; color: #F7F6F2; padding: 15px 32px; font-size: 13px; font-weight: 500; letter-spacing: 0.14em; text-transform: uppercase; text-decoration: none">{{hs.cta2}}</a>
 </div>
@@ -166,7 +183,7 @@ input:focus,select:focus{outline:2px solid #2B2B2B;outline-offset:1px}
 <p style="margin: 0; font-size: 12px; font-weight: 500; letter-spacing: 0.18em; text-transform: uppercase; color: #5A5A57">{{hs.eyebrow}}</p>
 <h1 class="jrm-d76" style="margin: 0; font-family: 'Instrument Serif', serif; font-weight: 700; font-size: 76px; line-height: 1.02; letter-spacing: -0.01em; white-space: pre-line; color: #2B2B2B">{{hs.title}}</h1>
 <p style="margin: 0; font-size: 18px; line-height: 1.7; color: #4A4A47; max-width: 460px">{{hs.body}}</p>
-<div style="display: flex; flex-wrap: wrap; gap: 16px; margin-top: 8px">
+<div class="jrm-cta-row" style="display: flex; flex-wrap: wrap; gap: 16px; margin-top: 8px">
 <a href="{{hs.cta1Href}}" onClick="{{hs.cta1Go}}" style="background: #2B2B2B; color: #F7F6F2; padding: 16px 32px; font-size: 13px; font-weight: 500; letter-spacing: 0.14em; text-transform: uppercase; text-decoration: none">{{hs.cta1}}</a>
 <a href="{{hs.cta2Href}}" target="{{hs.cta2Target}}" rel="noopener" onClick="{{hs.cta2Go}}" style="border: 1px solid #2B2B2B; color: #2B2B2B; padding: 15px 32px; font-size: 13px; font-weight: 500; letter-spacing: 0.14em; text-transform: uppercase; text-decoration: none">{{hs.cta2}}</a>
 </div>
@@ -182,7 +199,7 @@ input:focus,select:focus{outline:2px solid #2B2B2B;outline-offset:1px}
 </div>
 </sc-if>
 </sc-for>
-<div class="jrm-wrap" style="max-width: 1280px; margin: 0 auto; padding: 16px 32px 20px; display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 16px">
+<div class="jrm-wrap jrm-hero-ctrls" style="max-width: 1280px; margin: 0 auto; padding: 16px 32px 20px; display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 16px">
 <div role="group" aria-label="Choose slide" style="display: flex; align-items: center">
 <sc-for list="{{heroDots}}" as="d" hint-placeholder-count="6">
 <button type="button" aria-label="{{d.label}}" aria-current="{{d.current}}" onClick="{{d.go}}" style="width: 44px; height: 44px; border: 0; background: transparent; display: flex; align-items: center; justify-content: center; cursor: pointer"><span style="{{d.style}}"></span></button>
